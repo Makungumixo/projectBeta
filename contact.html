@@ -3,56 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me | Makungu Ndlovu</title>
+    <title>Contact | Makungu Ndlovu</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        section {
-            opacity: 0;
-            animation: fadeIn 1s ease-out forwards;
-        }
-    </style>
+    <script defer src="script.js"></script>
 </head>
 <body>
     <header>
-        <h1>About Me</h1>
+        <div class="logo">Makungu Ndlovu</div>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="projects.html">Projects</a></li>
-                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <section id="intro">
-        <h2>Who Am I?</h2>
-        <p>I am Makungu Ndlovu, a passionate Software Engineer and AI Enthusiast with expertise in Natural Language Processing (NLP), Machine Learning, and Web Development.</p>
-    </section>
+    <main>
+        <section id="contact-info" class="container fade-in">
+            <h2>Get in Touch</h2>
+            <p>Email: <a href="mailto:makungumixo@gmail.com">makungumixo@gmail.com</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/makungumixo" target="_blank">linkedin.com/in/makungumixo</a></p>
+            <p>GitHub: <a href="https://www.github.com/makungumixo" target="_blank">github.com/makungumixo</a></p>
+        </section>
 
-    <section id="skills">
-        <h2>Technical Skills</h2>
-        <ul>
-            <li>Programming: Python, JavaScript, C++, SQL, HTML, CSS</li>
-            <li>AI & ML: TensorFlow, PyTorch, NLP, Computer Vision</li>
-            <li>Software Development: Web Apps, APIs, Databases</li>
-            <li>Tools: Git, Docker, Kubernetes</li>
-        </ul>
-    </section>
-
-    <section id="education">
-        <h2>Education</h2>
-        <p>BSc in Mathematical Sciences | University of Johannesburg</p>
-        <p>BSc Honours in Computer Science | University of Pretoria</p>
-    </section>
+        <section id="contact-form" class="container fade-in">
+            <h2>Send Me a Message</h2>
+            <form action="#" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                
+                <button type="submit">Send</button>
+            </form>
+        </section>
+    </main>
 
     <footer>
         <p>&copy; 2024 Makungu Ndlovu. All Rights Reserved.</p>
     </footer>
 </body>
 </html>
-
