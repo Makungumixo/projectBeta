@@ -8,26 +8,75 @@
     <script defer src="script.js"></script>
 </head>
 <body>
+    <div class="background-animation"></div>
+    
     <header>
-        <h1>Makungu Ndlovu</h1>
+        <h1 class="glitch">Makungu Ndlovu</h1>
         <p>Software Engineer | AI Enthusiast | Data Scientist</p>
         <nav>
             <ul>
-                <li><a href="about.html">About</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#resume">Resume</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
-    
-    <section>
-        <h2>Welcome to My Portfolio</h2>
-        <p>Explore my work and projects in AI, software engineering, and data science.</p>
+
+    <button id="theme-toggle">Toggle Dark Mode</button>
+
+    <section id="about" class="fade-in">
+        <h2>About Me</h2>
+        <p>A resilient and determined scholar with a BSc in Mathematical Sciences and a BSc Honours in Computer Science.</p>
+        <p>Passionate about AI, Machine Learning, and Software Development. Dedicated to leveraging technology to solve real-world problems.</p>
+    </section>
+
+    <section id="projects" class="fade-in">
+        <h2>Projects</h2>
+        <div class="project-gallery">
+            <div class="project" onclick="showProject('chatbot')">
+                <h3>AI Chatbot</h3>
+                <p>An AI-powered chatbot that answers questions about my projects and experience.</p>
+            </div>
+            <div class="project" onclick="showProject('translation')">
+                <h3>AI Translation Model</h3>
+                <p>Developed a Xitsonga-English translation model using NLP techniques.</p>
+            </div>
+            <div class="project" onclick="showProject('malaria')">
+                <h3>Malaria Detection Model</h3>
+                <p>Deep learning model to classify malaria parasites in blood slide images.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="resume" class="fade-in">
+        <h2>Resume</h2>
+        <p>Download my full CV: <a href="resume.pdf" target="_blank">Click Here</a></p>
+        <div class="interactive-resume">
+            <p><strong>Education:</strong> BSc in Mathematical Sciences, BSc Honours in Computer Science</p>
+            <p><strong>Skills:</strong> AI, Machine Learning, NLP, Data Science, Web Development</p>
+            <p><strong>Experience:</strong> Research in AI Translation, Malaria Detection, Hybrid Neural Networks</p>
+            <p><strong>Languages:</strong> Python, JavaScript, C++, SQL, HTML, CSS</p>
+        </div>
+    </section>
+
+    <section id="contact" class="fade-in">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:makungumixo@gmail.com">makungumixo@gmail.com</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/makungumixo" target="_blank">linkedin.com/in/makungumixo</a></p>
+        <p>GitHub: <a href="https://www.github.com/makungumixo" target="_blank">github.com/makungumixo</a></p>
     </section>
 
     <footer>
-        <p>&copy; 2024 Makungu Ndlovu. All rights reserved.</p>
+        <p>&copy; 2024 Makungu Ndlovu. All Rights Reserved.</p>
     </footer>
+
+    <div class="floating-objects">
+        <span class="circle"></span>
+        <span class="square"></span>
+        <span class="triangle"></span>
+    </div>
+
+    <canvas id="background-canvas"></canvas>
 </body>
 </html>
-
