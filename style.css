@@ -1,6 +1,7 @@
 body {
     font-family: Arial, sans-serif;
-    background: url('assets/pexels-pixabay-247431.jpg') no-repeat center center fixed;
+    background: url('./assets/pexels-pixabay-247431.jpg') no-repeat center center;
+
     background-size: cover;
     color: #ffffff;
     margin: 0;
@@ -99,4 +100,6 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+
 
