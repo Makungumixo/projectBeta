@@ -21,6 +21,28 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-left: 80px;
+}
+
+.animated-profile {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.animated-profile img {
+    max-width: 80px;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    transition: transform 0.3s;
+}
+
+.animated-profile img:hover {
+    transform: scale(1.1);
 }
 
 nav ul {
@@ -93,33 +115,6 @@ footer {
     position: relative;
     bottom: 0;
     width: 100%;
-}
-
-/* Fix overlapping issues */
-.animated-profile {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.animated-profile img {
-    max-width: 200px;
-    height: auto;
-    display: block;
-    margin: 20px auto;
-    border-radius: 50%;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
-    transition: transform 0.3s;
-}
-
-.animated-profile img:hover {
-    transform: scale(1.1);
-}
-
-.animated-profile p {
-    font-size: 18px;
-    font-weight: bold;
-    color: #ffcc00;
-    margin-top: 10px;
 }
 
 /* Dark Mode */
