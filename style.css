@@ -96,18 +96,30 @@ footer {
 }
 
 /* Fix overlapping issues */
+.animated-profile {
+    text-align: center;
+    margin-top: 20px;
+}
+
 .animated-profile img {
-    max-width: 100%;
+    max-width: 200px;
     height: auto;
     display: block;
     margin: 20px auto;
     border-radius: 50%;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    transition: transform 0.3s;
+}
+
+.animated-profile img:hover {
+    transform: scale(1.1);
 }
 
 .animated-profile p {
     font-size: 18px;
     font-weight: bold;
     color: #ffcc00;
+    margin-top: 10px;
 }
 
 /* Dark Mode */
@@ -132,3 +144,8 @@ footer {
 .dark-mode .project:hover {
     background: #c0c0c0;
 }
+
+.dark-mode .animated-profile img {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
