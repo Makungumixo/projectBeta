@@ -6,6 +6,7 @@ body {
     margin: 0;
     padding: 0;
     transition: background 0.5s, color 0.5s;
+    overflow-x: hidden;
 }
 
 header {
@@ -17,6 +18,9 @@ header {
     left: 0;
     z-index: 1000;
     transition: background 0.5s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 nav ul {
@@ -24,6 +28,7 @@ nav ul {
     padding: 0;
     display: flex;
     justify-content: center;
+    margin: 0;
 }
 
 nav ul li {
@@ -49,6 +54,9 @@ section {
     opacity: 0;
     transform: translateY(30px);
     animation: fadeIn 1s forwards;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 @keyframes fadeIn {
@@ -70,6 +78,7 @@ section {
     width: 250px;
     transition: transform 0.3s, background 0.3s;
     cursor: pointer;
+    text-align: left;
 }
 
 .project:hover {
@@ -81,6 +90,24 @@ footer {
     margin-top: 20px;
     padding: 10px;
     background: #1f6feb;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Fix overlapping issues */
+.animated-profile img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 50%;
+}
+
+.animated-profile p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffcc00;
 }
 
 /* Dark Mode */
