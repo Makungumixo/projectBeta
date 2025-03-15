@@ -20,11 +20,11 @@ body {
     background-attachment: fixed;
 }
 
-/* Dark Mode */
+/* Dark Mode 
 .dark-mode {
     background: #111;
     color: #ddd;
-}
+}*/
 
 .dark-mode header {
     background: rgba(20, 20, 20, 0.8);
