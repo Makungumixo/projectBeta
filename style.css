@@ -1,15 +1,20 @@
+/* General page setup */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: url('./assets/pexels-pixabay-247431.jpg') no-repeat center center fixed;
+  background-image: url('./assets/pexels-pixabay-247431.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
+  background-attachment: fixed;
   color: white;
-  transition: background 0.3s ease;
   overflow-y: scroll;
   scroll-behavior: smooth;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
+/* Fixed header setup */
 header {
   position: fixed;
   top: 0;
@@ -21,22 +26,26 @@ header {
   padding: 10px 20px;
   background: rgba(0, 0, 0, 0.6);
   z-index: 1000;
+  box-sizing: border-box;
 }
 
+/* Profile picture and name */
 .logo-container {
   display: flex;
   align-items: center;
 }
 
 .profile-pic {
-  width: 100px;
-  height: 100px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   object-fit: cover;
+  margin-right: 10px;
   border: 2px solid #fff;
   box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 
+/* Navigation menu styling */
 nav ul {
   list-style: none;
   display: flex;
@@ -55,6 +64,7 @@ nav ul li a:hover {
   color: #1f6feb;
 }
 
+/* Main content section setup */
 main {
   margin-top: 80px;
   padding: 20px;
@@ -67,18 +77,21 @@ main {
   animation: fadeIn 1.5s ease;
 }
 
+/* Individual projects style */
 .project {
   padding: 20px;
   background: rgba(0,0,0,0.5);
-  margin: 10px;
+  margin: 10px auto;
   border-radius: 10px;
   transition: transform 0.3s ease;
+  max-width: 600px;
 }
 
 .project:hover {
   transform: scale(1.05);
 }
 
+/* Contact form styling */
 form input, form textarea {
   padding: 10px;
   margin: 10px 0;
@@ -101,6 +114,7 @@ form button:hover {
   background-color: #154db4;
 }
 
+/* Dark mode toggle button */
 #dark-mode-toggle {
   position: fixed;
   bottom: 20px;
@@ -114,16 +128,18 @@ form button:hover {
   z-index: 1001;
 }
 
+/* Clear Dark mode styling */
 .dark-mode {
-  background: #121212 !important;
-  color: #f1f1f1;
   background-image: none !important;
+  background-color: #121212 !important;
+  color: #ffffff !important;
 }
 
 .dark-mode header {
-  background: rgba(18, 18, 18, 0.9);
+  background: rgba(10, 10, 10, 0.9) !important;
 }
 
+/* Fade-in animation */
 @keyframes fadeIn {
   from {opacity: 0; transform: translateY(20px);}
   to {opacity: 1; transform: translateY(0);}
