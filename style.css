@@ -128,7 +128,7 @@ form button:hover {
   border: none;
   cursor: pointer;
   border-radius: 20px; /* Rounded futuristic shape */
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 14px;
   font-weight: bold;
   text-transform: uppercase;
