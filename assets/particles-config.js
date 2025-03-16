@@ -43,30 +43,21 @@ particlesJS('particles-js', {
     "events": {
       "onhover": {
         "enable": true,
-        "mode": "repulse"
+        "mode": "attract"
       },
       "onclick": {
         "enable": true,
         "mode": "push"
-      },
-      "mousemove": {
-        "enable": true,
-        "mode": "grab"
       }
     },
     "modes": {
-      "repulse": {
-        "distance": 100,
-        "duration": 0.4
+      "attract": {
+        "distance": 200,
+        "duration": 0.4,
+        "speed": 1
       },
       "push": {
         "particles_nb": 4
-      },
-      "grab": {
-        "distance": 200,
-        "line_linked": {
-          "opacity": 1
-        }
       }
     }
   },
