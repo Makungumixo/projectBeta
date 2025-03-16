@@ -96,19 +96,6 @@ form button:hover {
   to {opacity: 1; transform: translateY(0);}
 }
 
-header {
-  position: fixed;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 1000;
-  box-sizing: border-box; /* prevents overflow issues */
-}
-
-
 nav ul {
   list-style: none;
   display: flex;
@@ -122,6 +109,22 @@ nav ul li {
   white-space: nowrap; /* prevents unwanted line breaks */
 }
 
+/* Header fixed at top */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: rgba(0, 0, 0, 0.6);
+  box-sizing: border-box;
+  z-index: 1000; /* Ensures header is always on top */
+}
+
+/* Dark Mode button fixed at bottom right */
 #dark-mode-toggle {
   position: fixed;
   bottom: 20px;
@@ -132,8 +135,14 @@ nav ul li {
   border: none;
   cursor: pointer;
   border-radius: 5px;
-  z-index: 1001; /* ensures the button stays above everything else */
+  z-index: 1001; /* Ensures button stays above other content */
 }
+
+/* Ensures Dark mode styling only affects color, not position */
+.dark-mode header {
+  background: rgba(20, 20, 20, 0.8);
+}
+
 
 
 
