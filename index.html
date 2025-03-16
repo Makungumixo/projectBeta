@@ -1,105 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Makungu Ndlovu | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Makungu Ndlovu Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="script.js" defer></script>
 </head>
+
 <body>
-    <div id="particles-js"></div>
-    <script src="./assets/particles-config.js"></script>
-<header>
+  <div id="particles-js"></div>
+
+  <header>
     <div class="logo-container">
-        <img src="./assets/profile3.jpg" class="profile-pic" alt="Profile">
-        <h1>Makungu Ndlovu</h1>
+      <img src="./assets/profile3.jpg" class="profile-pic" alt="Makungu Ndlovu">
+      <h1>Makungu Ndlovu</h1>
     </div>
     <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </nav>
-</header>
+  </header>
 
-<main>
+  <main>
+    <!-- About Section -->
+    <section class="section" id="about">
+      <h2>About Me</h2>
+      <p>
+        I am Makungu Ndlovu, a resilient and determined scholar holding a BSc in Mathematical Sciences (Mathematics & Computer Science) and a BSc Honours in Computer Science. My expertise includes analytical thinking, problem-solving, and proficiency in multiple programming languages such as Python, Java, C++, SQL, HTML, CSS, and JavaScript.
+      </p>
+      <p>
+        <strong>Key Competencies:</strong> Communication, Problem-Solving, Planning & Time Management, Organizational Skills, Analytical Skills.
+      </p>
+    </section>
 
-<section id="about" class="section">
-    <h2>About Me</h2>
-    <p>
-        I am Makungu Ndlovu, a determined scholar holding a BSc in Mathematical Sciences (Mathematics & Computer Science) and a BSc Honours in Computer Science. My academic journey has equipped me with advanced analytical thinking, problem-solving capabilities, and proficiency in programming languages including Python, Java, C++, SQL, HTML, CSS, and JavaScript.
-    </p>
+    <section id="projects" class="section">
+      <h2>Projects</h2>
 
-    <h3>Key Competencies</h3>
-    <p>
-        <strong>Communication:</strong> Fluent in English and Xitsonga with excellent oral and written skills.<br>
-        <strong>Problem-Solving:</strong> Expertise in creatively solving complex mathematical and computational challenges.<br>
-        <strong>Time Management:</strong> Skilled in managing deadlines efficiently under pressure.<br>
-        <strong>Organizational Skills:</strong> Highly organized in managing tasks and academic commitments effectively.<br>
-        <strong>Analytical Skills:</strong> Proficient in detailed data analysis, research methodologies, and critical thinking.
-    </p>
-
-    <h3>Technical Skills</h3>
-    <p>
-        Expertise in Excel, PowerPoint, Agile methodologies, Artificial Intelligence, Machine Learning, NLP, Data Structures, Algorithms, Software Design Patterns, and Data Analysis.
-    </p>
-</section>
-
-<section id="projects" class="section">
-    <h2>My Projects</h2>
-
-    <div class="project">
+      <div class="project">
         <h3>AI Chatbot</h3>
         <p>Developed an NLP-powered chatbot enhancing customer engagement and support.</p>
-    </div>
+      </div>
 
-    <div class="project">
+      <div class="project">
         <h3>Xitsonga-English Translation Model</h3>
-        <p>Created an advanced NLP translation model significantly improving translation accuracy for low-resource languages.</p>
-    </div>
+        <p>Developed an advanced translation model improving linguistic accuracy.</p>
+      </div>
 
-    <div class="project">
-        <h3>Malaria Detection Deep Learning</h3>
-        <p>Designed a model to identify malaria parasites from medical images, significantly enhancing diagnostic precision.</p>
-    </div>
+      <div class="project">
+        <h3>Malaria Detection with Deep Learning</h3>
+        <p>Implemented a deep learning model to accurately detect malaria parasites from medical images.</p>
+      </div>
 
-    <div class="project">
-        <h3>Engineers Without Borders (EWB)</h3>
-        <p>Led a successful community-focused engineering project, fostering teamwork, leadership, and impactful results.</p>
-    </div>
+      <div class="project">
+        <h3>Engineers Without Borders</h3>
+        <p>Led a community-focused engineering project, fostering teamwork, leadership, and sustainable results.</p>
+      </div>
+    </section>
 
-    <div class="project">
-        <h3>Data Analysis & Visualization</h3>
-        <p>Conducted extensive data analysis projects demonstrating high proficiency in Excel, Python, and R.</p>
-    </div>
-</section>
-
-<section id="contact" class="section">
-    <h2>Contact Me</h2>
-
-    <form action="mailto:makungumixo@gmail.com" method="post" enctype="text/plain">
+    <section id="contact" class="section contact-details">
+      <h2>Contact Me</h2>
+      <p>
+        Email: <a href="mailto:makungumixo@gmail.com">makungumixo@gmail.com</a><br>
+        Phone: <a href="tel:+27714698301">+27 71 469 8301</a><br>
+        LinkedIn: <a href="https://www.linkedin.com/in/makungumixo">Makungu Ndlovu</a><br>
+        GitHub: <a href="https://github.com/makungumixo">makungumixo</a>
+      </p>
+      <form action="mailto:makungumixo@gmail.com" method="post" enctype="text/plain">
         <input type="text" name="name" placeholder="Your Name" required>
         <input type="email" name="email" placeholder="Your Email" required>
         <textarea name="message" placeholder="Your Message" required></textarea>
         <button type="submit">Send Message</button>
-    </form>
+      </form>
+    </section>
+  </main>
 
-    <h3>Let's Connect!</h3>
-    <p>
-        <strong>Email:</strong> <a href="mailto:makungumixo@gmail.com">makungumixo@gmail.com</a><br>
-        <strong>Phone:</strong> <a href="tel:+27714698301">+27 71 469 8301</a><br>
-        <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/makungumixo">linkedin.com/in/makungumixo</a><br>
-        <strong>GitHub:</strong> <a href="https://github.com/makungumixo">github.com/makungumixo</a>
-    </p>
-</section>
-
-<button id="dark-mode-toggle">Dark Mode</button>
-
-</main>
-
+  <button id="dark-mode-toggle">Dark Mode</button>
+  <script src="particles-config.js"></script>
+  <div id="particles-js"></div>
 </body>
 </html>
+
