@@ -8,7 +8,7 @@ body {
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
-  color: #1f1f1f;
+  color: #141414;
   overflow-y: scroll;
   scroll-behavior: smooth;
   transition: background 0.3s ease, color 0.3s ease;
@@ -76,18 +76,18 @@ main {
   padding: 40px;
   text-align: center;
   animation: fadeIn 1.5s ease;
-  color: #1f1f1f;
+  color: #141414;
 }
 
 /* Individual projects style */
 .project {
   padding: 20px;
-  background: rgba(255,255,255,0.8);
+  background: rgba(255,255,255,0.9);
   margin: 10px auto;
   border-radius: 10px;
   transition: transform 0.3s ease;
   max-width: 600px;
-  color: #1f1f1f;
+  color: #141414;
 }
 
 .project:hover {
