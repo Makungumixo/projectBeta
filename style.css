@@ -1,135 +1,115 @@
+/* General Styling */
 body {
     font-family: Arial, sans-serif;
-    background: url('./assets/pexels-pixabay-247431.jpg') no-repeat center center fixed;
-    background-size: cover;
+    background: #1e1e2e;
     color: #ffffff;
     margin: 0;
     padding: 0;
-    transition: background 0.5s, color 0.5s;
-    overflow-x: hidden;
+    display: flex;
+    height: 100vh;
 }
 
-html, body {
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-}
-
-header {
-    background: rgba(31, 111, 235, 0.9);
-    padding: 15px 20px;
+/* Sidebar Navigation */
+.sidebar {
+    width: 250px;
+    background: #282a36;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     position: fixed;
-    width: 100%;
-    top: 0;
     left: 0;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    gap: 15px;
+    top: 0;
+    bottom: 0;
 }
 
-/* Profile Image & Name Alignment */
-.logo-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+.sidebar h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
 }
 
-.logo-container img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-}
-
-.logo {
-    font-size: 22px;
-    font-weight: bold;
-    color: white;
-}
-
-nav ul {
+.sidebar ul {
     list-style: none;
     padding: 0;
-    display: flex;
-    margin: 0;
-    margin-left: auto;
-}
-
-nav ul li {
-    margin: 0 15px;
-    transition: transform 0.3s;
-}
-
-nav ul li:hover {
-    transform: scale(1.1);
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-main {
-    margin-top: 80px;
-    padding: 20px;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    background: rgba(0, 0, 0, 0.6);
-    border-radius: 10px;
-    padding: 40px;
-}
-
-.container {
-    padding: 40px;
-    max-width: 1200px;
-    margin: auto;
-}
-
-.skills-grid, .project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    padding: 20px;
-}
-
-.skill, .project {
-    background: rgba(31, 111, 235, 0.8);
-    padding: 15px;
-    border-radius: 8px;
-    transition: transform 0.3s, background 0.3s;
-    cursor: pointer;
-    text-align: center;
-}
-
-.skill:hover, .project:hover {
-    transform: scale(1.05);
-    background: rgba(18, 94, 196, 0.9);
-}
-
-footer {
-    margin-top: 20px;
-    padding: 10px;
-    background: rgba(31, 111, 235, 0.9);
-    text-align: center;
-    position: relative;
-    bottom: 0;
     width: 100%;
 }
 
-/* Dark Mode Toggle Button */
+.sidebar ul li {
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+
+.sidebar ul li:hover,
+.sidebar ul li .active {
+    background: #44475a;
+    border-radius: 5px;
+}
+
+/* Main Content */
+.main-content {
+    flex-grow: 1;
+    margin-left: 250px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Contact Form */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    max-width: 500px;
+}
+
+.contact-form label {
+    margin-top: 10px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    background: #f8f8f8;
+    color: #333;
+}
+
+.contact-form button {
+    margin-top: 15px;
+    padding: 10px;
+    background: #50fa7b;
+    border: none;
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.contact-form button:hover {
+    background: #40c965;
+}
+
+/* Dark Mode Toggle */
 #dark-mode-toggle {
     position: fixed;
-    top: 20px;
+    bottom: 20px;
     right: 20px;
-    background: #1f6feb;
-    color: white;
+    background: #50fa7b;
+    color: black;
     padding: 10px;
     border: none;
     border-radius: 5px;
@@ -138,5 +118,37 @@ footer {
 }
 
 #dark-mode-toggle:hover {
-    background: #125ec4;
+    background: #40c965;
 }
+
+/* Dark Mode Styling */
+.dark-mode {
+    background: #282a36;
+    color: #f8f8f2;
+}
+
+.dark-mode .sidebar {
+    background: #191a21;
+}
+
+.dark-mode .sidebar ul li:hover,
+.dark-mode .sidebar ul li .active {
+    background: #6272a4;
+}
+
+.dark-mode #dark-mode-toggle {
+    background: #ffb86c;
+    color: black;
+}
+
+.dark-mode #dark-mode-toggle:hover {
+    background: #ff9a3c;
+}
+
+.dark-mode .contact-form input,
+.dark-mode .contact-form textarea {
+    background: #44475a;
+    color: white;
+    border: 1px solid #6272a4;
+}
+
