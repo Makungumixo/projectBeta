@@ -11,7 +11,6 @@ body {
   color: #2c2c2c;
   overflow-y: scroll;
   scroll-behavior: smooth;
-  perspective: 1000px;
   transition: background 0.3s ease, color 0.3s ease;
 }
 
@@ -37,8 +36,8 @@ header {
 }
 
 .profile-pic {
-  width: 100px !important;
-  height: 100px !important;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   object-fit: cover;
   margin-right: 10px;
@@ -81,13 +80,6 @@ main {
   text-align: center;
   animation: fadeIn 1.5s ease;
   color: #dcdcdc;
-  transform-style: preserve-3d;
-  transform: rotateX(10deg);
-  transition: transform 0.3s ease;
-}
-
-.section:hover {
-  transform: rotateX(0deg);
 }
 
 /* Individual projects style */
@@ -131,7 +123,7 @@ form button:hover {
 
 /* Contact links specifically green */
 #contact a {
-  color: #28a745 !important;
+  color: #28a745;
   text-decoration: none;
   transition: color 0.3s ease;
 }
@@ -187,12 +179,14 @@ form button:hover {
   background: rgba(52,53,65,0.8) !important;
 }
 
-#contact a {
-  color: #28a745 !important;
-}
-
-#contact a:hover {
-  color: #218838 !important;
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  z-index: -1;
+  top: 0;
+  left: 0;
 }
 
 /* Fade-in animation */
