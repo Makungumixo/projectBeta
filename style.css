@@ -2,7 +2,6 @@ body {
     font-family: Arial, sans-serif;
     background: url('./assets/pexels-pixabay-247431.jpg') no-repeat center center fixed;
     background-size: cover;
-    background-attachment: fixed;
     color: #ffffff;
     margin: 0;
     padding: 0;
@@ -10,7 +9,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Fix Background Movement Issue */
 html, body {
     height: 100%;
     background-position: center;
@@ -20,7 +18,7 @@ html, body {
 }
 
 header {
-    background: rgba(31, 111, 235, 0.8);
+    background: rgba(31, 111, 235, 0.9);
     padding: 15px 20px;
     position: fixed;
     width: 100%;
@@ -32,6 +30,7 @@ header {
     gap: 15px;
 }
 
+/* Profile Image & Name Alignment */
 .logo-container {
     display: flex;
     align-items: center;
@@ -47,7 +46,7 @@ header {
 }
 
 .logo {
-    font-size: 20px;
+    font-size: 22px;
     font-weight: bold;
     color: white;
 }
@@ -57,6 +56,7 @@ nav ul {
     padding: 0;
     display: flex;
     margin: 0;
+    margin-left: auto;
 }
 
 nav ul li {
@@ -81,6 +81,9 @@ main {
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    padding: 40px;
 }
 
 .container {
@@ -113,7 +116,7 @@ main {
 footer {
     margin-top: 20px;
     padding: 10px;
-    background: rgba(31, 111, 235, 0.8);
+    background: rgba(31, 111, 235, 0.9);
     text-align: center;
     position: relative;
     bottom: 0;
@@ -137,4 +140,3 @@ footer {
 #dark-mode-toggle:hover {
     background: #125ec4;
 }
-
