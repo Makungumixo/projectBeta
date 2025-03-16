@@ -1,7 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
   const darkModeToggle = document.getElementById('dark-mode-toggle');
   const mainContainer = document.querySelector("main");
-
+  const pdfModal = document.getElementById("pdf-modal");
+  const pdfViewer = document.getElementById("pdf-viewer");
+  
   // Load user's saved preference on page load
   if (localStorage.getItem('darkMode') === 'enabled') {
     document.body.classList.add('dark-mode');
@@ -42,44 +44,43 @@ document.addEventListener('DOMContentLoaded', function () {
     window.pJSDom[0].pJS.interactivity.mouse.pos_y = null;
     window.pJSDom[0].pJS.interactivity.status = "mouseleave";
   });
-});
 
-document.addEventListener('DOMContentLoaded', function () {
-    const pdfModal = document.getElementById("pdf-modal");
-    const pdfViewer = document.getElementById("pdf-viewer");
+  // ✅ PDF Viewer - Fix for Opening the PDF
+  window.showPDF = function (pdfUrl) {
+    pdfViewer.src = pdfUrl + "#toolbar=0";  // Prevents download button
+    pdfModal.style.display = "flex";
+    pdfModal.classList.remove("minimized"); // Ensure modal is fully visible
+  };
 
-    window.showPDF = function (pdfUrl) {
-        pdfViewer.src = pdfUrl + "#toolbar=0";  // Disables download option
-        pdfModal.style.display = "flex";
-    };
+  window.closePDF = function () {
+    pdfModal.style.display = "none";
+    pdfViewer.src = "";  // Clears PDF when closing
+  };
 
-    window.closePDF = function () {
-        pdfModal.style.display = "none";
-        pdfViewer.src = "";
-    };
+  window.minimizePDF = function () {
+    pdfModal.classList.add("minimized");
+  };
 
-    window.minimizePDF = function () {
-        pdfModal.style.height = "50px";
-    };
+  // ✅ Make PDF Modal Draggable
+  pdfModal.addEventListener("mousedown", function (e) {
+    let shiftX = e.clientX - pdfModal.getBoundingClientRect().left;
+    let shiftY = e.clientY - pdfModal.getBoundingClientRect().top;
 
-    pdfModal.addEventListener("mousedown", function (e) {
-        let shiftX = e.clientX - pdfModal.getBoundingClientRect().left;
-        let shiftY = e.clientY - pdfModal.getBoundingClientRect().top;
+    function moveAt(pageX, pageY) {
+      pdfModal.style.left = pageX - shiftX + "px";
+      pdfModal.style.top = pageY - shiftY + "px";
+    }
 
-        function moveAt(pageX, pageY) {
-            pdfModal.style.left = pageX - shiftX + "px";
-            pdfModal.style.top = pageY - shiftY + "px";
-        }
+    function onMouseMove(event) {
+      moveAt(event.pageX, event.pageY);
+    }
 
-        function onMouseMove(event) {
-            moveAt(event.pageX, event.pageY);
-        }
+    document.addEventListener("mousemove", onMouseMove);
 
-        document.addEventListener("mousemove", onMouseMove);
-
-        pdfModal.addEventListener("mouseup", function () {
-            document.removeEventListener("mousemove", onMouseMove);
-        });
+    pdfModal.addEventListener("mouseup", function () {
+      document.removeEventListener("mousemove", onMouseMove);
     });
+  });
 });
+
 
