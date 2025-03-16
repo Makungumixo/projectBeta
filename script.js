@@ -23,19 +23,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // 🎉 Cursor-based 3D Effect
-  document.addEventListener("mousemove", (event) => {
-    let xAxis = (window.innerWidth / 2 - event.pageX) / 25;
-    let yAxis = (window.innerHeight / 2 - event.pageY) / 25;
-
-    mainContainer.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
-  });
-
-  // Reset the tilt when the mouse leaves
-  document.addEventListener("mouseleave", () => {
-    mainContainer.style.transform = "rotateY(0deg) rotateX(0deg)";
-  });
-
   // 🎆 Cursor-based Particle Interaction
   document.addEventListener("mousemove", function(event) {
     const canvas = document.querySelector("canvas");
