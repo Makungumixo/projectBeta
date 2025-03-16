@@ -24,7 +24,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background: rgba(255, 255, 255, 0.9);
+  background: transparent;
   z-index: 1000;
   box-sizing: border-box;
 }
@@ -56,7 +56,7 @@ nav ul {
 }
 
 nav ul li a {
-  color: #ffffff;
+  color: #a0522d;
   text-decoration: none;
   transition: color 0.3s ease;
 }
@@ -169,7 +169,6 @@ form button:hover {
   from {opacity: 0; transform: translateY(20px);}
   to {opacity: 1; transform: translateY(0);}
 }
-
 
 
 
