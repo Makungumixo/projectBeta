@@ -108,6 +108,11 @@ header {
   box-sizing: border-box; /* prevents overflow issues */
 }
 
+.dark-mode header {
+  background: rgba(20, 20, 20, 0.8); 
+}
+
+
 nav ul {
   list-style: none;
   display: flex;
