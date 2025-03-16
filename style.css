@@ -120,14 +120,14 @@ form button:hover {
   background-color: #154db4;
 }
 
-/* Contact links color */
-.section a {
+/* Contact form link color styling */
+.contact-details a {
   color: #28a745;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
-.section a:hover {
+.contact-details a:hover {
   color: #218838;
 }
 
