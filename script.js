@@ -35,5 +35,25 @@ document.addEventListener('DOMContentLoaded', function () {
   document.addEventListener("mouseleave", () => {
     mainContainer.style.transform = "rotateY(0deg) rotateX(0deg)";
   });
+
+  // 🎆 Cursor-based Particle Interaction
+  document.addEventListener("mousemove", function(event) {
+    const canvas = document.querySelector("canvas");
+    if (canvas) {
+      const rect = canvas.getBoundingClientRect();
+      const mouseX = event.clientX - rect.left;
+      const mouseY = event.clientY - rect.top;
+
+      window.pJSDom[0].pJS.interactivity.mouse.pos_x = mouseX;
+      window.pJSDom[0].pJS.interactivity.mouse.pos_y = mouseY;
+      window.pJSDom[0].pJS.interactivity.status = "mousemove";
+    }
+  });
+
+  document.addEventListener("mouseleave", function () {
+    window.pJSDom[0].pJS.interactivity.mouse.pos_x = null;
+    window.pJSDom[0].pJS.interactivity.mouse.pos_y = null;
+    window.pJSDom[0].pJS.interactivity.status = "mouseleave";
+  });
 });
 
