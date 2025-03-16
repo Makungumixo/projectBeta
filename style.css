@@ -3,7 +3,7 @@ body {
   font-family: 'Poppins', Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-image: url('./assets/pexels-sebastiaan-stam-1480690.jpg');
+  background-image: url('./assets/pexels-pixabay-247431.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -129,14 +129,14 @@ form button:hover {
   background-color: #154db4;
 }
 
-/* Contact form link color styling */
-.contact-details a {
-  color: #28a745;
+/* Contact links specifically green */
+#contact a {
+  color: #28a745 !important;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
-.contact-details a:hover {
+#contact a:hover {
   color: #218838;
 }
 
@@ -187,16 +187,13 @@ form button:hover {
   background: rgba(52,53,65,0.8) !important;
 }
 
-#particles-js {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background-color: transparent;
-  z-index: -1;
-  top: 0;
-  left: 0;
+#contact a {
+  color: #28a745 !important;
 }
 
+#contact a:hover {
+  color: #218838 !important;
+}
 
 /* Fade-in animation */
 @keyframes fadeIn {
