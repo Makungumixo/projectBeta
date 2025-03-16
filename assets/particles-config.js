@@ -48,6 +48,10 @@ particlesJS('particles-js', {
       "onclick": {
         "enable": true,
         "mode": "push"
+      },
+      "mousemove": {
+        "enable": true,
+        "mode": "grab"
       }
     },
     "modes": {
@@ -57,6 +61,12 @@ particlesJS('particles-js', {
       },
       "push": {
         "particles_nb": 4
+      },
+      "grab": {
+        "distance": 200,
+        "line_linked": {
+          "opacity": 1
+        }
       }
     }
   },
