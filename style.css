@@ -2,47 +2,122 @@ body {
     font-family: Arial, sans-serif;
     background: url('./assets/pexels-pixabay-247431.jpg') no-repeat center center fixed;
     background-size: cover;
+    background-attachment: fixed;
     color: #ffffff;
     margin: 0;
     padding: 0;
     transition: background 0.5s, color 0.5s;
     overflow-x: hidden;
-    perspective: 1px;
-    height: 100vh;
 }
 
-/* Parallax Effect */
-.parallax {
-    position: relative;
-    background: url('./assets/pexels-pixabay-247431.jpg') no-repeat center center;
-    background-size: cover;
-    height: 100vh;
+/* Fix Background Movement Issue */
+html, body {
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
     background-attachment: fixed;
+    background-size: cover;
 }
 
-/* Dark Mode 
-.dark-mode {
-    background: #111;
-    color: #ddd;
-}*/
-
-.dark-mode header {
-    background: rgba(20, 20, 20, 0.8);
+header {
+    background: rgba(31, 111, 235, 0.8);
+    padding: 15px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
-/* Fade-in Animations */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-container img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+    transition: transform 0.3s;
+}
+
+nav ul li:hover {
+    transform: scale(1.1);
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+main {
+    margin-top: 80px;
+    padding: 20px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .container {
     padding: 40px;
     max-width: 1200px;
     margin: auto;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeIn 1s ease-out forwards;
 }
 
-@keyframes fadeIn {
-    0% { opacity: 0; transform: translateY(30px); }
-    100% { opacity: 1; transform: translateY(0); }
+.skills-grid, .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.skill, .project {
+    background: rgba(31, 111, 235, 0.8);
+    padding: 15px;
+    border-radius: 8px;
+    transition: transform 0.3s, background 0.3s;
+    cursor: pointer;
+    text-align: center;
+}
+
+.skill:hover, .project:hover {
+    transform: scale(1.05);
+    background: rgba(18, 94, 196, 0.9);
+}
+
+footer {
+    margin-top: 20px;
+    padding: 10px;
+    background: rgba(31, 111, 235, 0.8);
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
 
 /* Dark Mode Toggle Button */
@@ -62,3 +137,4 @@ body {
 #dark-mode-toggle:hover {
     background: #125ec4;
 }
+
