@@ -1,10 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta http-equiv="refresh" content="0; URL='index.html#projects'">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | Makungu Ndlovu</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    function showPDF(pdfUrl) {
+      document.getElementById("pdf-viewer").innerHTML = `
+        <iframe src="${pdfUrl}" width="100%" height="600px"></iframe>
+      `;
+    }
+  </script>
 </head>
-<body></body>
+<body>
+
+  <header>
+    <div class="logo-container">
+        <img src="./assets/profile3.jpg" class="profile-pic" alt="Profile">
+        <h1>Makungu Ndlovu</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="projects">
+      <h2>My Projects</h2>
+
+      <div class="project">
+        <h3>AI Chatbot</h3>
+        <p>Developed an NLP-powered chatbot enhancing customer engagement and support.</p>
+      </div>
+
+      <div class="project">
+        <h3>Xitsonga-English Translation Model</h3>
+        <p>Created an advanced NLP translation model significantly improving translation accuracy for low-resource languages.</p>
+      </div>
+
+      <div class="project">
+        <h3>Malaria Detection Deep Learning</h3>
+        <p>Designed a model to identify malaria parasites from medical images, significantly enhancing diagnostic precision.</p>
+      </div>
+
+      <div class="project">
+        <h3>Engineers Without Borders (EWB)</h3>
+        <p>Led a successful community-focused engineering project, fostering teamwork, leadership, and impactful results.</p>
+      </div>
+
+      <div class="project">
+        <h3>Data Analysis & Visualization</h3>
+        <p>Conducted extensive data analysis projects demonstrating high proficiency in Excel, Python, and R.</p>
+      </div>
+
+      <!-- Research Paper Section with Embedded PDF -->
+      <div class="project">
+        <h3>
+          <a href="#" onclick="showPDF('assets/Research_Report_NDLOVU_M.pdf'); return false;">
+            Fine-Tuning Low-Resource Translation Models Using Data Augmentation
+          </a>
+        </h3>
+        <p>
+          This research focuses on improving Xitsonga-English translation by applying advanced data augmentation techniques to enhance low-resource models.
+        </p>
+      </div>
+
+      <!-- PDF Viewer Container -->
+      <div id="pdf-viewer" style="margin-top: 20px;"></div>
+
+    </section>
+  </main>
+
+</body>
 </html>
-
-
 
