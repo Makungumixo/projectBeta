@@ -1,6 +1,6 @@
 /* General page setup */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', Arial, sans-serif;
   margin: 0;
   padding: 0;
   background-image: url('./assets/pexels-pixabay-247431.jpg');
@@ -8,7 +8,7 @@ body {
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
-  color: white;
+  color: #1f1f1f;
   overflow-y: scroll;
   scroll-behavior: smooth;
   transition: background 0.3s ease, color 0.3s ease;
@@ -24,7 +24,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(255, 255, 255, 0.9);
   z-index: 1000;
   box-sizing: border-box;
 }
@@ -56,7 +56,7 @@ nav ul {
 }
 
 nav ul li a {
-  color: white;
+  color: #1a1a1a;
   text-decoration: none;
   transition: color 0.3s ease;
 }
@@ -76,16 +76,18 @@ main {
   padding: 40px;
   text-align: center;
   animation: fadeIn 1.5s ease;
+  color: #2d2d2d;
 }
 
 /* Individual projects style */
 .project {
   padding: 20px;
-  background: rgba(0,0,0,0.5);
+  background: rgba(255,255,255,0.8);
   margin: 10px auto;
   border-radius: 10px;
   transition: transform 0.3s ease;
   max-width: 600px;
+  color: #1f1f1f;
 }
 
 .project:hover {
@@ -119,10 +121,10 @@ form button:hover {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  padding: 6px 12px; /* Clearly smaller padding */
-  font-size: 12px; /* Smaller text size */
-  background-color: rgba(28, 185, 212, 0.7); /* Water-like color, translucent effect */
-  backdrop-filter: blur(8px); /* Glassy water-like effect */
+  padding: 6px 12px;
+  font-size: 12px;
+  background-color: rgba(28, 185, 212, 0.7);
+  backdrop-filter: blur(8px);
   color: #ffffff;
   border: none;
   cursor: pointer;
@@ -137,12 +139,12 @@ form button:hover {
 }
 
 #dark-mode-toggle:hover {
-  background-color: #66c7e0; /* slightly lighter water-like hover effect */
-  transform: scale(1.05); /* slight zoom effect */
+  background-color: #66c7e0;
+  transform: scale(1.05);
   box-shadow: 0 0 15px rgba(31, 111, 235, 0.6);
 }
 
-/* Clear Dark mode styling */
+/* Dark mode styling */
 .dark-mode {
   background-image: none !important;
   background-color: #121212 !important;
@@ -151,6 +153,15 @@ form button:hover {
 
 .dark-mode header {
   background: rgba(10, 10, 10, 0.9) !important;
+}
+
+.dark-mode nav ul li a {
+  color: #ffffff !important;
+}
+
+.dark-mode .section, .dark-mode .project {
+  color: #ffffff !important;
+  background: rgba(0,0,0,0.5) !important;
 }
 
 /* Fade-in animation */
