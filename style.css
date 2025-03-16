@@ -5,8 +5,8 @@ body {
   background: url('./assets/pexels-pixabay-247431.jpg') no-repeat center center fixed;
   background-size: cover;
   color: white;
+  transition: background 0.3s ease;
   overflow-y: scroll;
-  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
@@ -21,7 +21,6 @@ header {
   padding: 10px 20px;
   background: rgba(0, 0, 0, 0.6);
   z-index: 1000;
-  box-sizing: border-box;
 }
 
 .logo-container {
@@ -33,7 +32,7 @@ header {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  margin-right: 10px;
+  object-fit: cover;
   border: 2px solid #fff;
   box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
@@ -44,11 +43,6 @@ nav ul {
   gap: 15px;
   margin: 0;
   padding: 0;
-  flex-wrap: nowrap;
-}
-
-nav ul li {
-  white-space: nowrap;
 }
 
 nav ul li a {
@@ -70,7 +64,7 @@ main {
   min-height: 100vh;
   padding: 40px;
   text-align: center;
-  animation: fadeIn 1.2s ease;
+  animation: fadeIn 1.5s ease;
 }
 
 .project {
@@ -104,7 +98,7 @@ form button {
 }
 
 form button:hover {
-  background-color: #154aad;
+  background-color: #154db4;
 }
 
 #dark-mode-toggle {
@@ -121,21 +115,18 @@ form button:hover {
 }
 
 .dark-mode {
-  background-color: rgba(20, 20, 20, 0.9);
-  color: #ffffff;
+  background: #121212 !important;
+  color: #f1f1f1;
+  background-image: none !important;
 }
 
 .dark-mode header {
-  background: rgba(10, 10, 10, 0.8);
+  background: rgba(18, 18, 18, 0.9);
 }
 
 @keyframes fadeIn {
   from {opacity: 0; transform: translateY(20px);}
   to {opacity: 1; transform: translateY(0);}
-}
-
-.section {
-  animation: fadeIn 1.5s ease;
 }
 
 
