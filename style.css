@@ -8,7 +8,7 @@ body {
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
-  color: #141414;
+  color: #2c2c2c;
   overflow-y: scroll;
   scroll-behavior: smooth;
   transition: background 0.3s ease, color 0.3s ease;
@@ -45,6 +45,9 @@ header {
   box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 
+header h1 {
+  color: #a0522d;
+}
 
 /* Navigation menu styling */
 nav ul {
@@ -76,7 +79,7 @@ main {
   padding: 40px;
   text-align: center;
   animation: fadeIn 1.5s ease;
-  color: #141414;
+  color: #4f4f4f;
 }
 
 /* Individual projects style */
