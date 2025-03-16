@@ -6,8 +6,22 @@ body {
   background-size: cover;
   color: white;
   overflow-y: scroll;
-  scroll-behavior: smooth;
   overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  box-sizing: border-box;
 }
 
 .logo-container {
@@ -16,15 +30,13 @@ body {
 }
 
 .profile-pic {
-  width: 100px;
-  height: 100px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
-  object-fit: cover;
   margin-right: 10px;
-  border: 2px solid #fff; /* optional, adds clean border */
-  box-shadow: 0 2px 5px rgba(0,0,0,0.3); /* subtle shadow for depth */
+  border: 2px solid #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
-
 
 nav ul {
   list-style: none;
@@ -32,8 +44,22 @@ nav ul {
   gap: 15px;
   margin: 0;
   padding: 0;
+  flex-wrap: nowrap;
 }
 
+nav ul li {
+  white-space: nowrap;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #1f6feb;
+}
 
 main {
   margin-top: 80px;
@@ -44,7 +70,7 @@ main {
   min-height: 100vh;
   padding: 40px;
   text-align: center;
-  animation: fadeIn 1.5s ease;
+  animation: fadeIn 1.2s ease;
 }
 
 .project {
@@ -59,15 +85,9 @@ main {
   transform: scale(1.05);
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 form input, form textarea {
   padding: 10px;
-  margin: 10px;
+  margin: 10px 0;
   width: 80%;
   border-radius: 5px;
   border: none;
@@ -84,54 +104,13 @@ form button {
 }
 
 form button:hover {
-  background-color: #154db4;
+  background-color: #154aad;
 }
 
-
-.dark-mode {
-  filter: brightness(0.8);
-}
-
-@keyframes fadeIn {
-  from {opacity: 0; transform: translateY(20px);}
-  to {opacity: 1; transform: translateY(0);}
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 15px;
-  margin: 0;
-  padding: 0;
-  flex-wrap: wrap; /* ensures responsive wrapping */
-}
-
-nav ul li {
-  white-space: nowrap; /* prevents unwanted line breaks */
-}
-
-/* Header – absolutely no shifts */
-header {
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background: rgba(0, 0, 0, 0.6);
-  box-sizing: border-box;
-  z-index: 1000;
-}
-
-
-
-/* Dark Mode Toggle Button – absolutely no shifts */
 #dark-mode-toggle {
-  position: fixed !important;
-  bottom: 20px !important;
-  right: 20px !important;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
   padding: 10px;
   background: #1f6feb;
   color: white;
@@ -141,12 +120,23 @@ header {
   z-index: 1001;
 }
 
-
-/* Ensures Dark mode styling only affects color, not position */
-.dark-mode header {
-  background: rgba(20, 20, 20, 0.8);
+.dark-mode {
+  background-color: rgba(20, 20, 20, 0.9);
+  color: #ffffff;
 }
 
+.dark-mode header {
+  background: rgba(10, 10, 10, 0.8);
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+.section {
+  animation: fadeIn 1.5s ease;
+}
 
 
 
