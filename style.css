@@ -56,7 +56,7 @@ nav ul {
 }
 
 nav ul li a {
-  color: #1a1a1a;
+  color: #ffffff;
   text-decoration: none;
   transition: color 0.3s ease;
 }
@@ -76,7 +76,7 @@ main {
   padding: 40px;
   text-align: center;
   animation: fadeIn 1.5s ease;
-  color: #2d2d2d;
+  color: #1f1f1f;
 }
 
 /* Individual projects style */
@@ -147,12 +147,12 @@ form button:hover {
 /* Dark mode styling */
 .dark-mode {
   background-image: none !important;
-  background-color: #121212 !important;
+  background-color: #202123 !important;
   color: #ffffff !important;
 }
 
 .dark-mode header {
-  background: rgba(10, 10, 10, 0.9) !important;
+  background: rgba(32, 33, 35, 0.95) !important;
 }
 
 .dark-mode nav ul li a {
@@ -161,7 +161,7 @@ form button:hover {
 
 .dark-mode .section, .dark-mode .project {
   color: #ffffff !important;
-  background: rgba(0,0,0,0.5) !important;
+  background: rgba(52,53,65,0.8) !important;
 }
 
 /* Fade-in animation */
@@ -169,7 +169,6 @@ form button:hover {
   from {opacity: 0; transform: translateY(20px);}
   to {opacity: 1; transform: translateY(0);}
 }
-
 
 
 
