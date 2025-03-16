@@ -3,7 +3,7 @@ body {
   font-family: 'Poppins', Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-image: url('./assets/pexels-sebastiaan-stam-1480690.jpg');
+  background-image: url('./assets/pexels-pixabay-247431.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -11,6 +11,7 @@ body {
   color: #2c2c2c;
   overflow-y: scroll;
   scroll-behavior: smooth;
+  perspective: 1000px;
   transition: background 0.3s ease, color 0.3s ease;
 }
 
@@ -80,6 +81,13 @@ main {
   text-align: center;
   animation: fadeIn 1.5s ease;
   color: #dcdcdc;
+  transform-style: preserve-3d;
+  transform: rotateX(10deg);
+  transition: transform 0.3s ease;
+}
+
+.section:hover {
+  transform: rotateX(0deg);
 }
 
 /* Individual projects style */
@@ -91,6 +99,7 @@ main {
   transition: transform 0.3s ease;
   max-width: 600px;
   color: #141414;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 
 .project:hover {
