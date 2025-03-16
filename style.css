@@ -36,14 +36,15 @@ header {
 }
 
 .profile-pic {
-  width: 100px;
-  height: 100px;
+  width: 100px !important;
+  height: 100px !important;
   border-radius: 50%;
   object-fit: cover;
   margin-right: 10px;
   border: 2px solid #fff;
   box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
+
 
 /* Navigation menu styling */
 nav ul {
