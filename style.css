@@ -9,17 +9,6 @@ body {
   scroll-behavior: smooth;
 }
 
-header {
-  position: fixed;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 1000;
-}
-
 .logo-container {
   display: flex;
   align-items: center;
@@ -44,15 +33,6 @@ nav ul {
   padding: 0;
 }
 
-nav ul li a {
-  color: white;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-nav ul li a:hover {
-  color: #1f6feb;
-}
 
 main {
   margin-top: 80px;
@@ -106,6 +86,41 @@ form button:hover {
   background-color: #154db4;
 }
 
+
+.dark-mode {
+  filter: brightness(0.8);
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  box-sizing: border-box; /* prevents overflow issues */
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap; /* ensures responsive wrapping */
+}
+
+nav ul li {
+  white-space: nowrap; /* prevents unwanted line breaks */
+}
+
 #dark-mode-toggle {
   position: fixed;
   bottom: 20px;
@@ -116,14 +131,8 @@ form button:hover {
   border: none;
   cursor: pointer;
   border-radius: 5px;
+  z-index: 1001; /* ensures the button stays above everything else */
 }
 
-.dark-mode {
-  filter: brightness(0.8);
-}
 
-@keyframes fadeIn {
-  from {opacity: 0; transform: translateY(20px);}
-  to {opacity: 1; transform: translateY(0);}
-}
 
