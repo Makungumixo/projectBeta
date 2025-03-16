@@ -79,7 +79,7 @@ main {
   padding: 40px;
   text-align: center;
   animation: fadeIn 1.5s ease;
-  color: #d0d0d0;
+  color: #dcdcdc;
 }
 
 /* Individual projects style */
@@ -118,6 +118,17 @@ form button {
 
 form button:hover {
   background-color: #154db4;
+}
+
+/* Contact links color */
+.section a {
+  color: #28a745;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.section a:hover {
+  color: #218838;
 }
 
 #dark-mode-toggle {
@@ -172,7 +183,6 @@ form button:hover {
   from {opacity: 0; transform: translateY(20px);}
   to {opacity: 1; transform: translateY(0);}
 }
-
 
 
 
