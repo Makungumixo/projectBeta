@@ -115,31 +115,30 @@ form button:hover {
   background-color: #154db4;
 }
 
-
-
 #dark-mode-toggle {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  padding: 10px 20px;
-  background: rgba(31, 111, 235, 0.5); /* Translucent effect */
-  backdrop-filter: blur(10px); /* Futuristic frosted-glass effect */
+  padding: 6px 12px; /* Clearly smaller padding */
+  font-size: 12px; /* Smaller text size */
+  background-color: rgba(28, 185, 212, 0.7); /* Water-like color, translucent effect */
+  backdrop-filter: blur(8px); /* Glassy water-like effect */
   color: #ffffff;
   border: none;
   cursor: pointer;
-  border-radius: 20px; /* Rounded futuristic shape */
+  border-radius: 20px;
   font-family: 'Poppins', sans-serif;
-  font-size: 14px;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1px;
-  transition: background 0.3s, transform 0.3s ease;
+  transition: background 0.3s, transform 0.3s;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   z-index: 1001;
 }
 
 #dark-mode-toggle:hover {
-  background: rgba(31, 111, 235, 0.8);
-  transform: scale(1.1);
+  background-color: #66c7e0; /* slightly lighter water-like hover effect */
+  transform: scale(1.05); /* slight zoom effect */
   box-shadow: 0 0 15px rgba(31, 111, 235, 0.6);
 }
 
