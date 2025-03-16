@@ -72,7 +72,11 @@ nav ul li a:hover {
 main {
   margin-top: 80px;
   padding: 20px;
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease-out;
+  perspective: 1000px;
 }
+
 
 .section {
   min-height: 100vh;
