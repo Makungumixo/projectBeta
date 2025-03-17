@@ -264,3 +264,10 @@ form button:hover {
   color: #111;
 }
 
+/* Keep your site’s default font elsewhere, e.g., Poppins or Arial, etc. */
+/* Overwrite only for the academic section */
+#academic {
+  font-family: "Times New Roman", Times, serif;
+}
+
+
