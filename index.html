@@ -34,6 +34,15 @@
             <p>
                 I am Makungu Ndlovu, a determined scholar holding a BSc in Mathematical Sciences (Mathematics & Computer Science) and a BSc Honours in Computer Science. My academic journey has equipped me with advanced analytical thinking, problem-solving capabilities, and proficiency in programming languages including Python, Java, C++, SQL, HTML, CSS, and JavaScript.
             </p>
+
+            <h3>Key Competencies</h3>
+            <p>
+                <strong>Communication:</strong> Fluent in English and Xitsonga with excellent oral and written skills.<br>
+                <strong>Problem-Solving:</strong> Expertise in creatively solving complex mathematical and computational challenges.<br>
+                <strong>Time Management:</strong> Skilled in managing deadlines efficiently under pressure.<br>
+                <strong>Organizational Skills:</strong> Highly organized in managing tasks and academic commitments effectively.<br>
+                <strong>Analytical Skills:</strong> Proficient in detailed data analysis, research methodologies, and critical thinking.
+            </p>
         </section>
 
         <!-- Projects Section -->
@@ -41,19 +50,43 @@
             <h2>My Projects</h2>
 
             <div class="project">
+                <h3>AI Chatbot</h3>
+                <p>Developed an NLP-powered chatbot enhancing customer engagement and support.</p>
+            </div>
+
+            <div class="project">
+                <h3>Xitsonga-English Translation Model</h3>
+                <p>Created an advanced NLP translation model significantly improving translation accuracy for low-resource languages.</p>
+            </div>
+
+            <div class="project">
+                <h3>Malaria Detection Deep Learning</h3>
+                <p>Designed a model to identify malaria parasites from medical images, significantly enhancing diagnostic precision.</p>
+            </div>
+
+            <div class="project">
+                <h3>Data Analysis & Visualization</h3>
+                <p>Conducted extensive data analysis projects demonstrating high proficiency in Excel, Python, and R.</p>
+            </div>
+
+            <!-- Research Paper Section -->
+            <div class="project">
                 <h3>
-                    <a href="#" onclick="showPDF('assets/Research_Report NDLOVU M.pdf'); return false;">
+                    <a href="#" onclick="showPDF('assets/Research_Report_NDLOVU_M.pdf'); return false;">
                         Fine-Tuning Low-Resource Translation Models Using Data Augmentation
                     </a>
                 </h3>
-                <p>This research focuses on improving Xitsonga-English translation by applying advanced data augmentation techniques to enhance low-resource models.</p>
+                <p>
+                    This research focuses on improving Xitsonga-English translation by applying advanced data augmentation techniques to enhance low-resource models.
+                </p>
             </div>
         </section>
 
-        <!-- PDF Viewer Modal (Hidden by Default) -->
+        <!-- PDF Viewer Modal -->
         <div id="pdf-modal">
             <div id="pdf-header">
                 <span id="pdf-title">Research Paper</span>
+                <button onclick="maximizePDF()">🔼</button>
                 <button onclick="minimizePDF()">🔽</button>
                 <button onclick="closePDF()">❌</button>
             </div>
@@ -73,5 +106,6 @@
 
 </body>
 </html>
+
 
 
