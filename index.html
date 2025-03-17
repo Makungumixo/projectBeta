@@ -72,7 +72,7 @@
             <!-- Research Paper Section -->
             <div class="project">
                 <h3>
-                    <a href="#" onclick="showPDF('assets/Research_Report NDLOVU M.pdf'); return false;">
+                    <a href="#" onclick="showPDF('assets/Research_Report_NDLOVU_M.pdf'); return false;">
                         Fine-Tuning Low-Resource Translation Models Using Data Augmentation
                     </a>
                 </h3>
@@ -96,8 +96,22 @@
         <!-- Contact Section -->
         <section id="contact" class="section">
             <h2>Contact Me</h2>
-            <p>Email: <a href="mailto:makungumixo@gmail.com">makungumixo@gmail.com</a></p>
-            <p>Phone: <a href="tel:+27714698301">+27 71 469 8301</a></p>
+
+            <form action="mailto:makungumixo@gmail.com" method="post" enctype="text/plain">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+
+            <h3>Let's Connect!</h3>
+            <p>
+                <strong>Email:</strong> <a href="mailto:makungumixo@gmail.com">makungumixo@gmail.com</a><br>
+                <strong>Phone:</strong> <a href="tel:+27714698301">+27 71 469 8301</a><br>
+                <strong>Alternative Phone:</strong> <a href="tel:+27655508453">+27 65 550 8453</a><br>
+                <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/makungumixo" target="_blank">linkedin.com/in/makungumixo</a><br>
+                <strong>GitHub:</strong> <a href="https://github.com/makungumixo" target="_blank">github.com/makungumixo</a>
+            </p>
         </section>
 
         <button id="dark-mode-toggle">Dark Mode</button>
@@ -106,6 +120,7 @@
 
 </body>
 </html>
+
 
 
 
