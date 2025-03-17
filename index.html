@@ -217,7 +217,40 @@
                     </a>
                   </p>
                 </div>   
-            </section>
+            <div class="project">
+              <h3>Data Augmentation</h3>
+              <p>
+                This study explores <strong>data augmentation techniques</strong> (e.g., back-translation, random
+                deletion, synonym replacement) to improve machine translation (MT) performance for
+                the <em>low-resource</em> Xitsonga–English language pair. Through <strong>cosine similarity</strong>
+                scoring and threshold-based filtering, the augmented data retained high semantic fidelity,
+                thereby boosting translation accuracy.
+              </p>
+              <p><strong>Key Highlights Include:</strong></p>
+              <ul style="list-style: none; margin: 0; padding: 0;">
+                <li><em>EDA & Clustering:</em> Detailed analysis of sentence lengths, word counts, and 
+                  unsupervised cluster separations (K-Means, t-SNE)
+                </li>
+                <li><em>Data Augmentation:</em> Techniques like back-translation, random word insertion,
+                  and thresholding based on cosine similarity ≥ 0.83
+                </li>
+                <li><em>Transformer Models:</em> zaBERT, XLM-R, and RoBERTa showed superior performance 
+                  over traditional classifiers when trained on augmented data
+                </li>
+                <li><em>Practical Takeaways:</em> Demonstrates the effectiveness of 
+                  <strong>hybrid approaches</strong> and <strong>semantic filtering</strong> in low-resource MT tasks
+                </li>
+              </ul>
+              <p>
+                For an in-depth look at the experimental setup, data preprocessing steps, clustering visuals,
+                and final performance comparisons, please see the 
+                <a href="assets/FineTuning_LowResource_MT.pdf" target="_blank">
+                 View Paper (PDF)
+                </a>.
+              </p>
+            </div>
+        </section>
+
                   
         <!-- PDF Viewer Modal -->
         <div id="pdf-modal">
