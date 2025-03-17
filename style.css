@@ -199,7 +199,7 @@ form button:hover {
   to {opacity: 1; transform: translateY(0);}
 }
 
-/* PDF Modal Container */
+/* PDF Modal */
 #pdf-modal {
     position: fixed;
     top: 50px;
