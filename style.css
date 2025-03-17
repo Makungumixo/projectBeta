@@ -255,3 +255,12 @@ form button:hover {
     height: 100%;
     border: none;
 }
+
+#academic .project {
+  background: rgba(255, 255, 240, 0.8); /* a lighter background */
+  margin: 15px auto;
+  padding: 20px;
+  border-radius: 8px;
+  color: #111;
+}
+
