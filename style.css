@@ -137,9 +137,9 @@ form button:hover {
 }
 
 #dark-mode-toggle {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
+  position: absolute;
+  top: 10px;     /* Move down from the top */
+  right: 20px;   /* Move from the right edge */
   padding: 6px 12px;
   font-size: 12px;
   background-color: rgba(28, 185, 212, 0.7);
