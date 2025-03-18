@@ -271,7 +271,7 @@ form button:hover {
 }
 
 .glass-text {
-  font-size: 0.8em;
+  font-size: 0.8em; 
   color: rgba(255, 255, 255, 0.7); /* White with transparency */
   background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
   padding: 5px 10px;
