@@ -270,4 +270,15 @@ form button:hover {
   font-family: "Times New Roman", Times, serif;
 }
 
+.glass-text {
+  font-size: 0.8em;
+  color: rgba(255, 255, 255, 0.7); /* White with transparency */
+  background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+  padding: 5px 10px;
+  border-radius: 10px;
+  backdrop-filter: blur(10px); /* Creates a frosted glass effect */
+  -webkit-backdrop-filter: blur(10px); /* For Safari support */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
 
