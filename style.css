@@ -25,7 +25,7 @@ body::before {
   width: 100%;
   height: 100%;
   /* This adds a slight black overlay. Increase or decrease 0.3 as needed. */
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.8);
   z-index: -1;         /* Below your content */
   pointer-events: none;/* So clicks pass through */
 }
