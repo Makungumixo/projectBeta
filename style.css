@@ -4,7 +4,7 @@ body {
   margin: 0;
   padding: 0;
   background-image: url('./assets/pexels-pixabay-247431.jpg');
-  filter: brightness(0.8);
+  /* Remove the filter from body; rely on an overlay instead */
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -13,6 +13,21 @@ body {
   overflow-y: scroll;
   scroll-behavior: smooth;
   transition: background 0.3s ease, color 0.3s ease;
+  position: relative; /* So the pseudo-element can be positioned within the body */
+}
+
+/* DIM OVERLAY */
+body::before {
+  content: "";
+  position: fixed; /* Stays in place like the background-attachment */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* This adds a slight black overlay. Increase or decrease 0.3 as needed. */
+  background: rgba(0,0,0,0.5);
+  z-index: -1;         /* Below your content */
+  pointer-events: none;/* So clicks pass through */
 }
 
 /* Header setup */
@@ -78,13 +93,13 @@ main {
   perspective: 1000px;
 }
 
-/* 🔔 Updated color from #dcdcdc to #222 for better contrast */
+/* Use a darker color (#222) for contrast in light mode */
 .section {
   min-height: 100vh;
   padding: 40px;
   text-align: center;
   animation: fadeIn 1.5s ease;
-  color: #222; /* <--- changed here */
+  color: #222; 
 }
 
 /* Individual projects style */
@@ -169,14 +184,20 @@ main {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
+  z-index: -2; /* Make sure it's behind the overlay pseudo-element at z-index: -1 */
   background: transparent;
 }
 
 /* Fade-in animation */
 @keyframes fadeIn {
-  from {opacity: 0; transform: translateY(20px);}
-  to {opacity: 1; transform: translateY(0);}
+  from {
+    opacity: 0; 
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1; 
+    transform: translateY(0);
+  }
 }
 
 /* PDF Modal */
@@ -203,6 +224,7 @@ main {
   overflow: hidden;
   transition: height 0.3s ease, width 0.3s ease;
 }
+
 #pdf-header {
   background: #1f6feb;
   color: white;
@@ -250,7 +272,6 @@ main {
   -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
 
 
 
