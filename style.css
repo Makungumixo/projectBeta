@@ -14,10 +14,12 @@ body {
   transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* Fixed header setup */
+/* Header setup */
 header {
   position: fixed;
-  top: 0; left: 0; right: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -110,11 +112,11 @@ main {
   color: #218838;
 }
 
-/* Dark Mode Button (top-right absolute) */
+/* Dark Mode Button (top-right) */
 #dark-mode-toggle {
   position: absolute;
-  top: 10px;
-  right: 20px;
+  top: 10px;     
+  right: 20px;   
   padding: 6px 12px;
   font-size: 12px;
   background-color: rgba(28, 185, 212, 0.7);
@@ -158,10 +160,11 @@ main {
   background: rgba(52,53,65,0.8) !important;
 }
 
-/* The particle container behind everything */
+/* Particle container (fixed behind everything) */
 #particles-js {
   position: fixed;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   z-index: -1;
@@ -170,67 +173,74 @@ main {
 
 /* Fade-in animation */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
 }
 
 /* PDF Modal */
 #pdf-modal {
-  position: fixed;
-  top: 50px; left: 50%;
-  transform: translateX(-50%);
-  width: 80%;
-  max-width: 800px;
-  height: 600px;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
-  display: none;
-  flex-direction: column;
-  z-index: 1002;
-  transition: height 0.3s ease, width 0.3s ease;
+    position: fixed;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 800px;
+    height: 600px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
+    display: none;
+    flex-direction: column;
+    z-index: 1002;
+    transition: height 0.3s ease, width 0.3s ease;
 }
 
 #pdf-modal.minimized {
-  height: 50px;
-  width: 300px;
-  overflow: hidden;
-  transition: height 0.3s ease, width 0.3s ease;
+    height: 50px;
+    width: 300px;
+    overflow: hidden;
+    transition: height 0.3s ease, width 0.3s ease;
 }
-
 #pdf-header {
-  background: #1f6feb;
-  color: white;
-  padding: 10px;
-  font-weight: bold;
-  cursor: grab;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+    background: #1f6feb;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    cursor: grab;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 #pdf-header button {
-  background: transparent;
-  border: none;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-  margin-left: 10px;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 10px;
 }
 
 #pdf-viewer {
-  width: 100%;
-  height: 100%;
-  border: none;
+    width: 100%;
+    height: 100%;
+    border: none;
 }
 
-/* Glass text styling on heading */
+#academic .project {
+  background: rgba(255, 255, 240, 0.8); 
+  margin: 15px auto;
+  padding: 20px;
+  border-radius: 8px;
+  color: #111;
+}
+
 .glass-text {
   font-family: "Times New Roman", Times, serif;
-  font-size: 0.4em;
-  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.4em; 
+  color: rgba(255, 255, 255, 0.7); 
   background: rgba(255, 255, 255, 0.2);
   padding: 5px 10px;
   border-radius: 10px;
@@ -239,37 +249,6 @@ main {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* OPTIONAL: Basic responsive tweaks for small screens */
-@media (max-width: 768px) {
-  header {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  nav ul {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  nav ul li {
-    margin-bottom: 10px;
-  }
-
-  #dark-mode-toggle {
-    position: static;
-    margin: 10px auto;
-    display: block;
-  }
-
-  .profile-pic {
-    width: 80px;
-    height: 80px;
-  }
-
-  .glass-text {
-    font-size: 0.5em;
-  }
-}
 
 
 
