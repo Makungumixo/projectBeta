@@ -1,288 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <!-- Ensures proper rendering on mobile devices -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Makungu Ndlovu | Portfolio</title>
-
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="style.css" />
-
-  <!-- Particles.js library -->
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  
-  <!-- Your original Particles configuration -->
-  <script defer src="particles-config.js"></script>
-  
-  <!-- Any additional scripts (dark mode, PDF viewer, etc.) -->
-  <script defer src="script.js"></script>
-
-  <!-- Google Font (Poppins) -->
-  <link
-    rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
-  />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Makungu Ndlovu | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script defer src="./assets/particles-config.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
 </head>
-
 <body>
-  <!-- The particle container behind everything -->
-  <div id="particles-js"></div>
+    <div id="particles-js"></div>
 
-  <!-- Fixed Header -->
-  <header>
-    <div class="logo-container">
-      <img src="./assets/profile3.jpg" class="profile-pic" alt="Profile" />
-      <h1 style="margin: 0;">
-        Makungu Ndlovu
-        <br />
-        <span class="glass-text">
-          BSc Mathematical Sciences | BSc Honours Computer Science | Software Engineer | Data Analyst
-        </span>
-      </h1>
-    </div>
-
-    <nav>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#academic">Academic</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <!-- Dark Mode button (absolute top-right in CSS) -->
-        <li><button id="dark-mode-toggle">Dark Mode</button></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main>
+<header>
+  <div class="logo-container">
+    <img src="./assets/profile3.jpg" class="profile-pic" alt="Profile">
+    <h1 style="margin: 0;">
+      Makungu Ndlovu
+      <br>
+      <span class="glass-text">
+        BSc Mathematical Sciences | BSc Honours Computer Science | Software Engineer | Data Analyst
+      </span>
+    </h1>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#academic">Academic</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li> <button id="dark-mode-toggle">Dark Mode</button></li>
+    </ul>
+  </nav>
+     
+</header>
+<main>
     <!-- About Section -->
-    <section id="about" class="section">
-      <h2>About Me</h2>
-      <p>
-        Hello! I’m <strong>Makungu Ndlovu</strong>, originally from the rural village of
-        <em>Gandlanani Khani in Giyani, Limpopo</em>. Growing up with limited internet access, I
-        learned to be a <strong>resourceful learner</strong>, grabbing every chance to delve into
-        technology and expand my horizons. My fascination with rocket launches—witnessing humans
-        transcend earthly bounds—inspired me to believe that dedication and creativity can conquer
-        almost any obstacle.
-      </p>
-      <p>
-        Driven by that spirit of possibility, I pursued a
-        <em>BSc in Mathematical Sciences</em> and later a
-        <em>BSc Honours in Computer Science</em>. Along the way, I became an
-        <strong>analytical innovator</strong>, merging mathematical theory with real-world coding in
-        <strong>Python, Java, C++, SQL, HTML, CSS, JavaScript</strong>, and many more computer
-        languages. Whether I’m debugging an application or tackling a complex mathematical puzzle, I
-        approach challenges with <strong>curiosity and exploration</strong>, pushing beyond my
-        comfort zone to uncover new insights—just like those rocket launches that once ignited my
-        imagination.
-      </p>
-      <p>
-        Beyond the keyboard, I’m a devoted football fan—eager to watch weekend matches and
-        occasionally join the field for a casual game. Football’s blend of teamwork, strategy, and
-        passion aligns perfectly with my <strong>team-spirited enthusiasm</strong>: I believe
-        collaboration elevates collective success in both tech projects and life. No matter the
-        hurdle, my <strong>persistent optimism</strong> turns it into an opportunity—on the screen,
-        on the pitch, and in everyday endeavors.
-      </p>
-    </section>
+     <section id="about" class="section">
+        <h2>About Me</h2>
+        
+        <p>
+          Hello! I’m <strong>Makungu Ndlovu</strong>, originally from the rural village of 
+          <em>Gandlanani Khini in Giyani, Limpopo</em>. Growing up with limited internet access, I 
+          learned to be a <strong>resourceful learner</strong>, grabbing every chance to delve into 
+          technology and expand my horizons. My fascination with rocket launches—witnessing humans 
+          transcend earthly bounds—inspired me to believe that dedication and creativity can conquer 
+          almost any obstacle.
+        </p>
+      
+        <p>
+          Driven by that spirit of possibility, I pursued a 
+          <em>BSc in Mathematical Sciences</em> and later a 
+          <em>BSc Honours in Computer Science</em>. Along the way, I became an 
+          <strong>analytical innovator</strong>, merging mathematical theory with real-world coding in 
+          <strong>Python, Java, C++, SQL, HTML, CSS, JavaScript</strong>, and many more computer languages, to build data-driven, scalable 
+          solutions. Whether I’m debugging an application or tackling a complex mathematical puzzle, I 
+          approach challenges with <strong>curiosity and exploration</strong>, pushing beyond my comfort zone 
+          to uncover new insights—just like those rocket launches that once ignited my imagination.
+        </p>
+      
+        <p>
+          Beyond the keyboard, I’m a devoted football fan—eager to watch weekend matches and occasionally 
+          join the field for a casual game. Football’s blend of teamwork, strategy, and passion aligns 
+          perfectly with my <strong>team-spirited enthusiasm</strong>: I believe collaboration elevates 
+          collective success in both tech projects and life. No matter the hurdle, my 
+          <strong>persistent optimism</strong> turns it into an opportunity—on the screen, on the pitch, 
+          and in everyday endeavors.
+        </p>
+      </section>
 
     <!-- Projects Section -->
     <section id="projects" class="section">
-      <h2>My Projects</h2>
+        <h2>My Projects</h2>
 
-      <div class="project">
-        <h3>AI Chatbot</h3>
-        <p>Developed an NLP-powered chatbot enhancing customer engagement and support.</p>
-      </div>
+        <div class="project">
+            <h3>AI Chatbot</h3>
+            <p>Developed an NLP-powered chatbot enhancing customer engagement and support.</p>
+        </div>
 
-      <div class="project">
-        <h3>Xitsonga-English Translation Model</h3>
-        <p>
-          Created an advanced NLP translation model significantly improving translation accuracy for
-          low-resource languages.
-        </p>
-      </div>
+        <div class="project">
+            <h3>Xitsonga-English Translation Model</h3>
+            <p>Created an advanced NLP translation model significantly improving translation accuracy for low-resource languages.</p>
+        </div>
 
-      <div class="project">
-        <h3>Malaria Detection Deep Learning</h3>
-        <p>
-          Designed a model to identify malaria parasites from medical images, significantly
-          enhancing diagnostic precision.
-        </p>
-      </div>
+        <div class="project">
+            <h3>Malaria Detection Deep Learning</h3>
+            <p>Designed a model to identify malaria parasites from medical images, significantly enhancing diagnostic precision.</p>
+        </div>
 
-      <div class="project">
-        <h3>Data Analysis &amp; Visualization</h3>
-        <p>
-          Conducted extensive data analysis projects demonstrating high proficiency in Excel,
-          Python, and R.
-        </p>
-      </div>
+        <div class="project">
+            <h3>Data Analysis & Visualization</h3>
+            <p>Conducted extensive data analysis projects demonstrating high proficiency in Excel, Python, and R.</p>
+        </div>
 
-      <!-- Research Paper Section -->
-      <div class="project">
-        <h3>
-          <a href="#" onclick="showPDF('assets/Research_Report NDLOVU M.pdf'); return false;">
-            Fine-Tuning Low-Resource Translation Models Using Data Augmentation
-          </a>
-        </h3>
-        <p>
-          This research focuses on improving Xitsonga-English translation by applying advanced data
-          augmentation techniques to enhance low-resource models.
-        </p>
-      </div>
+        <!-- Research Paper Section -->
+        <div class="project">
+            <h3>
+                <a href="#" onclick="showPDF('assets/Research_Report NDLOVU M.pdf'); return false;">
+                    Fine-Tuning Low-Resource Translation Models Using Data Augmentation
+                </a>
+            </h3>
+            <p>
+                This research focuses on improving Xitsonga-English translation by applying advanced data augmentation techniques to enhance low-resource models.
+            </p>
+        </div>
     </section>
 
-    <!-- Academic Section -->
     <section id="academic" class="section">
-      <h2>Academic Work</h2>
+          <h2>Academic Work</h2>
 
-      <div class="project">
-        <h3>Google Buzz Legacy System (Software Engineering)</h3>
-        <p>
-          This academic project reimagines Google Buzz — a social networking and microblogging
-          platform — by detailing both <strong>functional</strong> and <strong>non-functional</strong>
-          requirements alongside an in-depth architectural design. It addresses performance,
-          security, reliability, and usability concerns, illustrated with specific use cases and
-          deployment models.
-        </p>
-        <p><strong>Key Highlights Include:</strong></p>
-        <ul style="list-style: none; margin: 0; padding: 0;">
-          <li>Clearly defined <em>functional requirements</em> (user registration, profile management, etc.)</li>
-          <li><em>Non-functional requirements</em>, e.g., latency goals &amp; security measures</li>
-          <li><em>System architecture</em> combining Microservices, 3-Tier, and MVC patterns</li>
-          <li>Detailed <em>use-case diagrams</em> &amp; interaction flows</li>
-          <li><em>Deployment model</em> leveraging Google Cloud Platform services</li>
-        </ul>
-        <p>
-          <a href="assets/Research_Report_NDLOVU_M.pdf" target="_blank">View Paper (PDF)</a>
-        </p>
-      </div>
-
-      <div class="project">
-        <h3>Hybrid Learning in Neural Networks for Almond Classification</h3>
-        <p>
-          This study explores how <em>hybrid learning techniques</em> enhance neural network
-          performance for classifying different almond types (e.g., Mamra, Sanora, Regular). By
-          combining <strong>Rprop</strong> and <strong>Adam</strong> and a <strong>grid search</strong>
-          on key hyperparameters, the research demonstrates improved accuracy &amp; reduced
-          overfitting.
-        </p>
-        <p><strong>Key Highlights Include:</strong></p>
-        <ul style="list-style: none; margin: 0; padding: 0;">
-          <li>Comparison of <em>Rprop vs. Adam</em> and a combined (hybrid) method</li>
-          <li>Grid search to optimize <em>batch size</em> &amp; <em>epochs</em></li>
-          <li>Statistical analysis confirming <em>optimal configurations</em></li>
-          <li>Insights into <em>avoiding overfitting</em> &amp; maximizing accuracy</li>
-        </ul>
-        <p>
-          <a href="assets/Hybrid_Almond_Classification.pdf" target="_blank">
-            Hybrid Learning in Neural Networks for Almond Classification
-          </a>
-        </p>
-      </div>
-
-      <div class="project">
-        <h3>Deriving Backpropagation</h3>
-        <p>
-          This assignment required in-depth derivations of backpropagation update rules for a custom
-          neural network with:
-        </p>
-        <ul style="list-style: none; margin: 0; padding: 0;">
-          <li><em>Unique activation functions</em> in hidden &amp; output layers</li>
-          <li>A <strong>custom loss function</strong> including a penalty term on non-bias weights</li>
-          <li>Specific <em>bias vs. non-bias weight</em> updates</li>
-        </ul>
-        <p>
-          <a href="assets/COS711_Assignment1_Ndlovu.pdf" target="_blank">Backpropagation (PDF)</a>
-        </p>
-      </div>
-
-      <div class="project">
-        <h3>Data Augmentation</h3>
-        <p>
-          This study explores <strong>data augmentation techniques</strong> (e.g., back-translation, random
-          deletion, synonym replacement) to improve machine translation for the <em>low-resource</em>
-          Xitsonga–English language pair.
-        </p>
-        <p><strong>Key Highlights Include:</strong></p>
-        <ul style="list-style: none; margin: 0; padding: 0;">
-          <li><em>EDA &amp; Clustering:</em> Analysis of sentence lengths, word counts, etc.</li>
-          <li><em>Data Augmentation:</em> back-translation, random word insertion, thresholding, etc.</li>
-          <li>
-            <em>Transformer Models:</em> zaBERT, XLM-R, and RoBERTa outperformed traditional classifiers
-          </li>
-          <li>
-            <em>Practical Takeaways:</em> 
-            <strong>hybrid approaches</strong> &amp; <strong>semantic filtering</strong> in low-resource MT
-          </li>
-        </ul>
-        <p>
-          <a href="assets/FineTuning_LowResource_MT.pdf" target="_blank">
-            View Paper (PDF)
-          </a>
-        </p>
-      </div>
-
-      <div class="project">
-        <h3>Implementing Electronic Health Records (EHR)</h3>
-        <p>
-          This academic work proposes an EHR system to modernize patient-care processes in South African
-          public hospitals. By digitizing patient records, enhancing interoperability, and integrating
-          advanced security measures (e.g., encryption, role-based access control), EHR technology aims
-          to reduce medical errors, improve operational efficiency, and comply with POPIA.
-        </p>
-        <p><strong>Key Highlights Include:</strong></p>
-        <ul style="list-style: none; margin: 0; padding: 0;">
-          <li><em>Automated Patient Registration</em> &amp; <em>Interoperability</em></li>
-          <li><em>Data Security &amp; Privacy</em> (encryption, audit trails, multi-factor auth)</li>
-          <li><em>Clinical Decision Support</em> to minimize errors &amp; align treatments</li>
-          <li><em>Action Plan</em> for phased implementation, staff training, &amp; legal compliance</li>
-        </ul>
-        <p>
-          <a href="assets/EHR_Implementation.pdf" target="_blank">View Detailed Paper (PDF)</a>
-        </p>
-      </div>
-    </section>
-
-    <!-- PDF Viewer Modal -->
-    <div id="pdf-modal">
-      <div id="pdf-header">
-        <span id="pdf-title">Research Paper</span>
-        <button onclick="maximizePDF()">🔼</button>
-        <button onclick="minimizePDF()">🔽</button>
-        <button onclick="closePDF()">❌</button>
-      </div>
-      <iframe id="pdf-viewer" src="" allowfullscreen></iframe>
-    </div>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-      <h2>Contact Me</h2>
-      <iframe
-        src="https://docs.google.com/forms/d/e/1FAIpQLSeUg9nBGlOQuqAxq3SJxIPJ02Ws18cE7hvqze326F3kkKxrlg/viewform?embedded=true"
-        width="100%"
-        height="800"
-        frameborder="0"
-      >
-        Loading…
-      </iframe>
-      <h3>Let's Connect!</h3>
-      <p>
-        <strong>Email:</strong> <a href="mailto:makungumixo@gmail.com">makungumixo@gmail.com</a><br />
-        <strong>Phone:</strong> <a href="tel:+27714698301">+27 71 469 8301</a><br />
-        <strong>Alternative Phone:</strong> <a href="tel:+27655508453">+27 65 550 8453</a><br />
-        <strong>LinkedIn:</strong>
-        <a href="https://www.linkedin.com/in/makungumixo" target="_blank">linkedin.com/in/makungumixo</a><br />
-        <strong>GitHub:</strong>
-        <a href="https://github.com/makungumixo" target="_blank">github.com/makungumixo</a>
-      </p>
-    </section>
-  </main>
-</body>
-</html>
+        <div class="project">
+          <h3>Google Buzz Legacy System (Software Engineering )</h3>
+          <p>
+            This academic project reimagines Google Buzz – A social networking and microblogging 
+            platform – by detailing both <strong>functional</strong> and <strong>non-functional</strong> 
+            requirements alongside an in-depth architectural design. It addresses performance, 
+            security, reliability, and usability concerns, illustrated with specific use cases and 
+            deployment models.
+          </p>
+          <p><strong>Key Highlights Include:</strong></p>
+          <ul style="list-style: none; margin: 0; padding: 0;">
+            <li>Clearly defined <em>functional requirements</em> (user registration, profile management, privacy controls, etc.)</li>
+            <li>Identification and <em>quantification of non-functional requirements</em>, such as latency goals and security measures</li>
+            <li>System <em>architecture</em> combining Microservices, 3-Tier, and MVC patterns for robust scalability and maintainability</li>
+            <li>Detailed <em>use-case diagrams</em> and interaction flows</li>
+            <li><em>Deployment model</em> leveraging Google Cloud Platform services</li>
+          </ul>
+          <p>
+            <a href="assets/Research_Report_NDLOVU_M.pdf" target="_blank"> View Paper (PDF)</a>
+          </p>
+         </div>
+            
+        <div class="project">
+              <h3>Hybrid Learning in Neural Networks for Almond Classification</h3>
+              <p>
+                This study explores how <em>hybrid learning techniques</em> enhance neural network performance
+                for classifying different almond types (e.g., Mamra, Sanora, Regular). By combining two
+                powerful gradient-based algorithms—<strong>Rprop</strong> and <strong>Adam</strong>—and conducting
+                a <strong>grid search</strong> on key hyperparameters like <em>batch size</em> and <em>epochs</em>, the
+                research demonstrates how smaller batch sizes (e.g., 16) and more epochs (up to 200) yield
+                significantly better classification accuracy. The hybrid approach not only improves classification
+                accuracy but also <strong>reduces overfitting</strong> and enhances generalization.
+              </p>
+              <p><strong>Key Highlights Include:</strong></p>
+              <ul style="list-style: none; margin: 0; padding: 0;">
+                <li>Comparison of <em>Rprop vs. Adam</em> and a combined (hybrid) method</li>
+                <li>Grid search to optimize <em>batch size</em> and <em>number of epochs</em></li>
+                <li>Statistical analysis (t-tests) confirming <em>optimal configurations</em></li>
+                <li>Insights
 
 
 
