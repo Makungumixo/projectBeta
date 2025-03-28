@@ -110,7 +110,7 @@ main {
   color: #218838;
 }
 
-/* Dark Mode Button (top-right absolute if desired) */
+/* Dark Mode Button (top-right absolute) */
 #dark-mode-toggle {
   position: absolute;
   top: 10px;
@@ -158,7 +158,7 @@ main {
   background: rgba(52,53,65,0.8) !important;
 }
 
-/* Particle Container (fixed behind content) */
+/* The particle container behind everything */
 #particles-js {
   position: fixed;
   top: 0; left: 0;
@@ -226,7 +226,7 @@ main {
   border: none;
 }
 
-/* For your .glass-text on the heading */
+/* Glass text styling on heading */
 .glass-text {
   font-family: "Times New Roman", Times, serif;
   font-size: 0.4em;
@@ -239,19 +239,13 @@ main {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Optional responsive media queries for smaller devices */
+/* OPTIONAL: Basic responsive tweaks for small screens */
 @media (max-width: 768px) {
-  /* Possibly let the background scroll normally on mobile if you prefer 
-     or keep it as is. 
-  */
-  /* body { background-attachment: scroll; } */
-
-  /* Adjust nav if items overlap on small screens */
   header {
     flex-wrap: wrap;
     justify-content: center;
   }
-  
+
   nav ul {
     flex-direction: column;
     align-items: center;
@@ -266,16 +260,17 @@ main {
     margin: 10px auto;
     display: block;
   }
-  
+
   .profile-pic {
     width: 80px;
     height: 80px;
   }
-  
+
   .glass-text {
     font-size: 0.5em;
   }
 }
+
 
 
 
