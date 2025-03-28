@@ -1,10 +1,11 @@
+// Initialize Particles.js with your config
 particlesJS('particles-js', {
   "particles": {
     "number": {
-      "value": 80,
+      "value": 80,            // Optional: reduce to ~60 for faster performance on mobile
       "density": {
         "enable": true,
-        "value_area": 800
+        "value_area": 800     // Increase to spread out the particles more
       }
     },
     "shape": {
@@ -23,7 +24,7 @@ particlesJS('particles-js', {
     },
     "move": {
       "enable": true,
-      "speed": 2,
+      "speed": 2,            // Optional: set to 1 or 1.5 for slower, more relaxed movement
       "direction": "none",
       "random": true,
       "straight": false,
@@ -39,7 +40,7 @@ particlesJS('particles-js', {
     }
   },
   "interactivity": {
-    "detect_on": "canvas",
+    "detect_on": "canvas",   // "window" can allow cross-canvas interaction, but "canvas" is typical
     "events": {
       "onhover": {
         "enable": true,
