@@ -4,12 +4,11 @@ body {
   margin: 0;
   padding: 0;
   background-image: url('./assets/pexels-pixabay-247431.jpg');
-  /* Remove the filter from body; rely on an overlay instead */
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
-  color: #2c2c2c;
+  color: #2c2c2c; /* This is your default body text color (for nav links, etc.) */
   overflow-y: scroll;
   scroll-behavior: smooth;
   transition: background 0.3s ease, color 0.3s ease;
@@ -24,10 +23,10 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  /* This adds a slight black overlay. Increase or decrease 0.3 as needed. */
+  /* Dark overlay to dim the background image */
   background: rgba(0,0,0,0.8);
-  z-index: -1;         /* Below your content */
-  pointer-events: none;/* So clicks pass through */
+  z-index: -1;          /* Below your content */
+  pointer-events: none; /* So clicks pass through */
 }
 
 /* Header setup */
@@ -93,13 +92,13 @@ main {
   perspective: 1000px;
 }
 
-/* Use a darker color (#222) for contrast in light mode */
+/* Revert .section text color to silver (#dcdcdc) */
 .section {
   min-height: 100vh;
   padding: 40px;
   text-align: center;
   animation: fadeIn 1.5s ease;
-  color: #222; 
+  color: #dcdcdc; /* silver text */
 }
 
 /* Individual projects style */
@@ -132,8 +131,8 @@ main {
 /* Dark Mode Button (top-right) */
 #dark-mode-toggle {
   position: absolute;
-  top: 10px;     
-  right: 20px;   
+  top: 10px;
+  right: 20px;
   padding: 6px 12px;
   font-size: 12px;
   background-color: rgba(28, 185, 212, 0.7);
@@ -184,7 +183,7 @@ main {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -2; /* Make sure it's behind the overlay pseudo-element at z-index: -1 */
+  z-index: -2; /* behind the overlay at z-index: -1 */
   background: transparent;
 }
 
@@ -254,7 +253,7 @@ main {
 }
 
 #academic .project {
-  background: rgba(255, 255, 240, 0.8); 
+  background: rgba(255, 255, 240, 0.8);
   margin: 15px auto;
   padding: 20px;
   border-radius: 8px;
@@ -263,8 +262,8 @@ main {
 
 .glass-text {
   font-family: "Times New Roman", Times, serif;
-  font-size: 0.4em; 
-  color: rgba(255, 255, 255, 0.7); 
+  font-size: 0.4em;
+  color: rgba(255, 255, 255, 0.7);
   background: rgba(255, 255, 255, 0.2);
   padding: 5px 10px;
   border-radius: 10px;
@@ -272,7 +271,6 @@ main {
   -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
 
 
 
