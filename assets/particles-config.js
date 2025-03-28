@@ -1,10 +1,10 @@
 particlesJS('particles-js', {
   "particles": {
     "number": {
-      "value": 80,
+      "value": 100,
       "density": {
         "enable": true,
-        "value_area": 800
+        "value_area": 1200
       }
     },
     "shape": {
@@ -64,5 +64,6 @@ particlesJS('particles-js', {
   },
   "retina_detect": true
 });
+
 
 
