@@ -1,30 +1,38 @@
 /* ----------------------------------
    GLOBAL STYLES
 ---------------------------------- */
-body {
-  font-family: 'Poppins', Arial, sans-serif;
+* {
+  box-sizing: border-box;
+}
+
+html, body {
   margin: 0;
   padding: 0;
-  background-image: url('./assets/pexels-pixabay-247431.jpg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed; /* We'll override this on mobile */
+  height: 100%;
+  font-family: 'Poppins', Arial, sans-serif;
   color: #2c2c2c;
-  overflow-y: scroll;
   scroll-behavior: smooth;
   transition: background 0.3s ease, color 0.3s ease;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* If you still want a background image, be mindful it won't scroll with fixed #particles-js on mobile */
+body {
+  background-image: url('./assets/pexels-pixabay-247431.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed; /* We'll override this on mobile below */
+}
+
+/* The particle container covers the entire viewport */
+#particles-js {
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* behind content */
+  background: transparent;
 }
 
 /* ----------------------------------
@@ -35,13 +43,14 @@ header {
   top: 0;
   left: 0;
   right: 0;
-  display: flex; 
+
+  display: flex;
   justify-content: space-between;
   align-items: center;
+
   padding: 10px 20px;
   background: transparent;
   z-index: 1000;
-  box-sizing: border-box;
 }
 
 .logo-container {
@@ -82,7 +91,7 @@ nav ul li a:hover {
   color: #1f6feb;
 }
 
-/* Dark Mode Button (top-right) */
+/* Dark Mode button (absolute on large screens, but changes in media query) */
 #dark-mode-toggle {
   position: absolute;
   top: 10px;
@@ -91,7 +100,7 @@ nav ul li a:hover {
   font-size: 12px;
   background-color: rgba(28, 185, 212, 0.7);
   backdrop-filter: blur(8px);
-  color: #ffffff;
+  color: #fff;
   border: none;
   cursor: pointer;
   border-radius: 20px;
@@ -114,19 +123,23 @@ nav ul li a:hover {
    MAIN & SECTION
 ---------------------------------- */
 main {
-  margin-top: 80px; /* Enough space so header doesn't overlap */
-  padding: 20px;
+  margin-top: 80px; /* ensure content isn't behind fixed header */
   transform-style: preserve-3d;
-  transition: transform 0.3s ease-out;
   perspective: 1000px;
+  transition: transform 0.3s ease-out;
 }
 
 .section {
   min-height: 100vh;
-  padding: 40px;
+  padding: 40px 20px; /* 20px side padding for smaller screens */
   text-align: center;
   animation: fadeIn 1.5s ease;
   color: #dcdcdc;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* ----------------------------------
@@ -147,7 +160,7 @@ main {
   transform: scale(1.05);
 }
 
-/* Academic tweak */
+/* Different background for academic section's projects */
 #academic .project {
   background: rgba(255, 255, 240, 0.8);
   margin: 15px auto;
@@ -157,7 +170,7 @@ main {
 }
 
 /* ----------------------------------
-   CONTACT LINKS
+   CONTACT & LINKS
 ---------------------------------- */
 #contact a {
   color: #28a745;
@@ -180,9 +193,9 @@ main {
   width: 80%;
   max-width: 800px;
   height: 600px;
-  background: white;
+  background: #fff;
   border-radius: 10px;
-  box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
   display: none;
   flex-direction: column;
   z-index: 1002;
@@ -193,12 +206,11 @@ main {
   height: 50px;
   width: 300px;
   overflow: hidden;
-  transition: height 0.3s ease, width 0.3s ease;
 }
 
 #pdf-header {
   background: #1f6feb;
-  color: white;
+  color: #fff;
   padding: 10px;
   font-weight: bold;
   cursor: grab;
@@ -212,7 +224,7 @@ main {
 #pdf-header button {
   background: transparent;
   border: none;
-  color: white;
+  color: #fff;
   font-size: 16px;
   cursor: pointer;
   margin-left: 10px;
@@ -243,9 +255,9 @@ main {
    DARK MODE
 ---------------------------------- */
 .dark-mode {
-  background-image: none !important;
+  background-image: none !important; /* override any image in dark mode */
   background-color: #202123 !important;
-  color: #ffffff !important;
+  color: #fff !important;
 }
 
 .dark-mode header {
@@ -253,77 +265,66 @@ main {
 }
 
 .dark-mode nav ul li a {
-  color: #ffffff !important;
+  color: #fff !important;
 }
 
 .dark-mode .section,
 .dark-mode .project {
-  color: #ffffff !important;
+  color: #fff !important;
   background: rgba(52,53,65,0.8) !important;
 }
 
 /* ----------------------------------
-   RESPONSIVE MEDIA QUERIES
+   MEDIA QUERIES (RESPONSIVE)
 ---------------------------------- */
 
-/* Tablets & Small Desktops */
+/* Medium screens (tablets) */
 @media (max-width: 992px) {
-  .section {
-    padding: 30px;
-  }
   .project {
     max-width: 90%;
   }
 }
 
-/* Mobile Devices */
+/* Mobile (max-width: 768px) */
 @media (max-width: 768px) {
-  /* Let background scroll normally on mobile (fix for iOS issues) */
+  /* Stop using fixed background for mobile due to iOS issues */
   body {
     background-attachment: scroll;
   }
-  
+
   header {
     flex-wrap: wrap;
     justify-content: center;
   }
-  
+
   .logo-container {
     margin-bottom: 10px;
   }
-  
-  /* Stack nav items vertically */
+
   nav ul {
     flex-direction: column;
     align-items: center;
   }
-  
+
   nav ul li {
     margin-bottom: 10px;
   }
-  
+
+  /* Let the Dark Mode button flow with nav items */
   #dark-mode-toggle {
-    position: static; /* Let it flow with other elements */
+    position: static;
     margin: 10px auto;
     display: block;
   }
-  
-  .section {
-    padding: 20px;
-  }
-  
-  .project {
-    max-width: 100%;
-    margin: 20px auto;
-  }
-  
+
   .profile-pic {
     width: 80px;
     height: 80px;
   }
-  
+
+  /* Slightly larger text on mobile for readability */
   .glass-text {
-    font-size: 0.5em; /* slightly larger for mobile readability, adjust as needed */
+    font-size: 0.5em; 
   }
 }
 
