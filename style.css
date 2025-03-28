@@ -1,4 +1,6 @@
-/* General page setup */
+/* ----------------------------------
+   GLOBAL STYLES
+---------------------------------- */
 body {
   font-family: 'Poppins', Arial, sans-serif;
   margin: 0;
@@ -7,20 +9,33 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  background-attachment: fixed;
+  background-attachment: fixed; /* We'll override this on mobile */
   color: #2c2c2c;
   overflow-y: scroll;
   scroll-behavior: smooth;
   transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* Header setup */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ----------------------------------
+   HEADER & NAV
+---------------------------------- */
 header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  display: flex;
+  display: flex; 
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
@@ -29,7 +44,6 @@ header {
   box-sizing: border-box;
 }
 
-/* Profile picture and name */
 .logo-container {
   display: flex;
   align-items: center;
@@ -47,9 +61,9 @@ header {
 
 header h1 {
   color: #a0522d;
+  margin: 0;
 }
 
-/* Navigation menu styling */
 nav ul {
   list-style: none;
   display: flex;
@@ -68,78 +82,11 @@ nav ul li a:hover {
   color: #1f6feb;
 }
 
-/* Main content section setup */
-main {
-  margin-top: 80px;
-  padding: 20px;
-  transform-style: preserve-3d;
-  transition: transform 0.3s ease-out;
-  perspective: 1000px;
-}
-
-
-.section {
-  min-height: 100vh;
-  padding: 40px;
-  text-align: center;
-  animation: fadeIn 1.5s ease;
-  color: #dcdcdc;
-}
-
-/* Individual projects style */
-.project {
-  padding: 20px;
-  background: rgba(255,255,255,0.9);
-  margin: 10px auto;
-  border-radius: 10px;
-  transition: transform 0.3s ease;
-  max-width: 600px;
-  color: #141414;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-}
-
-.project:hover {
-  transform: scale(1.05);
-}
-
-/* Contact form styling */
-form input, form textarea {
-  padding: 10px;
-  margin: 10px 0;
-  width: 80%;
-  border-radius: 5px;
-  border: none;
-}
-
-form button {
-  padding: 10px 20px;
-  cursor: pointer;
-  background-color: #1f6feb;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  transition: background 0.3s;
-}
-
-form button:hover {
-  background-color: #154db4;
-}
-
-/* Contact links specifically green */
-#contact a {
-  color: #28a745;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-#contact a:hover {
-  color: #218838;
-}
-
+/* Dark Mode Button (top-right) */
 #dark-mode-toggle {
   position: absolute;
-  top: 10px;     
-  right: 20px;   
+  top: 10px;
+  right: 20px;
   padding: 6px 12px;
   font-size: 12px;
   background-color: rgba(28, 185, 212, 0.7);
@@ -163,7 +110,138 @@ form button:hover {
   box-shadow: 0 0 15px rgba(31, 111, 235, 0.6);
 }
 
-/* Dark mode styling */
+/* ----------------------------------
+   MAIN & SECTION
+---------------------------------- */
+main {
+  margin-top: 80px; /* Enough space so header doesn't overlap */
+  padding: 20px;
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease-out;
+  perspective: 1000px;
+}
+
+.section {
+  min-height: 100vh;
+  padding: 40px;
+  text-align: center;
+  animation: fadeIn 1.5s ease;
+  color: #dcdcdc;
+}
+
+/* ----------------------------------
+   PROJECT STYLES
+---------------------------------- */
+.project {
+  padding: 20px;
+  background: rgba(255,255,255,0.9);
+  margin: 10px auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+  max-width: 600px;
+  color: #141414;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.project:hover {
+  transform: scale(1.05);
+}
+
+/* Academic tweak */
+#academic .project {
+  background: rgba(255, 255, 240, 0.8);
+  margin: 15px auto;
+  padding: 20px;
+  border-radius: 8px;
+  color: #111;
+}
+
+/* ----------------------------------
+   CONTACT LINKS
+---------------------------------- */
+#contact a {
+  color: #28a745;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+#contact a:hover {
+  color: #218838;
+}
+
+/* ----------------------------------
+   PDF MODAL
+---------------------------------- */
+#pdf-modal {
+  position: fixed;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  max-width: 800px;
+  height: 600px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
+  display: none;
+  flex-direction: column;
+  z-index: 1002;
+  transition: height 0.3s ease, width 0.3s ease;
+}
+
+#pdf-modal.minimized {
+  height: 50px;
+  width: 300px;
+  overflow: hidden;
+  transition: height 0.3s ease, width 0.3s ease;
+}
+
+#pdf-header {
+  background: #1f6feb;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  cursor: grab;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+#pdf-header button {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+#pdf-viewer {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ----------------------------------
+   GLASS TEXT
+---------------------------------- */
+.glass-text {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 0.4em;
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.2);
+  padding: 5px 10px;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* ----------------------------------
+   DARK MODE
+---------------------------------- */
 .dark-mode {
   background-image: none !important;
   background-color: #202123 !important;
@@ -178,101 +256,77 @@ form button:hover {
   color: #ffffff !important;
 }
 
-.dark-mode .section, .dark-mode .project {
+.dark-mode .section,
+.dark-mode .project {
   color: #ffffff !important;
   background: rgba(52,53,65,0.8) !important;
 }
 
-#particles-js {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background-color: transparent;
-  z-index: -1;
-  top: 0;
-  left: 0;
+/* ----------------------------------
+   RESPONSIVE MEDIA QUERIES
+---------------------------------- */
+
+/* Tablets & Small Desktops */
+@media (max-width: 992px) {
+  .section {
+    padding: 30px;
+  }
+  .project {
+    max-width: 90%;
+  }
 }
 
-@keyframes fadeIn {
-  from {opacity: 0; transform: translateY(20px);}
-  to {opacity: 1; transform: translateY(0);}
-}
-
-#pdf-modal {
-    position: fixed;
-    top: 50px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%;
-    max-width: 800px;
-    height: 600px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
-    display: none;
+/* Mobile Devices */
+@media (max-width: 768px) {
+  /* Let background scroll normally on mobile (fix for iOS issues) */
+  body {
+    background-attachment: scroll;
+  }
+  
+  header {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .logo-container {
+    margin-bottom: 10px;
+  }
+  
+  /* Stack nav items vertically */
+  nav ul {
     flex-direction: column;
-    z-index: 1002;
-    transition: height 0.3s ease, width 0.3s ease;
-}
-
-
-#pdf-modal.minimized {
-    height: 50px;
-    width: 300px;
-    overflow: hidden;
-    transition: height 0.3s ease, width 0.3s ease;
-}
-#pdf-header {
-    background: #1f6feb;
-    color: white;
-    padding: 10px;
-    font-weight: bold;
-    cursor: grab;
-    display: flex;
-    justify-content: space-between;
     align-items: center;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+  }
+  
+  nav ul li {
+    margin-bottom: 10px;
+  }
+  
+  #dark-mode-toggle {
+    position: static; /* Let it flow with other elements */
+    margin: 10px auto;
+    display: block;
+  }
+  
+  .section {
+    padding: 20px;
+  }
+  
+  .project {
+    max-width: 100%;
+    margin: 20px auto;
+  }
+  
+  .profile-pic {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .glass-text {
+    font-size: 0.5em; /* slightly larger for mobile readability, adjust as needed */
+  }
 }
 
-#pdf-header button {
-    background: transparent;
-    border: none;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    margin-left: 10px;
-}
 
-#pdf-viewer {
-    width: 100%;
-    height: 100%;
-    border: none;
-}
-
-#academic .project {
-  background: rgba(255, 255, 240, 0.8); 
-  margin: 15px auto;
-  padding: 20px;
-  border-radius: 8px;
-  color: #111;
-}
-
-/*
-#academic {
-  font-family: "Times New Roman", Times, serif;
-}*/
-
-.glass-text {
-  font-family: "Times New Roman", Times, serif;
-  font-size: 0.4em; 
-  color: rgba(255, 255, 255, 0.7); 
-  background: rgba(255, 255, 255, 0.2);
-  padding: 5px 10px;
-  border-radius: 10px;
-  backdrop-filter: blur(10px); 
-  -webkit-backdrop-filter: blur(10px); 
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-}
 
 
