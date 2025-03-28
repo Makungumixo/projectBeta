@@ -77,12 +77,13 @@ main {
   perspective: 1000px;
 }
 
+/* 🔔 Updated color from #dcdcdc to #222 for better contrast */
 .section {
   min-height: 100vh;
   padding: 40px;
   text-align: center;
   animation: fadeIn 1.5s ease;
-  color: #dcdcdc;
+  color: #222; /* <--- changed here */
 }
 
 /* Individual projects style */
@@ -179,54 +180,54 @@ main {
 
 /* PDF Modal */
 #pdf-modal {
-    position: fixed;
-    top: 50px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%;
-    max-width: 800px;
-    height: 600px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
-    display: none;
-    flex-direction: column;
-    z-index: 1002;
-    transition: height 0.3s ease, width 0.3s ease;
+  position: fixed;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  max-width: 800px;
+  height: 600px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
+  display: none;
+  flex-direction: column;
+  z-index: 1002;
+  transition: height 0.3s ease, width 0.3s ease;
 }
 
 #pdf-modal.minimized {
-    height: 50px;
-    width: 300px;
-    overflow: hidden;
-    transition: height 0.3s ease, width 0.3s ease;
+  height: 50px;
+  width: 300px;
+  overflow: hidden;
+  transition: height 0.3s ease, width 0.3s ease;
 }
 #pdf-header {
-    background: #1f6feb;
-    color: white;
-    padding: 10px;
-    font-weight: bold;
-    cursor: grab;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+  background: #1f6feb;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  cursor: grab;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 #pdf-header button {
-    background: transparent;
-    border: none;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    margin-left: 10px;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 10px;
 }
 
 #pdf-viewer {
-    width: 100%;
-    height: 100%;
-    border: none;
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 
 #academic .project {
