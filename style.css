@@ -1,6 +1,4 @@
-/* ----------------------------------
-   GLOBAL STYLES
----------------------------------- */
+/* RESET */
 * {
   box-sizing: border-box;
 }
@@ -8,49 +6,47 @@
 html, body {
   margin: 0;
   padding: 0;
-  height: 100%;
+  /* We will allow the body to be as tall as content, 
+     so we can set #particles-js to match it. */
+  min-height: 100%;
   font-family: 'Poppins', Arial, sans-serif;
-  color: #2c2c2c;
-  scroll-behavior: smooth;
-  transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* If you still want a background image, be mindful it won't scroll with fixed #particles-js on mobile */
+/* BACKGROUND IMAGE (Optional) */
 body {
   background-image: url('./assets/pexels-pixabay-247431.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  background-attachment: fixed; /* We'll override this on mobile below */
+  /* We do NOT fix this background, since we want to see particles as we scroll. 
+     Also, iOS has issues with background-attachment: fixed; on tall pages. */
 }
 
-/* The particle container covers the entire viewport */
+/* PARTICLES FULL-PAGE SCROLLING 
+   We do position: absolute here, so it can expand with the document's height.
+*/
 #particles-js {
-  position: fixed; 
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  z-index: -1; /* behind content */
+  min-height: 100%; /* We'll dynamically resize this with JS to match the page height */
+  z-index: -1;
   background: transparent;
 }
 
-/* ----------------------------------
-   HEADER & NAV
----------------------------------- */
+/* HEADER */
 header {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 0; left: 0; right: 0;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   padding: 10px 20px;
+  z-index: 1000; /* Above the particles but below the toggler if needed */
   background: transparent;
-  z-index: 1000;
 }
 
 .logo-container {
@@ -59,13 +55,12 @@ header {
 }
 
 .profile-pic {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   object-fit: cover;
   margin-right: 10px;
   border: 2px solid #fff;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 
 header h1 {
@@ -73,12 +68,12 @@ header h1 {
   margin: 0;
 }
 
+/* NAVIGATION */
 nav ul {
   list-style: none;
   display: flex;
   gap: 15px;
-  margin: 0;
-  padding: 0;
+  margin: 0; padding: 0;
 }
 
 nav ul li a {
@@ -91,60 +86,45 @@ nav ul li a:hover {
   color: #1f6feb;
 }
 
-/* Dark Mode button (absolute on large screens, but changes in media query) */
+/* DARK MODE BUTTON */
 #dark-mode-toggle {
-  position: absolute;
-  top: 10px;
-  right: 20px;
-  padding: 6px 12px;
-  font-size: 12px;
+  /* We'll keep it simple so it stays in the nav flow; 
+     if you want absolute top-right, you can do: position: absolute; top: 10px; right: 20px; 
+     but that can conflict with a full-page #particles-js. */
   background-color: rgba(28, 185, 212, 0.7);
-  backdrop-filter: blur(8px);
-  color: #fff;
+  color: #ffffff;
   border: none;
-  cursor: pointer;
   border-radius: 20px;
-  font-family: 'Poppins', sans-serif;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 12px;
   font-weight: bold;
+  font-family: 'Poppins', sans-serif;
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: background 0.3s, transform 0.3s;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-  z-index: 1001;
 }
 
 #dark-mode-toggle:hover {
   background-color: #66c7e0;
   transform: scale(1.05);
-  box-shadow: 0 0 15px rgba(31, 111, 235, 0.6);
 }
 
-/* ----------------------------------
-   MAIN & SECTION
----------------------------------- */
+/* MAIN CONTENT */
 main {
-  margin-top: 80px; /* ensure content isn't behind fixed header */
-  transform-style: preserve-3d;
-  perspective: 1000px;
-  transition: transform 0.3s ease-out;
+  margin-top: 80px; /* So content isn't hidden behind the fixed header */
+  /* No background-attachment: fixed here, because we want to see the scrolled particles. */
 }
 
+/* SECTIONS */
 .section {
   min-height: 100vh;
-  padding: 40px 20px; /* 20px side padding for smaller screens */
+  padding: 40px 20px;
   text-align: center;
-  animation: fadeIn 1.5s ease;
   color: #dcdcdc;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-/* ----------------------------------
-   PROJECT STYLES
----------------------------------- */
+/* PROJECTS */
 .project {
   padding: 20px;
   background: rgba(255,255,255,0.9);
@@ -160,52 +140,37 @@ main {
   transform: scale(1.05);
 }
 
-/* Different background for academic section's projects */
 #academic .project {
-  background: rgba(255, 255, 240, 0.8);
+  background: rgba(255, 255, 240, 0.8); 
   margin: 15px auto;
   padding: 20px;
   border-radius: 8px;
   color: #111;
 }
 
-/* ----------------------------------
-   CONTACT & LINKS
----------------------------------- */
 #contact a {
   color: #28a745;
   text-decoration: none;
-  transition: color 0.3s ease;
 }
 
 #contact a:hover {
   color: #218838;
 }
 
-/* ----------------------------------
-   PDF MODAL
----------------------------------- */
+/* PDF MODAL */
 #pdf-modal {
   position: fixed;
-  top: 50px;
-  left: 50%;
+  top: 50px; left: 50%;
   transform: translateX(-50%);
   width: 80%;
   max-width: 800px;
   height: 600px;
   background: #fff;
   border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
   display: none;
   flex-direction: column;
   z-index: 1002;
-  transition: height 0.3s ease, width 0.3s ease;
-}
-
-#pdf-modal.minimized {
-  height: 50px;
-  width: 300px;
-  overflow: hidden;
 }
 
 #pdf-header {
@@ -213,7 +178,6 @@ main {
   color: #fff;
   padding: 10px;
   font-weight: bold;
-  cursor: grab;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -236,9 +200,7 @@ main {
   border: none;
 }
 
-/* ----------------------------------
-   GLASS TEXT
----------------------------------- */
+/* GLASS TEXT */
 .glass-text {
   font-family: "Times New Roman", Times, serif;
   font-size: 0.4em;
@@ -251,11 +213,8 @@ main {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* ----------------------------------
-   DARK MODE
----------------------------------- */
+/* DARK MODE OVERRIDES */
 .dark-mode {
-  background-image: none !important; /* override any image in dark mode */
   background-color: #202123 !important;
   color: #fff !important;
 }
@@ -274,57 +233,43 @@ main {
   background: rgba(52,53,65,0.8) !important;
 }
 
-/* ----------------------------------
-   MEDIA QUERIES (RESPONSIVE)
----------------------------------- */
-
-/* Medium screens (tablets) */
-@media (max-width: 992px) {
-  .project {
-    max-width: 90%;
-  }
-}
-
-/* Mobile (max-width: 768px) */
+/* RESPONSIVE MEDIA QUERIES */
 @media (max-width: 768px) {
-  /* Stop using fixed background for mobile due to iOS issues */
-  body {
-    background-attachment: scroll;
-  }
-
   header {
     flex-wrap: wrap;
     justify-content: center;
   }
 
-  .logo-container {
-    margin-bottom: 10px;
-  }
-
   nav ul {
     flex-direction: column;
     align-items: center;
+    margin-top: 10px;
   }
 
   nav ul li {
     margin-bottom: 10px;
   }
 
-  /* Let the Dark Mode button flow with nav items */
+  /* Make the nav text smaller if needed */
+  nav ul li a {
+    font-size: 0.9rem;
+  }
+
+  /* Let the Dark Mode toggle flow in the nav stack */
   #dark-mode-toggle {
     position: static;
-    margin: 10px auto;
+    margin: 0 auto;
     display: block;
   }
 
+  /* Possibly bigger for clarity on mobile */
   .profile-pic {
-    width: 80px;
-    height: 80px;
+    width: 60px; 
+    height: 60px;
   }
 
-  /* Slightly larger text on mobile for readability */
   .glass-text {
-    font-size: 0.5em; 
+    font-size: 0.5em;
   }
 }
 
