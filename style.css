@@ -8,33 +8,16 @@ body {
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
-  color: #2c2c2c; /* This is your default body text color (for nav links, etc.) */
+  color: #2c2c2c;
   overflow-y: scroll;
   scroll-behavior: smooth;
   transition: background 0.3s ease, color 0.3s ease;
-  position: relative; /* So the pseudo-element can be positioned within the body */
 }
 
-/* DIM OVERLAY */
-body::before {
-  content: "";
-  position: fixed; /* Stays in place like the background-attachment */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  /* Dark overlay to dim the background image */
-  background: rgba(0,0,0,0.8);
-  z-index: -1;          /* Below your content */
-  pointer-events: none; /* So clicks pass through */
-}
-
-/* Header setup */
+/* Fixed header setup */
 header {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 0; left: 0; right: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -92,13 +75,12 @@ main {
   perspective: 1000px;
 }
 
-/* Revert .section text color to silver (#dcdcdc) */
 .section {
   min-height: 100vh;
   padding: 40px;
   text-align: center;
   animation: fadeIn 1.5s ease;
-  color: #dcdcdc; /* silver text */
+  color: #dcdcdc;
 }
 
 /* Individual projects style */
@@ -183,20 +165,14 @@ main {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -2; /* behind the overlay at z-index: -1 */
+  z-index: -1;
   background: transparent;
 }
 
 /* Fade-in animation */
 @keyframes fadeIn {
-  from {
-    opacity: 0; 
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1; 
-    transform: translateY(0);
-  }
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
 }
 
 /* PDF Modal */
@@ -223,7 +199,6 @@ main {
   overflow: hidden;
   transition: height 0.3s ease, width 0.3s ease;
 }
-
 #pdf-header {
   background: #1f6feb;
   color: white;
@@ -253,17 +228,18 @@ main {
 }
 
 #academic .project {
-  background: rgba(255, 255, 240, 0.8);
+  background: rgba(255, 255, 240, 0.8); 
   margin: 15px auto;
   padding: 20px;
   border-radius: 8px;
   color: #111;
 }
 
+/* Glass text styling for the heading */
 .glass-text {
   font-family: "Times New Roman", Times, serif;
-  font-size: 0.4em;
-  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.4em; 
+  color: rgba(255, 255, 255, 0.7); 
   background: rgba(255, 255, 255, 0.2);
   padding: 5px 10px;
   border-radius: 10px;
