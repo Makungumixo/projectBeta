@@ -1,30 +1,17 @@
-// Initialize Particles.js with your config
+// 1. Initialize Particles normally:
 particlesJS('particles-js', {
   "particles": {
     "number": {
-      "value": 80,            // Optional: reduce to ~60 for faster performance on mobile
-      "density": {
-        "enable": true,
-        "value_area": 800     // Increase to spread out the particles more
-      }
+      "value": 80,
+      "density": { "enable": true, "value_area": 800 }
     },
-    "shape": {
-      "type": "triangle"
-    },
-    "color": {
-      "value": "#ffffff"
-    },
-    "opacity": {
-      "value": 0.5,
-      "random": true
-    },
-    "size": {
-      "value": 5,
-      "random": true
-    },
+    "color": { "value": "#ffffff" },
+    "shape": { "type": "triangle" },
+    "opacity": { "value": 0.5, "random": true },
+    "size": { "value": 5, "random": true },
     "move": {
       "enable": true,
-      "speed": 2,            // Optional: set to 1 or 1.5 for slower, more relaxed movement
+      "speed": 2,
       "direction": "none",
       "random": true,
       "straight": false,
@@ -40,28 +27,44 @@ particlesJS('particles-js', {
     }
   },
   "interactivity": {
-    "detect_on": "canvas",   // "window" can allow cross-canvas interaction, but "canvas" is typical
+    "detect_on": "canvas",
     "events": {
-      "onhover": {
-        "enable": true,
-        "mode": "grab"
-      },
-      "onclick": {
-        "enable": true,
-        "mode": "push"
-      }
+      "onhover": { "enable": true, "mode": "grab" },
+      "onclick": { "enable": true, "mode": "push" }
     },
     "modes": {
-      "grab": {
-        "distance": 200,
-        "line_linked": {
-          "opacity": 1
-        }
-      },
-      "push": {
-        "particles_nb": 4
-      }
+      "grab": { "distance": 200, "line_linked": { "opacity": 1 } },
+      "push": { "particles_nb": 4 }
     }
   },
   "retina_detect": true
 });
+
+// 2. Force the Particles canvas to match the page height:
+function resizeParticles() {
+  // The outer container
+  const container = document.getElementById('particles-js');
+  // Set its height to the full document height:
+  const pageHeight = Math.max(
+    document.body.scrollHeight, 
+    document.documentElement.scrollHeight
+  );
+  container.style.height = pageHeight + 'px';
+
+  // Then forcibly tell Particles.js to recalc canvas size:
+  if (window.pJSDom && window.pJSDom.length > 0) {
+    const pJS = window.pJSDom[0].pJS;
+    // Update the canvas element
+    pJS.canvas.el.width = container.offsetWidth;
+    pJS.canvas.el.height = container.offsetHeight;
+    // Refresh the particle system
+    pJS.fn.particlesRefresh();
+  }
+}
+
+// 3. Listen for page load, resize, and scroll events:
+window.addEventListener('DOMContentLoaded', resizeParticles);
+window.addEventListener('load', resizeParticles);
+window.addEventListener('resize', resizeParticles);
+window.addEventListener('scroll', resizeParticles);
+
