@@ -1,79 +1,59 @@
-/* RESET */
-* {
-  box-sizing: border-box;
-}
-
-html, body {
+/* General page setup */
+body {
+  font-family: 'Poppins', Arial, sans-serif;
   margin: 0;
   padding: 0;
-  /* We will allow the body to be as tall as content, 
-     so we can set #particles-js to match it. */
-  min-height: 100%;
-  font-family: 'Poppins', Arial, sans-serif;
-}
-
-/* BACKGROUND IMAGE (Optional) */
-body {
   background-image: url('./assets/pexels-pixabay-247431.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  /* We do NOT fix this background, since we want to see particles as we scroll. 
-     Also, iOS has issues with background-attachment: fixed; on tall pages. */
+  background-attachment: fixed;
+  color: #2c2c2c;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* PARTICLES FULL-PAGE SCROLLING 
-   We do position: absolute here, so it can expand with the document's height.
-*/
-#particles-js {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  min-height: 100%; /* We'll dynamically resize this with JS to match the page height */
-  z-index: -1;
-  background: transparent;
-}
-
-/* HEADER */
+/* Fixed header setup */
 header {
   position: fixed;
   top: 0; left: 0; right: 0;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   padding: 10px 20px;
-  z-index: 1000; /* Above the particles but below the toggler if needed */
   background: transparent;
+  z-index: 1000;
+  box-sizing: border-box;
 }
 
+/* Profile picture and name */
 .logo-container {
   display: flex;
   align-items: center;
 }
 
 .profile-pic {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   object-fit: cover;
   margin-right: 10px;
   border: 2px solid #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 
 header h1 {
   color: #a0522d;
-  margin: 0;
 }
 
-/* NAVIGATION */
+/* Navigation menu styling */
 nav ul {
   list-style: none;
   display: flex;
   gap: 15px;
-  margin: 0; padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 nav ul li a {
@@ -86,45 +66,24 @@ nav ul li a:hover {
   color: #1f6feb;
 }
 
-/* DARK MODE BUTTON */
-#dark-mode-toggle {
-  /* We'll keep it simple so it stays in the nav flow; 
-     if you want absolute top-right, you can do: position: absolute; top: 10px; right: 20px; 
-     but that can conflict with a full-page #particles-js. */
-  background-color: rgba(28, 185, 212, 0.7);
-  color: #ffffff;
-  border: none;
-  border-radius: 20px;
-  padding: 6px 12px;
-  cursor: pointer;
-  font-size: 12px;
-  font-weight: bold;
-  font-family: 'Poppins', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: background 0.3s, transform 0.3s;
-}
-
-#dark-mode-toggle:hover {
-  background-color: #66c7e0;
-  transform: scale(1.05);
-}
-
-/* MAIN CONTENT */
+/* Main content section setup */
 main {
-  margin-top: 80px; /* So content isn't hidden behind the fixed header */
-  /* No background-attachment: fixed here, because we want to see the scrolled particles. */
+  margin-top: 80px;
+  padding: 20px;
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease-out;
+  perspective: 1000px;
 }
 
-/* SECTIONS */
 .section {
   min-height: 100vh;
-  padding: 40px 20px;
+  padding: 40px;
   text-align: center;
+  animation: fadeIn 1.5s ease;
   color: #dcdcdc;
 }
 
-/* PROJECTS */
+/* Individual projects style */
 .project {
   padding: 20px;
   background: rgba(255,255,255,0.9);
@@ -140,24 +99,82 @@ main {
   transform: scale(1.05);
 }
 
-#academic .project {
-  background: rgba(255, 255, 240, 0.8); 
-  margin: 15px auto;
-  padding: 20px;
-  border-radius: 8px;
-  color: #111;
-}
-
+/* Contact links specifically green */
 #contact a {
   color: #28a745;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 #contact a:hover {
   color: #218838;
 }
 
-/* PDF MODAL */
+/* Dark Mode Button (top-right absolute if desired) */
+#dark-mode-toggle {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  padding: 6px 12px;
+  font-size: 12px;
+  background-color: rgba(28, 185, 212, 0.7);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  border-radius: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background 0.3s, transform 0.3s;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1001;
+}
+
+#dark-mode-toggle:hover {
+  background-color: #66c7e0;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(31, 111, 235, 0.6);
+}
+
+/* Dark mode styling */
+.dark-mode {
+  background-image: none !important;
+  background-color: #202123 !important;
+  color: #ffffff !important;
+}
+
+.dark-mode header {
+  background: rgba(32, 33, 35, 0.95) !important;
+}
+
+.dark-mode nav ul li a {
+  color: #ffffff !important;
+}
+
+.dark-mode .section, .dark-mode .project {
+  color: #ffffff !important;
+  background: rgba(52,53,65,0.8) !important;
+}
+
+/* Particle Container (fixed behind content) */
+#particles-js {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: transparent;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* PDF Modal */
 #pdf-modal {
   position: fixed;
   top: 50px; left: 50%;
@@ -165,19 +182,28 @@ main {
   width: 80%;
   max-width: 800px;
   height: 600px;
-  background: #fff;
+  background: white;
   border-radius: 10px;
   box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
   display: none;
   flex-direction: column;
   z-index: 1002;
+  transition: height 0.3s ease, width 0.3s ease;
+}
+
+#pdf-modal.minimized {
+  height: 50px;
+  width: 300px;
+  overflow: hidden;
+  transition: height 0.3s ease, width 0.3s ease;
 }
 
 #pdf-header {
   background: #1f6feb;
-  color: #fff;
+  color: white;
   padding: 10px;
   font-weight: bold;
+  cursor: grab;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -188,7 +214,7 @@ main {
 #pdf-header button {
   background: transparent;
   border: none;
-  color: #fff;
+  color: white;
   font-size: 16px;
   cursor: pointer;
   margin-left: 10px;
@@ -200,7 +226,7 @@ main {
   border: none;
 }
 
-/* GLASS TEXT */
+/* For your .glass-text on the heading */
 .glass-text {
   font-family: "Times New Roman", Times, serif;
   font-size: 0.4em;
@@ -213,66 +239,43 @@ main {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* DARK MODE OVERRIDES */
-.dark-mode {
-  background-color: #202123 !important;
-  color: #fff !important;
-}
-
-.dark-mode header {
-  background: rgba(32, 33, 35, 0.95) !important;
-}
-
-.dark-mode nav ul li a {
-  color: #fff !important;
-}
-
-.dark-mode .section,
-.dark-mode .project {
-  color: #fff !important;
-  background: rgba(52,53,65,0.8) !important;
-}
-
-/* RESPONSIVE MEDIA QUERIES */
+/* Optional responsive media queries for smaller devices */
 @media (max-width: 768px) {
+  /* Possibly let the background scroll normally on mobile if you prefer 
+     or keep it as is. 
+  */
+  /* body { background-attachment: scroll; } */
+
+  /* Adjust nav if items overlap on small screens */
   header {
     flex-wrap: wrap;
     justify-content: center;
   }
-
+  
   nav ul {
     flex-direction: column;
     align-items: center;
-    margin-top: 10px;
   }
 
   nav ul li {
     margin-bottom: 10px;
   }
 
-  /* Make the nav text smaller if needed */
-  nav ul li a {
-    font-size: 0.9rem;
-  }
-
-  /* Let the Dark Mode toggle flow in the nav stack */
   #dark-mode-toggle {
     position: static;
-    margin: 0 auto;
+    margin: 10px auto;
     display: block;
   }
-
-  /* Possibly bigger for clarity on mobile */
+  
   .profile-pic {
-    width: 60px; 
-    height: 60px;
+    width: 80px;
+    height: 80px;
   }
-
+  
   .glass-text {
     font-size: 0.5em;
   }
 }
-
 
 
 
