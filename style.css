@@ -12,12 +12,28 @@ body {
   overflow-y: scroll;
   scroll-behavior: smooth;
   transition: background 0.3s ease, color 0.3s ease;
+  position: relative; /* So the pseudo-element can be positioned within the body */
 }
 
-/* Fixed header setup */
+/* DIM OVERLAY for both light & dark modes */
+body::before {
+  content: "";
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8); /* dim level */
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Header setup */
 header {
   position: fixed;
-  top: 0; left: 0; right: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -75,6 +91,7 @@ main {
   perspective: 1000px;
 }
 
+/* Use silver text (#dcdcdc) in light mode */
 .section {
   min-height: 100vh;
   padding: 40px;
@@ -113,8 +130,8 @@ main {
 /* Dark Mode Button (top-right) */
 #dark-mode-toggle {
   position: absolute;
-  top: 10px;
-  right: 20px;
+  top: 10px;     
+  right: 20px;   
   padding: 6px 12px;
   font-size: 12px;
   background-color: rgba(28, 185, 212, 0.7);
@@ -140,8 +157,12 @@ main {
 
 /* Dark mode styling */
 .dark-mode {
-  background-image: none !important;
-  background-color: #202123 !important;
+  /* Use the new human evolution background in dark mode */
+  background-image: url('./assets/Evolution.jpg') !important;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-color: #202123 !important; /* fallback color if image fails */
   color: #ffffff !important;
 }
 
@@ -153,7 +174,8 @@ main {
   color: #ffffff !important;
 }
 
-.dark-mode .section, .dark-mode .project {
+.dark-mode .section, 
+.dark-mode .project {
   color: #ffffff !important;
   background: rgba(52,53,65,0.8) !important;
 }
@@ -165,14 +187,20 @@ main {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
+  z-index: -2; /* behind the overlay at z-index: -1 */
   background: transparent;
 }
 
 /* Fade-in animation */
 @keyframes fadeIn {
-  from {opacity: 0; transform: translateY(20px);}
-  to {opacity: 1; transform: translateY(0);}
+  from {
+    opacity: 0; 
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1; 
+    transform: translateY(0);
+  }
 }
 
 /* PDF Modal */
@@ -199,6 +227,7 @@ main {
   overflow: hidden;
   transition: height 0.3s ease, width 0.3s ease;
 }
+
 #pdf-header {
   background: #1f6feb;
   color: white;
@@ -235,7 +264,6 @@ main {
   color: #111;
 }
 
-/* Glass text styling for the heading */
 .glass-text {
   font-family: "Times New Roman", Times, serif;
   font-size: 0.4em; 
@@ -247,8 +275,5 @@ main {
   -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
-
-
 
 
