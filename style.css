@@ -162,6 +162,7 @@ main {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  background-attachment: fixed;
   /*background-color: #202123 !important; fallback color if image fails */
   background: transparent;
   color: #ffffff !important;
@@ -276,5 +277,3 @@ main {
   -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
-
