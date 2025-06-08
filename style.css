@@ -1,4 +1,4 @@
-/* General body setup */
+/* Global Page Setup */
 body {
   font-family: 'Poppins', Arial, sans-serif;
   margin: 0;
@@ -15,7 +15,7 @@ body {
   position: relative;
 }
 
-/* Header setup */
+/* Header Setup */
 header {
   position: fixed;
   top: 0;
@@ -30,7 +30,7 @@ header {
   box-sizing: border-box;
 }
 
-/* Profile picture and name */
+/* Profile Picture and Name */
 .logo-container {
   display: flex;
   align-items: center;
@@ -43,7 +43,7 @@ header {
   object-fit: cover;
   margin-right: 10px;
   border: 2px solid #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
   transition: all 0.3s ease;
   cursor: zoom-in;
 }
@@ -57,7 +57,7 @@ header {
   border-radius: 50%;
   object-fit: cover;
   z-index: 1000;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
   transition: all 0.3s ease;
   cursor: zoom-out;
 }
@@ -66,7 +66,7 @@ header h1 {
   color: #a0522d;
 }
 
-/* Navigation menu styling */
+/* Navigation Menu Styling */
 nav ul {
   list-style: none;
   display: flex;
@@ -85,7 +85,7 @@ nav ul li a:hover {
   color: #1f6feb;
 }
 
-/* Main content section setup */
+/* Main Content Section Setup */
 main {
   margin-top: 80px;
   padding: 20px;
@@ -94,7 +94,7 @@ main {
   perspective: 1000px;
 }
 
-/* Use silver text (#dcdcdc) in light mode */
+/* Section Styling (Light Mode) */
 .section {
   min-height: 100vh;
   padding: 40px;
@@ -103,23 +103,23 @@ main {
   color: #dcdcdc;
 }
 
-/* Individual projects style */
+/* Individual Projects Style */
 .project {
   padding: 20px;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255,255,255,0.9);
   margin: 10px auto;
   border-radius: 10px;
   transition: transform 0.3s ease;
   max-width: 600px;
   color: #141414;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 
 .project:hover {
   transform: scale(1.05);
 }
 
-/* Contact links specifically green */
+/* Contact Links Styling */
 #contact a {
   color: #28a745;
   text-decoration: none;
@@ -130,7 +130,7 @@ main {
   color: #218838;
 }
 
-/* Dark Mode Button (top-right) */
+/* Dark Mode Button */
 #dark-mode-toggle {
   position: absolute;
   top: 10px;
@@ -158,45 +158,65 @@ main {
   box-shadow: 0 0 15px rgba(31, 111, 235, 0.6);
 }
 
-/* Dark Mode Styling */
+/* Light Mode (Perfect) */
+body:not(.dark-mode) {
+  background-image: url('./assets/pexels-pixabay-247431.jpg') !important;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  color: #2c2c2c;
+}
+
+body:not(.dark-mode)::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Dark Mode (Fixes) */
 .dark-mode {
   background-image: url('./assets/Evolution.jpg') !important;
-  background-repeat: no-repeat !important;
-  background-position: center !important;
-  background-size: cover !important;
-  background-attachment: fixed !important;
-  color: #ffffff !important;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  color: #ffffff;
 }
 
-/* Dark Mode Header */
+/* Dark Mode Styling */
 .dark-mode header {
-  background: rgba(32, 33, 35, 0.95) !important;
+  background: rgba(32, 33, 35, 0.95);
 }
 
-/* Dark Mode Navigation Links */
 .dark-mode nav ul li a {
-  color: #ffffff !important;
+  color: #ffffff;
 }
 
-/* Dark Mode Section and Project Styles */
 .dark-mode .section,
 .dark-mode .project {
-  color: #ffffff !important;
-  background: rgba(52, 53, 65, 0.8) !important;
+  color: #ffffff;
+  background: rgba(52, 53, 65, 0.8);
 }
 
-/* Particle container (fixed behind everything) */
+/* Particle Container (Fixed behind everything) */
 #tsparticles {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -2; /* behind the content */
+  z-index: -2;
   background: transparent;
 }
 
-/* Fade-in animation */
+/* Fade-In Animation */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -261,6 +281,7 @@ main {
   border: none;
 }
 
+/* Academic Project Style */
 #academic .project {
   background: rgba(255, 255, 240, 0.8);
   margin: 15px auto;
