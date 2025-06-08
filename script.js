@@ -92,3 +92,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
+
+const profilePic = document.querySelector('.profile-pic');
+
+profilePic.addEventListener('click', () => {
+profilePic.classList.toggle('enlarged');
+});
+
+
