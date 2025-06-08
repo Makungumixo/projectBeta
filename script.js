@@ -1,65 +1,62 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const darkModeToggle = document.getElementById('dark-mode-toggle');
-    const pdfModal = document.getElementById("pdf-modal");
-    const pdfViewer = document.getElementById("pdf-viewer");
-    const pdfHeader = document.getElementById("pdf-header");
+  const darkModeToggle = document.getElementById('dark-mode-toggle');
+  const pdfModal = document.getElementById("pdf-modal");
+  const pdfViewer = document.getElementById("pdf-viewer");
+  const pdfHeader = document.getElementById("pdf-header");
+  const profilePic = document.querySelector('.profile-pic');
+  const navToggle = document.getElementById('nav-toggle');
+  const navMenu = document.getElementById('nav-menu');
 
-    // ✅ Load Dark Mode Preference
-    if (localStorage.getItem('darkMode') === 'enabled') {
-        document.body.classList.add('dark-mode');
-        darkModeToggle.textContent = 'Light Mode';
-    } else {
-        darkModeToggle.textContent = 'Dark Mode';
+  // ✅ Load Dark Mode Preference
+  if (localStorage.getItem('darkMode') === 'enabled') {
+    document.body.classList.add('dark-mode');
+    darkModeToggle.textContent = 'Light Mode';
+  } else {
+    darkModeToggle.textContent = 'Dark Mode';
+  }
+
+  // ✅ Dark Mode Toggle
+  darkModeToggle.addEventListener('click', function () {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+    localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
+    darkModeToggle.textContent = isDark ? 'Light Mode' : 'Dark Mode';
+  });
+
+  // ✅ ParticleJS Mouse Interaction
+  document.addEventListener("mousemove", function (event) {
+    const canvas = document.querySelector("canvas");
+    if (canvas && window.pJSDom && window.pJSDom.length > 0) {
+      const rect = canvas.getBoundingClientRect();
+      const mouseX = event.clientX - rect.left;
+      const mouseY = event.clientY - rect.top;
+
+      const interactivity = window.pJSDom[0].pJS.interactivity;
+      interactivity.mouse.pos_x = mouseX;
+      interactivity.mouse.pos_y = mouseY;
+      interactivity.status = "mousemove";
     }
+  });
 
-    // ✅ Dark Mode Toggle
-    darkModeToggle.addEventListener('click', function () {
-        document.body.classList.toggle('dark-mode');
-
-        if (document.body.classList.contains('dark-mode')) {
-            localStorage.setItem('darkMode', 'enabled');
-            darkModeToggle.textContent = 'Light Mode';
-        } else {
-            localStorage.setItem('darkMode', 'disabled');
-            darkModeToggle.textContent = 'Dark Mode';
-        }
-    });
-
-    // 🎆 Cursor-based Particle Interaction
-    document.addEventListener("mousemove", function(event) {
-        const canvas = document.querySelector("canvas");
-        if (canvas) {
-            const rect = canvas.getBoundingClientRect();
-            const mouseX = event.clientX - rect.left;
-            const mouseY = event.clientY - rect.top;
-
-            window.pJSDom[0].pJS.interactivity.mouse.pos_x = mouseX;
-            window.pJSDom[0].pJS.interactivity.mouse.pos_y = mouseY;
-            window.pJSDom[0].pJS.interactivity.status = "mousemove";
-        }
-    });
-
-    document.addEventListener("mouseleave", function () {
-        window.pJSDom[0].pJS.interactivity.mouse.pos_x = null;
-        window.pJSDom[0].pJS.interactivity.mouse.pos_y = null;
-        window.pJSDom[0].pJS.interactivity.status = "mouseleave";
-    });
-
-document.addEventListener('DOMContentLoaded', () => {
-  const pdfModal = document.getElementById('pdf-modal');
-  const pdfViewer = document.getElementById('pdf-viewer');
-  const pdfHeader = document.getElementById('pdf-header');
+  document.addEventListener("mouseleave", function () {
+    if (window.pJSDom && window.pJSDom.length > 0) {
+      const interactivity = window.pJSDom[0].pJS.interactivity;
+      interactivity.mouse.pos_x = null;
+      interactivity.mouse.pos_y = null;
+      interactivity.status = "mouseleave";
+    }
+  });
 
   // ✅ PDF Viewer Functions
   window.showPDF = function (pdfUrl) {
-    pdfViewer.src = pdfUrl + "#toolbar=0";  // Disable PDF toolbar buttons (like download)
+    pdfViewer.src = pdfUrl + "#toolbar=0";
     pdfModal.style.display = "flex";
-    pdfModal.classList.remove("minimized"); // Make sure modal is fully visible
+    pdfModal.classList.remove("minimized");
   };
 
   window.closePDF = function () {
     pdfModal.style.display = "none";
-    pdfViewer.src = "";  // Clear PDF source when closing
+    pdfViewer.src = "";
   };
 
   window.minimizePDF = function () {
@@ -70,28 +67,19 @@ document.addEventListener('DOMContentLoaded', () => {
     pdfModal.classList.remove("minimized");
   };
 
-  // ✅ Make PDF Modal Draggable (Fixed)
+  // ✅ Make PDF Modal Draggable
   pdfHeader.addEventListener('mousedown', (e) => {
-    e.preventDefault();  // Prevent text selection
+    e.preventDefault();
+    const shiftX = e.clientX - pdfModal.getBoundingClientRect().left;
+    const shiftY = e.clientY - pdfModal.getBoundingClientRect().top;
 
-    // Calculate shift between mouse and modal's top-left corner
-    let shiftX = e.clientX - pdfModal.getBoundingClientRect().left;
-    let shiftY = e.clientY - pdfModal.getBoundingClientRect().top;
-
-    // Move modal to follow mouse, within viewport bounds
     function moveAt(pageX, pageY) {
-      const left = Math.min(
-        Math.max(0, pageX - shiftX),
-        window.innerWidth - pdfModal.offsetWidth
-      );
-      const top = Math.min(
-        Math.max(0, pageY - shiftY),
-        window.innerHeight - pdfModal.offsetHeight
-      );
+      const left = Math.min(Math.max(0, pageX - shiftX), window.innerWidth - pdfModal.offsetWidth);
+      const top = Math.min(Math.max(0, pageY - shiftY), window.innerHeight - pdfModal.offsetHeight);
 
-      pdfModal.style.left = left + 'px';
-      pdfModal.style.top = top + 'px';
-      pdfModal.style.transform = ''; // Remove centering transform on drag
+      pdfModal.style.left = `${left}px`;
+      pdfModal.style.top = `${top}px`;
+      pdfModal.style.transform = '';
     }
 
     function onMouseMove(event) {
@@ -107,40 +95,37 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('mouseup', onMouseUp);
   });
 
-  // Close PDF modal on Escape key press
+  // ✅ Escape Key Closes PDF
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && pdfModal.style.display === 'flex') {
       window.closePDF();
     }
   });
 
-  // Double-click header to reset modal position (centered top)
+  // ✅ Reset Modal Position on Double Click
   pdfHeader.addEventListener('dblclick', () => {
     pdfModal.style.top = '50px';
     pdfModal.style.left = '50%';
     pdfModal.style.transform = 'translateX(-50%)';
   });
+
+  // ✅ Profile Picture Zoom
+  if (profilePic) {
+    profilePic.addEventListener('click', () => {
+      profilePic.classList.toggle('enlarged');
+    });
+  }
+
+  // ✅ Mobile Navigation Toggle
+  if (navToggle && navMenu) {
+    navToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('show');
+    });
+
+    document.querySelectorAll('#nav-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('show');
+      });
+    });
+  }
 });
-
-
-const profilePic = document.querySelector('.profile-pic');
-if (profilePic) {
-  profilePic.addEventListener('click', () => {
-    profilePic.classList.toggle('enlarged');
-  });
-}
-
-const navToggle = document.getElementById('nav-toggle');
-  const navMenu = document.getElementById('nav-menu');
-
-  navToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('show');
-  });
-
-document.querySelectorAll('#nav-menu a').forEach(link => {
-  link.addEventListener('click', () => {
-    navMenu.classList.remove('show');
-  });
-});
-
-
