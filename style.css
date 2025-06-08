@@ -158,7 +158,7 @@ main {
 }
 
 .dark-mode nav ul li a {
-  color: #ffffff !important;
+    color: #2c2c2c;
 }
 
 .dark-mode .section{
