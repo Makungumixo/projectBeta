@@ -61,15 +61,15 @@ header {
   cursor: zoom-in;
 }
 
+
 .profile-pic.enlarged {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 300px;
-  height: 300px;
+  top: 20px;
+  left: 20px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   object-fit: cover;
-  transform: translate(-50%, -50%);
   z-index: 1000;
   box-shadow: 0 4px 20px rgba(0,0,0,0.5);
   transition: all 0.3s ease;
