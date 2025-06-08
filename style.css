@@ -3,16 +3,21 @@ body {
   font-family: 'Poppins', Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-image: url('./assets/pexels-pixabay-247431.jpg');
+  background-image: url('./assets/pexels-pixabay-247431.jpg'); /* Light mode image */
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
-  color: #2c2c2c;
+  color: #2c2c2c; /* Light mode text color */
   overflow-y: scroll;
   scroll-behavior: smooth;
   transition: background 0.3s ease, color 0.3s ease;
   position: relative;
+}
+
+/* No overlay in light mode */
+body::before {
+  content: ""; /* No overlay */
 }
 
 /* Header Setup */
@@ -94,13 +99,13 @@ main {
   perspective: 1000px;
 }
 
-/* Section Styling (Light Mode) */
+/* Section Styling for Light Mode */
 .section {
   min-height: 100vh;
   padding: 40px;
   text-align: center;
   animation: fadeIn 1.5s ease;
-  color: #dcdcdc;
+  color: #dcdcdc; /* Light mode text color */
 }
 
 /* Individual Projects Style */
@@ -158,52 +163,33 @@ main {
   box-shadow: 0 0 15px rgba(31, 111, 235, 0.6);
 }
 
-/* Light Mode (Perfect) */
-body:not(.dark-mode) {
-  background-image: url('./assets/pexels-pixabay-247431.jpg') !important;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
-  color: #2c2c2c;
-}
-
-body:not(.dark-mode)::before {
-  /* FIXED: Only show overlay in light mode */
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6); /* Dark overlay */
-  z-index: -1;
-  pointer-events: none;
-}
-
-/* Dark Mode */
+/* Dark Mode Styling */
 .dark-mode {
-  /* FIXED: Dark mode background image */
-  background-image: url('./assets/Evolution.jpg') !important;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
-  color: #ffffff;
+  background-image: url('./assets/Evolution.jpg') !important; /* Dark mode background */
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: cover !important;
+  background-attachment: fixed !important;
+  color: #ffffff !important; /* Dark mode text color */
+}
+
+/* Remove Overlay for Dark Mode */
+.dark-mode::before {
+  content: none !important; /* No overlay */
 }
 
 .dark-mode header {
-  background: rgba(32, 33, 35, 0.95);
+  background: rgba(32, 33, 35, 0.95) !important;
 }
 
 .dark-mode nav ul li a {
-  color: #ffffff;
+  color: #ffffff !important;
 }
 
-.dark-mode .section,
+.dark-mode .section, 
 .dark-mode .project {
-  color: #ffffff;
-  background: rgba(52, 53, 65, 0.8);
+  color: #ffffff !important;
+  background: rgba(52,53,65,0.8) !important;
 }
 
 /* Particle Container */
@@ -228,7 +214,7 @@ body:not(.dark-mode)::before {
   height: 600px;
   background: white;
   border-radius: 10px;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
   display: none;
   flex-direction: column;
   z-index: 1002;
@@ -285,21 +271,5 @@ body:not(.dark-mode)::before {
   color: rgba(255, 255, 255, 0.7);
   background: rgba(255, 255, 255, 0.2);
   padding: 5px 10px;
-  border-radius: 10px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Fade-In Animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+  border
 
