@@ -45,7 +45,7 @@ header {
 .logo-container {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 10px;
 }
 
 .profile-pic {
@@ -73,6 +73,9 @@ header {
 
 header h1 {
   color: #a0522d;
+  margin: 0;
+  font-size: 1.2em;
+  line-height: 1.2;
 }
 
 /* =================== NAVIGATION =================== */
