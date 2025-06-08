@@ -12,27 +12,7 @@ body {
   overflow-y: scroll;
   scroll-behavior: smooth;
   transition: background 0.3s ease, color 0.3s ease;
-  position: relative; /* So the pseudo-element can be positioned within the body */
-}
-
-/* DIM OVERLAY for both light & dark modes (REMOVED from dark mode) */
-body::before {
-  content: "";
-  position: fixed; 
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.6); /* dim level */
-  z-index: -1;
-  pointer-events: none;
-  opacity: 0; /* Default to invisible in light mode */
-  transition: opacity 0.3s ease;
-}
-
-/* ONLY show dim overlay in dark mode */
-.dark-mode::before {
-  opacity: 1; /* Make overlay visible when in dark mode */
+  position: relative;
 }
 
 /* Header setup */
@@ -153,8 +133,8 @@ main {
 /* Dark Mode Button (top-right) */
 #dark-mode-toggle {
   position: absolute;
-  top: 10px;     
-  right: 20px;   
+  top: 10px;
+  right: 20px;
   padding: 6px 12px;
   font-size: 12px;
   background-color: rgba(28, 185, 212, 0.7);
@@ -193,13 +173,13 @@ main {
   background: rgba(32, 33, 35, 0.95) !important;
 }
 
-/* Dark Mode Links */
+/* Dark Mode Navigation Links */
 .dark-mode nav ul li a {
   color: #ffffff !important;
 }
 
-/* Dark Mode Content */
-.dark-mode .section, 
+/* Dark Mode Section and Project Styles */
+.dark-mode .section,
 .dark-mode .project {
   color: #ffffff !important;
   background: rgba(52, 53, 65, 0.8) !important;
@@ -212,7 +192,7 @@ main {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -2; /* behind the overlay at z-index: -1 */
+  z-index: -2; /* behind the content */
   background: transparent;
 }
 
