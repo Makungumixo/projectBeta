@@ -45,58 +45,102 @@ document.addEventListener('DOMContentLoaded', function () {
         window.pJSDom[0].pJS.interactivity.status = "mouseleave";
     });
 
-    // ✅ PDF Viewer Functions
-    window.showPDF = function (pdfUrl) {
-        pdfViewer.src = pdfUrl + "#toolbar=0";  // Prevents download button
-        pdfModal.style.display = "flex";
-        pdfModal.classList.remove("minimized"); // Ensure modal is fully visible
-    };
+document.addEventListener('DOMContentLoaded', () => {
+  const pdfModal = document.getElementById('pdf-modal');
+  const pdfViewer = document.getElementById('pdf-viewer');
+  const pdfHeader = document.getElementById('pdf-header');
 
-    window.closePDF = function () {
-        pdfModal.style.display = "none";
-        pdfViewer.src = "";  // Clears PDF when closing
-    };
+  // ✅ PDF Viewer Functions
+  window.showPDF = function (pdfUrl) {
+    pdfViewer.src = pdfUrl + "#toolbar=0";  // Disable PDF toolbar buttons (like download)
+    pdfModal.style.display = "flex";
+    pdfModal.classList.remove("minimized"); // Make sure modal is fully visible
+  };
 
-    window.minimizePDF = function () {
-        pdfModal.classList.add("minimized");
-    };
+  window.closePDF = function () {
+    pdfModal.style.display = "none";
+    pdfViewer.src = "";  // Clear PDF source when closing
+  };
 
-    window.maximizePDF = function () {
-        pdfModal.classList.remove("minimized");
-    };
+  window.minimizePDF = function () {
+    pdfModal.classList.add("minimized");
+  };
 
-    // ✅ Make PDF Modal Draggable (Now FIXED)
-    pdfHeader.addEventListener("mousedown", function (e) {
-        let shiftX = e.clientX - pdfModal.getBoundingClientRect().left;
-        let shiftY = e.clientY - pdfModal.getBoundingClientRect().top;
+  window.maximizePDF = function () {
+    pdfModal.classList.remove("minimized");
+  };
 
-        function moveAt(pageX, pageY) {
-            pdfModal.style.left = pageX - shiftX + "px";
-            pdfModal.style.top = pageY - shiftY + "px";
-        }
+  // ✅ Make PDF Modal Draggable (Fixed)
+  pdfHeader.addEventListener('mousedown', (e) => {
+    e.preventDefault();  // Prevent text selection
 
-        function onMouseMove(event) {
-            moveAt(event.pageX, event.pageY);
-        }
+    // Calculate shift between mouse and modal's top-left corner
+    let shiftX = e.clientX - pdfModal.getBoundingClientRect().left;
+    let shiftY = e.clientY - pdfModal.getBoundingClientRect().top;
 
-        document.addEventListener("mousemove", onMouseMove);
+    // Move modal to follow mouse, within viewport bounds
+    function moveAt(pageX, pageY) {
+      const left = Math.min(
+        Math.max(0, pageX - shiftX),
+        window.innerWidth - pdfModal.offsetWidth
+      );
+      const top = Math.min(
+        Math.max(0, pageY - shiftY),
+        window.innerHeight - pdfModal.offsetHeight
+      );
 
-        pdfHeader.addEventListener("mouseup", function () {
-            document.removeEventListener("mousemove", onMouseMove);
-        });
+      pdfModal.style.left = left + 'px';
+      pdfModal.style.top = top + 'px';
+      pdfModal.style.transform = ''; // Remove centering transform on drag
+    }
 
-        pdfHeader.addEventListener("mouseleave", function () {
-            document.removeEventListener("mousemove", onMouseMove);
-        });
-    });
+    function onMouseMove(event) {
+      moveAt(event.pageX, event.pageY);
+    }
 
+    function onMouseUp() {
+      document.removeEventListener('mousemove', onMouseMove);
+      document.removeEventListener('mouseup', onMouseUp);
+    }
+
+    document.addEventListener('mousemove', onMouseMove);
+    document.addEventListener('mouseup', onMouseUp);
+  });
+
+  // Close PDF modal on Escape key press
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && pdfModal.style.display === 'flex') {
+      window.closePDF();
+    }
+  });
+
+  // Double-click header to reset modal position (centered top)
+  pdfHeader.addEventListener('dblclick', () => {
+    pdfModal.style.top = '50px';
+    pdfModal.style.left = '50%';
+    pdfModal.style.transform = 'translateX(-50%)';
+  });
 });
 
 
 const profilePic = document.querySelector('.profile-pic');
+if (profilePic) {
+  profilePic.addEventListener('click', () => {
+    profilePic.classList.toggle('enlarged');
+  });
+}
 
-profilePic.addEventListener('click', () => {
-profilePic.classList.toggle('enlarged');
+const navToggle = document.getElementById('nav-toggle');
+  const navMenu = document.getElementById('nav-menu');
+
+  navToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('show');
+  });
+
+document.querySelectorAll('#nav-menu a').forEach(link => {
+  link.addEventListener('click', () => {
+    navMenu.classList.remove('show');
+  });
 });
 
 
