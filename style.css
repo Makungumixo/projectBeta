@@ -195,7 +195,7 @@ main {
 }
 
 /* Particle container (fixed behind everything) */
-#tsparticles-js {
+#particles-js {
   position: fixed;
   top: 0;
   left: 0;
