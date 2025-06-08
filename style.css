@@ -57,6 +57,15 @@ header {
   margin-right: 10px;
   border: 2px solid #fff;
   box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.profile-pic.enlarged {
+  position: relative;
+  z-index: 10;
+  transform: scale(2); 
+  transition: transform 0.3s ease;
 }
 
 header h1 {
