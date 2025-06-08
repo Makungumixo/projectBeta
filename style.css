@@ -291,5 +291,101 @@ main {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* ======== Responsive Styles for Mobile Devices ======== */
+@media (max-width: 768px) {
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .logo-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .profile-pic {
+    width: 80px;
+    height: 80px;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  header h1 {
+    font-size: 1.2em;
+    margin: 0;
+  }
+
+  nav ul {
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+  }
+
+  nav ul li {
+    width: 100%;
+  }
+
+  nav ul li a {
+    display: block;
+    padding: 8px 0;
+    width: 100%;
+  }
+
+  #dark-mode-toggle {
+    position: relative;
+    top: 0;
+    right: 0;
+    margin-top: 10px;
+    font-size: 10px;
+    padding: 5px 10px;
+  }
+
+  main {
+    padding: 10px;
+  }
+
+  .section {
+    padding: 20px 10px;
+    text-align: left;
+  }
+
+  .project {
+    width: 100%;
+    max-width: 100%;
+    margin: 10px 0;
+    box-sizing: border-box;
+  }
+
+  #pdf-modal {
+    width: 95%;
+    height: 80vh;
+    top: 30px;
+  }
+
+  #pdf-modal.minimized {
+    width: 200px;
+    height: 40px;
+  }
+
+  #pdf-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #pdf-header button {
+    margin-left: 0;
+    margin-top: 5px;
+  }
+
+  .glass-text {
+    font-size: 0.7em;
+    padding: 4px 8px;
+  }
+}
+
+
 
 
