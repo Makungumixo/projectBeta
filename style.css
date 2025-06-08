@@ -3,12 +3,12 @@ body {
   font-family: 'Poppins', Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-image: url('./assets/pexels-pixabay-247431.jpg'); /* Light mode image */
+  background-image: url('./assets/pexels-pixabay-247431.jpg'); /* Light mode background */
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
-  color: #2c2c2c; /* Light mode text color */
+  color: #2c2c2c; /* Common text color for both modes */
   overflow-y: scroll;
   scroll-behavior: smooth;
   transition: background 0.3s ease, color 0.3s ease;
@@ -99,13 +99,13 @@ main {
   perspective: 1000px;
 }
 
-/* Section Styling for Light Mode */
+/* Section Styling for Both Modes (No change in text color) */
 .section {
   min-height: 100vh;
   padding: 40px;
   text-align: center;
   animation: fadeIn 1.5s ease;
-  color: #dcdcdc; /* Light mode text color */
+  color: #2c2c2c; /* Common text color */
 }
 
 /* Individual Projects Style */
@@ -170,7 +170,7 @@ main {
   background-position: center !important;
   background-size: cover !important;
   background-attachment: fixed !important;
-  color: #ffffff !important; /* Dark mode text color */
+  color: #2c2c2c !important; /* Use same text color */
 }
 
 /* Remove Overlay for Dark Mode */
@@ -188,7 +188,7 @@ main {
 
 .dark-mode .section, 
 .dark-mode .project {
-  color: #ffffff !important;
+  color: #2c2c2c !important; /* Keep the same text color in dark mode */
   background: rgba(52,53,65,0.8) !important;
 }
 
@@ -271,5 +271,9 @@ main {
   color: rgba(255, 255, 255, 0.7);
   background: rgba(255, 255, 255, 0.2);
   padding: 5px 10px;
-  border
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
