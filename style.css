@@ -9,6 +9,7 @@ body {
   background-size: cover;
   background-attachment: fixed;
   color: #2c2c2c;
+  background-color: #d8d8d8; /* ASFV match the bg image tones */
   overflow-y: scroll;
   scroll-behavior: smooth;
   transition: background 0.3s ease, color 0.3s ease;
@@ -172,7 +173,7 @@ main {
 
 /* Dark mode styling */
 .dark-mode {
-  background-image: url('./assets/Evolution.jpg') !important;
+  background-image: url('./assets/Evolution.jpg');
   background-repeat: no-repeat !important;
   background-position: center !important;
   background-size: cover !important;
