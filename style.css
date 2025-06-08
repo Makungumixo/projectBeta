@@ -45,6 +45,7 @@ header {
 .logo-container {
   display: flex;
   align-items: center;
+  gap: 16px;
 }
 
 .profile-pic {
@@ -260,7 +261,8 @@ main {
 /* =================== GLASS TEXT EFFECT =================== */
 .glass-text {
   font-family: "Times New Roman", Times, serif;
-  font-size: 0.4em;
+  font-size: 1em;
+  margin-top: 2px;
   color: rgba(255, 255, 255, 0.7);
   background: rgba(255, 255, 255, 0.2);
   padding: 5px 10px;
