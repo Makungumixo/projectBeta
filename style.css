@@ -220,11 +220,6 @@ main {
   }
 }
 
-/* Optional: Applying the fade-in animation to your body or a container */
-body {
-  animation: fadeIn 1s ease-out;
-}
-
 /* PDF Modal */
 #pdf-modal {
   position: fixed;
