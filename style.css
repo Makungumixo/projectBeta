@@ -279,18 +279,17 @@ main {
     gap: 10px;
   }
 
-
-
   .logo-container {
-    flex-direction: column;
-    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+    gap: 10px;
   }
 
   .profile-pic {
     width: 80px;
     height: 80px;
     margin-right: 0;
-    margin-bottom: 10px;
   }
 
   header h1 {
