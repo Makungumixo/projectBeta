@@ -279,11 +279,6 @@ main {
     gap: 10px;
   }
 
-  .display-flex {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  }
 
 
   .logo-container {
