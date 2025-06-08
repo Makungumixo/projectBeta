@@ -15,24 +15,24 @@ body {
   position: relative; /* So the pseudo-element can be positioned within the body */
 }
 
-/* DIM OVERLAY ONLY FOR DARK MODE */
+/* DIM OVERLAY for both light & dark modes (REMOVED from dark mode) */
 body::before {
   content: "";
-  position: fixed;
+  position: fixed; 
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6); /* dim level */
+  background: rgba(0,0,0,0.6); /* dim level */
   z-index: -1;
   pointer-events: none;
   opacity: 0; /* Default to invisible in light mode */
   transition: opacity 0.3s ease;
 }
 
-/* Only show dim overlay when in dark mode */
+/* ONLY show dim overlay in dark mode */
 .dark-mode::before {
-  opacity: 1; /* Make overlay visible in dark mode */
+  opacity: 1; /* Make overlay visible when in dark mode */
 }
 
 /* Header setup */
@@ -178,7 +178,7 @@ main {
   box-shadow: 0 0 15px rgba(31, 111, 235, 0.6);
 }
 
-/* Dark mode styling */
+/* Dark Mode Styling */
 .dark-mode {
   background-image: url('./assets/Evolution.jpg') !important;
   background-repeat: no-repeat !important;
@@ -188,14 +188,17 @@ main {
   color: #ffffff !important;
 }
 
+/* Dark Mode Header */
 .dark-mode header {
   background: rgba(32, 33, 35, 0.95) !important;
 }
 
+/* Dark Mode Links */
 .dark-mode nav ul li a {
   color: #ffffff !important;
 }
 
+/* Dark Mode Content */
 .dark-mode .section, 
 .dark-mode .project {
   color: #ffffff !important;
