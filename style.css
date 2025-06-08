@@ -355,9 +355,11 @@ main {
   }
 
   .glass-text {
-    font-size: 0.2em;
-    padding: 2px 4px;
-  }
+  font-size: 1em; 
+  padding: 2px 4px; 
+  display: inline-block;
+  transform: scale(0.7);
+  transform-origin: left center; 
 }
 
 /* =================== HAMBURGER MENU =================== */
