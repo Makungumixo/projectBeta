@@ -23,7 +23,7 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0,0,0,0.6);
   z-index: -1;
   pointer-events: none;
 }
@@ -49,6 +49,7 @@ header {
   align-items: center;
 }
 
+/* Profile Picture - Default */
 .profile-pic {
   width: 100px;
   height: 100px;
@@ -56,7 +57,21 @@ header {
   object-fit: cover;
   margin-right: 10px;
   border: 2px solid #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  cursor: zoom-in;
+  transition: all 0.3s ease;
+}
+
+/* Enlarged Profile Picture on Click */
+.profile-pic.enlarged {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 200px;
+  height: 200px;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  cursor: zoom-out;
 }
 
 header h1 {
@@ -103,13 +118,13 @@ main {
 /* Individual projects style */
 .project {
   padding: 20px;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255,255,255,0.9);
   margin: 10px auto;
   border-radius: 10px;
   transition: transform 0.3s ease;
   max-width: 600px;
   color: #141414;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 
 .project:hover {
@@ -255,7 +270,6 @@ main {
   border: none;
 }
 
-/* Academic project custom style */
 #academic .project {
   background: rgba(255, 255, 240, 0.8);
   margin: 15px auto;
@@ -264,7 +278,6 @@ main {
   color: #111;
 }
 
-/* Glass effect text */
 .glass-text {
   font-family: "Times New Roman", Times, serif;
   font-size: 0.4em;
