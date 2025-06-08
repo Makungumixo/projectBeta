@@ -362,7 +362,7 @@ main {
 /* =================== HAMBURGER MENU =================== */
 .hamburger {
   display: none;
-  font-size: 6px;
+  font-size: 10px;
   background: none;
   color: #a0522d;
   border: none;
@@ -374,8 +374,8 @@ main {
   .hamburger {
     display: block;
     position: absolute;
-    top: 2px;
-    right: 6px;
+    top: 10px;
+    right: 12px;
   }
 
   #nav-menu {
