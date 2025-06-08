@@ -318,7 +318,7 @@ main {
   }
 
   .section {
-    padding: 20px 10px;
+    padding: 10px 5px;
     text-align: left;
   }
 
@@ -350,8 +350,8 @@ main {
   }
 
   .glass-text {
-    font-size: 0.7em;
-    padding: 4px 8px;
+    font-size: 0.2em;
+    padding: 2px 4px;
   }
 }
 
@@ -370,8 +370,8 @@ main {
   .hamburger {
     display: block;
     position: absolute;
-    top: 10px;
-    right: 20px;
+    top: 2px;
+    right: 6px;
   }
 
   #nav-menu {
