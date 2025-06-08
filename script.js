@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // 🎆 Cursor-based Particle Interaction for tsParticles
+    // 🎆 Cursor-based Particle Interaction
     document.addEventListener("mousemove", function(event) {
         const canvas = document.querySelector("canvas");
         if (canvas) {
@@ -33,22 +33,16 @@ document.addEventListener('DOMContentLoaded', function () {
             const mouseX = event.clientX - rect.left;
             const mouseY = event.clientY - rect.top;
 
-            if (window.pJSDom && window.pJSDom[0]) {
-                const pJS = window.pJSDom[0].pJS;
-                pJS.interactivity.mouse.pos_x = mouseX;
-                pJS.interactivity.mouse.pos_y = mouseY;
-                pJS.interactivity.status = "mousemove";
-            }
+            window.pJSDom[0].pJS.interactivity.mouse.pos_x = mouseX;
+            window.pJSDom[0].pJS.interactivity.mouse.pos_y = mouseY;
+            window.pJSDom[0].pJS.interactivity.status = "mousemove";
         }
     });
 
     document.addEventListener("mouseleave", function () {
-        if (window.pJSDom && window.pJSDom[0]) {
-            const pJS = window.pJSDom[0].pJS;
-            pJS.interactivity.mouse.pos_x = null;
-            pJS.interactivity.mouse.pos_y = null;
-            pJS.interactivity.status = "mouseleave";
-        }
+        window.pJSDom[0].pJS.interactivity.mouse.pos_x = null;
+        window.pJSDom[0].pJS.interactivity.mouse.pos_y = null;
+        window.pJSDom[0].pJS.interactivity.status = "mouseleave";
     });
 
     // ✅ PDF Viewer Functions
@@ -71,10 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
         pdfModal.classList.remove("minimized");
     };
 
-    // ✅ Make PDF Modal Draggable (Fixed)
-    let isDragging = false;
-    let throttleTimeout;
-
+    // ✅ Make PDF Modal Draggable (Now FIXED)
     pdfHeader.addEventListener("mousedown", function (e) {
         let shiftX = e.clientX - pdfModal.getBoundingClientRect().left;
         let shiftY = e.clientY - pdfModal.getBoundingClientRect().top;
@@ -85,25 +76,20 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         function onMouseMove(event) {
-            if (!isDragging) return;
-            if (throttleTimeout) clearTimeout(throttleTimeout);
-            throttleTimeout = setTimeout(() => moveAt(event.pageX, event.pageY), 10);
+            moveAt(event.pageX, event.pageY);
         }
 
-        isDragging = true;
         document.addEventListener("mousemove", onMouseMove);
 
         pdfHeader.addEventListener("mouseup", function () {
-            isDragging = false;
             document.removeEventListener("mousemove", onMouseMove);
         });
 
         pdfHeader.addEventListener("mouseleave", function () {
-            isDragging = false;
             document.removeEventListener("mousemove", onMouseMove);
         });
     });
-});
 
+});
 
 
