@@ -198,7 +198,7 @@ main {
 }
 
 /* Particle container (fixed behind everything) */
-#particles-js {
+#tsparticles {
   position: fixed;
   top: 0;
   left: 0;
@@ -211,13 +211,18 @@ main {
 /* Fade-in animation */
 @keyframes fadeIn {
   from {
-    opacity: 0; 
+    opacity: 0;
     transform: translateY(20px);
   }
   to {
-    opacity: 1; 
+    opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Optional: Applying the fade-in animation to your body or a container */
+body {
+  animation: fadeIn 1s ease-out;
 }
 
 /* PDF Modal */
