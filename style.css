@@ -108,6 +108,7 @@ main {
   text-align: center;
   animation: fadeIn 1.5s ease;
   color: #dcdcdc;
+  
 }
 
 .project {
@@ -146,6 +147,7 @@ main {
 }
 
 /* =================== DARK MODE =================== */
+
 .dark-mode {
   background: url('./assets/Evolution.jpg') center center / cover no-repeat fixed !important;
   color: #ffffff !important;
@@ -159,7 +161,9 @@ main {
   color: #ffffff !important;
 }
 
-.dark-mode .section,
+.dark-mode .section{
+    color: #2c2c2c;
+}
 .dark-mode .project {
   color: #ffffff !important;
   background: rgba(52, 53, 65, 0.8) !important;
