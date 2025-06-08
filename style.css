@@ -3,7 +3,7 @@ body {
   font-family: 'Poppins', Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-image: url('./assets/Evolution.jpg'); /* Light mode background */
+  background-image: url('./assets/pexels-pixabay-247431.jpg') !important; /* Dark mode background */
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -165,7 +165,7 @@ main {
 
 /* Dark Mode Styling */
 .dark-mode {
-  background-image: url('./assets/pexels-pixabay-247431.jpg') !important; /* Dark mode background */
+  background-image: url('./assets/Evolution.jpg') !important; /* Light mode background */
   background-repeat: no-repeat !important;
   background-position: center !important;
   background-size: cover !important;
