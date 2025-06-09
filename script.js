@@ -129,3 +129,13 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 });
+
+//Container
+window.addEventListener('scroll', () => {
+  const banner = document.getElementById('intro-banner');
+  if (window.scrollY > 10) {
+    banner.classList.add('hidden');
+  } else {
+    banner.classList.remove('hidden');
+  }
+});
