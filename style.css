@@ -179,9 +179,9 @@ main {
 
 .dark-mode #nav-menu li a:hover,
 .dark-mode #nav-menu li button:hover {
-  color: #ffffff;
-  background-color: rgba(255, 255, 255, 0.1); /* Optional: subtle hover effect */
+  color: #00ffff;
 }
+
 /* =================== DARK MODE TOGGLE BUTTON =================== */
 #dark-mode-toggle {
   position: absolute;
