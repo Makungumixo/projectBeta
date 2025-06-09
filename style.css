@@ -40,12 +40,29 @@ header {
   background: transparent;
   box-sizing: border-box;
   z-index: 1000;
+  backdrop-filter: blur(10px);
 }
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.9); /* or dark background for dark mode */
+  
+}
+
 
 .logo-container {
   display: flex;
   align-items: center;
   gap: 10px;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.logo-container.hide-on-scroll {
+  opacity: 0;
+  transform: translateY(-20px);
+  pointer-events: none;
 }
 
 .profile-pic {
