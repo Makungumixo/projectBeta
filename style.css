@@ -146,6 +146,27 @@ main {
 .project:hover {
   transform: scale(1.05);
 }
+/* =================== ABOUT ===============*/
+#about {
+  transition: transform 0.6s ease, opacity 0.6s ease;
+  will-change: transform, opacity;
+  transform-origin: top center;
+}
+
+#about.vanish {
+  transform: scale(0.75) translateY(-100px) rotateX(10deg);
+  opacity: 0;
+  pointer-events: none;
+}
+#horizon-fade {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 150px;
+  pointer-events: none;
+  background: linear-gradient(to top, white, transparent);
+  z-index: 999;
+}
 
 /* =================== ACADEMIC PROJECTS =================== */
 #academic .project {
