@@ -174,14 +174,14 @@ main {
 }
 
 .dark-mode #nav-menu {
-  background-color: rgba(32, 33, 35, 0.95);
+  background-color: transparent;
 }
 
-.dark-mode #nav-menu li a,
-.dark-mode #nav-menu li button {
+.dark-mode #nav-menu li a:hover,
+.dark-mode #nav-menu li button:hover {
   color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.1); /* Optional: subtle hover effect */
 }
-
 /* =================== DARK MODE TOGGLE BUTTON =================== */
 #dark-mode-toggle {
   position: absolute;
