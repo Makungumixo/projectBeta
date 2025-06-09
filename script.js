@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 
-//Container
+//Container scrolling efferct
 window.addEventListener('scroll', () => {
   const banner = document.getElementById('intro-banner');
   if (window.scrollY > 10) {
@@ -139,3 +139,16 @@ window.addEventListener('scroll', () => {
     banner.classList.remove('hidden');
   }
 });
+//Logo-container scrolling effect->Includes profile picture
+document.addEventListener('DOMContentLoaded', () => {
+  const logoContainer = document.querySelector('.logo-container');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      logoContainer.classList.add('hide-on-scroll');
+    } else {
+      logoContainer.classList.remove('hide-on-scroll');
+    }
+  });
+});
+
