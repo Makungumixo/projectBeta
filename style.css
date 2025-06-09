@@ -78,6 +78,15 @@ header h1 {
   line-height: 1.2;
 }
 
+#intro-banner {
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+#intro-banner.hidden {
+  opacity: 0;
+  transform: translateY(-20px);
+  pointer-events: none;
+}
 /* =================== NAVIGATION =================== */
 nav ul {
   list-style: none;
