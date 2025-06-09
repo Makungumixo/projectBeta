@@ -151,18 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
-//Illusion of about
-  window.addEventListener('scroll', () => {
-    const section = document.getElementById('about');
-    const rect = section.getBoundingClientRect();
-    const windowHeight = window.innerHeight;
 
-    if (rect.bottom < windowHeight / 2) {
-      section.classList.add('vanish');
-    } else {
-      section.classList.remove('vanish');
-    }
-  });
 
 
 
