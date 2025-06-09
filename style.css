@@ -57,6 +57,7 @@ header {
   align-items: center;
   gap: 10px;
   transition: opacity 0.5s ease, transform 0.5s ease;
+  background-color: transparent;
 }
 
 .logo-container.hide-on-scroll {
