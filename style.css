@@ -40,7 +40,6 @@ header {
   background: transparent;
   box-sizing: border-box;
   z-index: 1000;
-  backdrop-filter: blur(10px);
 }
 
 header {
