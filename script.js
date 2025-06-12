@@ -152,27 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-//THE SOLAR SYSTEM
-const darkModeToggle = document.getElementById("dark-mode-toggle");
-const solarCanvas = document.getElementById("solar-system-canvas");
 
-function enableDarkMode() {
-  document.body.classList.add("dark-mode");
-  solarCanvas.style.display = "block";
-}
-
-function disableDarkMode() {
-  document.body.classList.remove("dark-mode");
-  solarCanvas.style.display = "none";
-}
-
-darkModeToggle.addEventListener("click", () => {
-  if (document.body.classList.contains("dark-mode")) {
-    disableDarkMode();
-  } else {
-    enableDarkMode();
-  }
-});
 
 
 
