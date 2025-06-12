@@ -1,4 +1,4 @@
-/* =================== GENERAL PAGE SETUP =================== */
+0/* =================== GENERAL PAGE SETUP =================== */
 body {
   font-family: 'Poppins', Arial, sans-serif;
   margin: 0;
@@ -457,6 +457,16 @@ main {
     opacity: 1;
     transform: translateY(0);
   }
+}
+/* =================SOLAR SYSTEM =====================*/
+#solar-system-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  display: none; /* Hidden by default, shown in dark mode */
 }
 
 
