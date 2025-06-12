@@ -505,6 +505,23 @@ main {
   text-align: center;
 }
 
+.contact-icons {
+  margin-top: 1em;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.contact-icons a {
+  font-size: 1.8rem;
+  color: #444;
+  transition: color 0.2s ease;
+}
+
+.contact-icons a:hover {
+  color: #007bff; /* Or your brand color */
+}
+
 
 
 
