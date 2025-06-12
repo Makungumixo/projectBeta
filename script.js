@@ -152,6 +152,33 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+//FORM
+  const form = document.getElementById('contact-form');
+  const status = document.getElementById('form-status');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: data,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+
+    if (response.ok) {
+      status.textContent = "Message sent successfully. I'll be in touch!";
+      status.style.display = 'block';
+      form.reset();
+    } else {
+      status.textContent = "Oops! Something went wrong.";
+      status.style.color = 'red';
+      status.style.display = 'block';
+    }
+  });
+
 
 
 
