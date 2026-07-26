@@ -181,11 +181,11 @@ main {
 }
 
 .dark-mode nav ul li a {
-    color: #2c2c2c;
+    color: #ffffff;
 }
 
-.dark-mode .section{
-    color: #2c2c2c;
+.dark-mode .section {
+    color: #ffffff;
 }
 .dark-mode .project {
   color: #ffffff !important;
@@ -531,3 +531,74 @@ main {
 
 
 
+
+
+/* =================== ACCESSIBILITY & RELIABILITY =================== */
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: -5rem;
+  z-index: 2000;
+  padding: 0.75rem 1rem;
+  color: #fff;
+  background: #005fa3;
+  border-radius: 0.5rem;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+:focus-visible {
+  outline: 3px solid #00bcd4;
+  outline-offset: 3px;
+}
+
+.contact-options {
+  margin: 2rem auto;
+}
+
+.contact-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.8rem 1.2rem;
+  color: #fff !important;
+  background: #0069b4;
+  border-radius: 0.5rem;
+  font-weight: 600;
+}
+
+.document-note {
+  font-style: italic;
+  color: #555;
+}
+
+.dark-mode .document-note {
+  color: #eee;
+}
+
+@media (max-width: 768px) {
+  .dark-mode #nav-menu {
+    background-color: rgba(20, 20, 20, 0.97);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  #particles-js {
+    display: none;
+  }
+
+  .project:hover {
+    transform: none;
+  }
+}

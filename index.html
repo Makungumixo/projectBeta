@@ -13,7 +13,7 @@
       <meta name="robots" content="index, follow">
     
       <!-- Favicon -->
-      <link rel="icon" href="./assets/favicon.ico" type="image/x-icon">
+      <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
     
       <!-- Google Fonts -->
       <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,6 +22,7 @@
     
       <!-- Stylesheet -->
       <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
     
       <!-- Scripts -->
       <script defer src="script.js"></script>
@@ -36,6 +37,7 @@
     </head>
 
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <!-- Particles background -->
   <div id="particles-js"></div>
 
@@ -45,6 +47,9 @@
         src="./assets/IMG_01.jpg"
         class="profile-pic"
         alt="Photo of Makungu Ndlovu"
+        tabindex="0"
+        role="button"
+        aria-label="Enlarge profile photo"
         width="100"
         height="100"
         decoding="async"
@@ -60,7 +65,7 @@
     </div>
     
    <nav>
-      <button class="hamburger" id="nav-toggle">&#9776;</button>
+      <button class="hamburger" id="nav-toggle" type="button" aria-label="Open navigation menu" aria-controls="nav-menu" aria-expanded="false">&#9776;</button>
       <ul id="nav-menu">
         <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
@@ -71,7 +76,7 @@
    </nav>
   </header>
 
-  <main>
+  <main id="main-content">
     <!-- About Section -->
     <section id="about" class="section">
       <h2>About Me</h2>
@@ -113,27 +118,27 @@
       <div class="project">
         <h3>Geometry Area Calculator</h3>
         <p>Calculate areas of rectangles, triangles, and circles with an interactive interface.</p>
-        <a href="https://makungumixo.github.io/geometry-area-calculator/" target="_blank">🧪 Run App</a> 
+        <a href="https://makungumixo.github.io/geometry-area-calculator/" target="_blank" rel="noopener noreferrer">🧪 Run App</a> 
       </div>
 
       <div class="project">
-        <h3><a href="https://makungumixo.github.io/sudoku-solver-web/" target="_blank">Sudoku Solver</a></h3>
+        <h3><a href="https://makungumixo.github.io/sudoku-solver-web/" target="_blank" rel="noopener noreferrer">Sudoku Solver</a></h3>
         <p>An interactive browser-based Sudoku puzzle solver that uses backtracking to solve any puzzle you load.</p>
       </div>
 
       <div class="project">
-        <h3><a href="https://makungumixo.github.io/prime-visualizer-web/" target="_blank">Prime Number Visualizer</a></h3>
+        <h3><a href="https://makungumixo.github.io/prime-visualizer-web/" target="_blank" rel="noopener noreferrer">Prime Number Visualizer</a></h3>
         <p>Explore prime numbers up to any value using the Sieve of Eratosthenes. A clean and colorful way to visualize mathematics in action!</p>
       </div>
 
       <div class="project">
-        <h3><a href="https://makungumixo.github.io/math-facts-api-app/" target="_blank">Math Facts Finder</a></h3>
+        <h3><a href="https://makungumixo.github.io/math-facts-api-app/" target="_blank" rel="noopener noreferrer">Math Facts Finder</a></h3>
         <p>Type in any number to discover an interesting trivia or math fact about it — fetched live from the Numbers API!</p>
       </div>
 
       <div class="project">
         <h3>
-          <a href="https://makungumixo.github.io/tintswalo-delivery-tracker/" target="_blank">
+          <a href="https://makungumixo.github.io/tintswalo-delivery-tracker/" target="_blank" rel="noopener noreferrer">
             Tintswalo’s Poultry Delivery Tracker
           </a>
         </h3>
@@ -148,7 +153,7 @@
       <!-- Research Paper Section -->
       <div class="project">
         <h3>
-          <a href="#" onclick="showPDF('assets/Research_Report NDLOVU M.pdf'); return false;">
+          <a href="assets/Research_Report%20NDLOVU%20M.pdf" target="_blank" rel="noopener noreferrer">
             Fine-Tuning Low-Resource Translation Models Using Data Augmentation
           </a>
         </h3>
@@ -179,9 +184,7 @@
           <li>Detailed <em>use-case diagrams</em> and interaction flows</li>
           <li><em>Deployment model</em> leveraging Google Cloud Platform services</li>
         </ul>
-        <p>
-          <a href="assets/Research_Report_NDLOVU_M.pdf" target="_blank"> View Paper (PDF)</a>
-        </p>
+        <p class="document-note">Document not currently published online.</p>
       </div>
           
       <div class="project">
@@ -202,11 +205,7 @@
           <li>Statistical analysis (t-tests) confirming <em>optimal configurations</em></li>
           <li>Insights into <em>avoiding overfitting</em> and maximizing accuracy</li>
         </ul>
-        <p>
-          <a href="assets/Hybrid_Almond_Classification.pdf" target="_blank">
-            Hybrid Learning in Neural Networks for Almond Classification
-          </a>
-        </p>
+        <p class="document-note">Document not currently published online.</p>
       </div> 
 
       <div class="project">
@@ -228,11 +227,7 @@
           <li>Deriving the <strong>update rule</strong> for non-bias weights between input → hidden</li>
           <li>Comparing <em>bias</em> weight updates vs. <em>non-bias</em> to confirm differences</li>
         </ul>
-        <p>
-          <a href="assets/COS711_Assignment1_Ndlovu.pdf" target="_blank">
-            Backpropagation
-          </a>
-        </p>
+        <p class="document-note">Document not currently published online.</p>
       </div>   
       
       <div class="project">
@@ -259,11 +254,7 @@
             <strong>hybrid approaches</strong> and <strong>semantic filtering</strong> in low-resource MT tasks
           </li>
         </ul>
-        <p>
-          <a href="assets/FineTuning_LowResource_MT.pdf" target="_blank">
-           View Paper (PDF)
-          </a>.
-        </p>
+        <p class="document-note">Document not currently published online.</p>
       </div>
 
       <div class="project">
@@ -282,43 +273,18 @@
           <li><em>Clinical Decision Support</em> tools to minimize errors and align treatment with the latest guidelines.</li>
           <li><em>Action Plan</em> covering phased implementation, staff training, and legal compliance strategies.</li>
         </ul>
-        <p>
-          <a href="assets/EHR_Implementation.pdf" target="_blank">View Detailed Paper (PDF)</a>
-        </p>
+        <p class="document-note">Document not currently published online.</p>
       </div>
     </section>
-
-    <!-- PDF Viewer Modal -->
-    <div id="pdf-modal">
-      <div id="pdf-header">
-        <span id="pdf-title">Research Paper</span>
-        <button onclick="maximizePDF()">🔼</button>
-        <button onclick="minimizePDF()">🔽</button>
-        <button onclick="closePDF()">❌</button>
-      </div>
-      <iframe id="pdf-viewer" src="" allowfullscreen></iframe>
-    </div>
-
-    <!-- Icons -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
-      
-      <section id="contact" class="section">
+<section id="contact" class="section">
         <h2>Contact Me</h2>
         <p>Send me a message — I’d love to hear from you!</p>
-      
-        <!-- Custom Contact Form -->
-        <form id="contact-form" class="contact-form" action="https://formspree.io/f/yourFormID" method="POST">
-          <label for="name"><i class="fas fa-user"></i> Your Name</label>
-          <input type="text" id="name" name="name" placeholder="Makungumixo Ndlovu" required>
-      
-          <label for="email"><i class="fas fa-envelope"></i> Your Email</label>
-          <input type="email" id="email" name="_replyto" placeholder="you@example.com" required>
-      
-          <label for="message"><i class="fas fa-comment-dots"></i> Your Message</label>
-          <textarea id="message" name="message" placeholder="Type your message here..." rows="5" required></textarea>
-      
-          <button type="submit"><i class="fas fa-paper-plane"></i> Send Message</button>
-        </form>
+        <div class="contact-options">
+          <a class="contact-cta" href="mailto:makungumixo@gmail.com">
+            <i class="fas fa-envelope" aria-hidden="true"></i>
+            Email Makungu
+          </a>
+        </div>
       
         <h3>Let's Connect</h3>
       
@@ -330,23 +296,23 @@
           <a href="tel:+27714698301" title="Phone">
             <i class="fas fa-phone"></i>
           </a>
-          <a href="https://www.linkedin.com/in/makungumixo" title="LinkedIn" target="_blank">
+          <a href="https://www.linkedin.com/in/makungumixo" title="LinkedIn" target="_blank" rel="noopener noreferrer">
             <i class="fab fa-linkedin"></i>
           </a>
-          <a href="https://github.com/makungumixo" title="GitHub" target="_blank">
+          <a href="https://github.com/makungumixo" title="GitHub" target="_blank" rel="noopener noreferrer">
             <i class="fab fa-github"></i>
           </a>
-          <a href="https://x.com/makungumixo" title="X (Twitter)" target="_blank">
+          <a href="https://x.com/makungumixo" title="X (Twitter)" target="_blank" rel="noopener noreferrer">
             <i class="fab fa-x-twitter"></i>
           </a>
-          <a href="https://instagram.com/makungumixo" title="Instagram" target="_blank">
+          <a href="https://instagram.com/makungumixo" title="Instagram" target="_blank" rel="noopener noreferrer">
             <i class="fab fa-instagram"></i>
           </a>
         </div>
       </section>
 
     <footer>
-        <p>&copy; 2024 Makungu Ndlovu. All Rights Reserved.</p>
+        <p>&copy; <span id="current-year">2026</span> Makungu Ndlovu. All Rights Reserved.</p>
     </footer>
   </main>
 </body>
