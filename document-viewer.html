@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#07111f">
+  <title>Research Document | Makungumixo Ndlovu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap">
+  <style>
+    :root { color-scheme: dark; --bg:#07111f; --panel:#0c1f32; --text:#f4f8fb; --muted:#a9bbc9; --accent:#56d6c2; --line:rgba(184,217,235,.18); }
+    * { box-sizing:border-box; }
+    body { margin:0; min-height:100vh; color:var(--text); background:var(--bg); font-family:'Manrope',sans-serif; }
+    header { display:flex; align-items:center; justify-content:space-between; gap:1rem; min-height:76px; padding:1rem clamp(1rem,4vw,3rem); border-bottom:1px solid var(--line); background:rgba(7,17,31,.96); }
+    h1 { margin:0; font-family:'Space Grotesk',sans-serif; font-size:clamp(1rem,2vw,1.35rem); letter-spacing:-.025em; }
+    header p { margin:.25rem 0 0; color:var(--muted); font-size:.76rem; }
+    a { padding:.65rem .9rem; color:var(--text); border:1px solid var(--line); border-radius:.35rem; text-decoration:none; font-weight:800; font-size:.78rem; white-space:nowrap; }
+    main { height:calc(100vh - 77px); padding:clamp(.5rem,2vw,1.25rem); }
+    .reader { width:100%; height:100%; overflow:hidden; border:1px solid var(--line); border-radius:.5rem; background:var(--panel); }
+    iframe { display:block; width:100%; height:100%; border:0; }
+    .error { display:grid; place-content:center; height:100%; padding:2rem; text-align:center; }
+    .error p { color:var(--muted); }
+    @media (max-width:600px) { header { align-items:flex-start; } header p { display:none; } main { height:calc(100vh - 73px); padding:.35rem; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1 id="document-title">Research document</h1>
+      <p>View-only presentation · Document controls are intentionally limited</p>
+    </div>
+    <a href="index.html#projects">Return to portfolio</a>
+  </header>
+  <main>
+    <div class="reader" id="reader">
+      <iframe id="document-frame" title="Research document viewer"></iframe>
+    </div>
+  </main>
+  <script>
+    const documents = {
+      'research-report': {
+        title: 'Fine-Tuning Low-Resource Translation Models Using Data Augmentation',
+        source: 'assets/Research_Report%20NDLOVU%20M.pdf#toolbar=0&navpanes=0&scrollbar=1&view=FitH'
+      }
+    };
+    const key = new URLSearchParams(window.location.search).get('document');
+    const documentConfig = documents[key];
+    const title = document.getElementById('document-title');
+    const reader = document.getElementById('reader');
+    if (documentConfig) {
+      title.textContent = documentConfig.title;
+      document.title = `${documentConfig.title} | Makungumixo Ndlovu`;
+      document.getElementById('document-frame').src = documentConfig.source;
+    } else {
+      reader.innerHTML = '<div class="error"><h2>Document unavailable</h2><p>This document could not be opened from the supplied link.</p></div>';
+    }
+  </script>
+</body>
+</html>
