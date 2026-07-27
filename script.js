@@ -4,6 +4,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const navMenu = document.getElementById('nav-menu');
   const themeToggle = document.getElementById('dark-mode-toggle');
   const currentYear = document.getElementById('current-year');
+  const profileButton = document.getElementById('profile-photo-button');
+  const photoOverlay = document.getElementById('photo-overlay');
+  const photoClose = document.getElementById('photo-close');
   const navLinks = [...document.querySelectorAll('#nav-menu a[href^="#"]')];
   const sections = [...document.querySelectorAll('main section[id]')];
 
@@ -24,6 +27,25 @@ document.addEventListener('DOMContentLoaded', () => {
   themeToggle?.addEventListener('click', () => {
     const isDark = document.body.classList.toggle('dark-mode');
     localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
+  });
+
+  const setPhotoOpen = (open) => {
+    if (!profileButton || !photoOverlay) return;
+    photoOverlay.hidden = !open;
+    profileButton.setAttribute('aria-expanded', String(open));
+    profileButton.setAttribute('aria-label', open ? 'Close enlarged profile photo' : 'Enlarge profile photo');
+    document.body.style.overflow = open ? 'hidden' : '';
+    if (open) photoClose?.focus();
+    else profileButton.focus();
+  };
+
+  profileButton?.addEventListener('click', () => setPhotoOpen(true));
+  photoClose?.addEventListener('click', () => setPhotoOpen(false));
+  photoOverlay?.addEventListener('click', (event) => {
+    if (event.target === photoOverlay) setPhotoOpen(false);
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && photoOverlay && !photoOverlay.hidden) setPhotoOpen(false);
   });
 
   const updateScrollState = () => {

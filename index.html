@@ -52,6 +52,15 @@
   <main id="main-content">
     <section class="hero" id="home">
       <div class="hero-copy">
+        <div class="identity-panel">
+          <button class="portrait-button" id="profile-photo-button" type="button" aria-label="Enlarge profile photo" aria-expanded="false">
+            <img src="./assets/IMG_01.jpg" class="profile-pic" alt="Portrait of Makungumixo Ndlovu" width="112" height="112" decoding="async" fetchpriority="high">
+          </button>
+          <div class="identity-copy">
+            <p class="person-name">Makungumixo Ndlovu</p>
+            <p class="credential-pane">MIT Big Data Science <span>|</span> BSc Honours Computer Science <span>|</span> BSc Mathematical Sciences <span>|</span> Software Engineer <span>|</span> Data Analyst</p>
+          </div>
+        </div>
         <p class="eyebrow"><span></span> Data science · Software engineering · Mathematics</p>
         <h1>I turn <em>data, mathematics,</em> and code into practical solutions.</h1>
         <p class="hero-intro">Aspiring Data Scientist and Software Engineer with a background in Mathematical Sciences, Computer Science, machine learning, and low-resource NLP.</p>
@@ -67,10 +76,20 @@
       </div>
       <div class="portrait-wrap">
         <div class="portrait-orbit" aria-hidden="true"></div>
-        <img src="./assets/IMG_01.jpg" class="profile-pic" alt="Portrait of Makungumixo Ndlovu" width="420" height="420" decoding="async" fetchpriority="high">
+        <div class="data-monogram" aria-hidden="true">
+          <span>DATA</span>
+          <strong>+</strong>
+          <span>MATH</span>
+          <strong>+</strong>
+          <span>CODE</span>
+        </div>
         <div class="availability"><span></span> Open to data opportunities</div>
       </div>
     </section>
+    <div class="photo-overlay" id="photo-overlay" hidden>
+      <button class="photo-close" id="photo-close" type="button" aria-label="Close enlarged profile photo"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+      <img src="./assets/IMG_01.jpg" alt="Enlarged portrait of Makungumixo Ndlovu" width="720" height="720">
+    </div>
 
     <section class="section about-grid" id="about">
       <div>
