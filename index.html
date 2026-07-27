@@ -31,10 +31,15 @@
   <div id="particles-js" aria-hidden="true"></div>
 
   <header class="site-header">
-    <a class="brand" href="#home" aria-label="Makungumixo Ndlovu, home">
-      <span class="brand-mark">MN</span>
-      <span>Makungumixo Ndlovu</span>
-    </a>
+    <div class="identity-panel">
+      <button class="portrait-button" id="profile-photo-button" type="button" aria-label="Enlarge profile photo" aria-expanded="false">
+        <img src="./assets/IMG_01.jpg" class="profile-pic" alt="Portrait of Makungumixo Ndlovu" width="100" height="100" decoding="async" fetchpriority="high">
+      </button>
+      <a class="identity-copy" href="#home" aria-label="Makungumixo Ndlovu, home">
+        <span class="person-name">Makungumixo Ndlovu</span>
+        <span class="credential-pane">MIT Big Data Science <span>|</span> BSc Honours Computer Science <span>|</span> BSc Mathematical Sciences <span>|</span> Software Engineer <span>|</span> Data Analyst</span>
+      </a>
+    </div>
     <button class="hamburger" id="nav-toggle" type="button" aria-label="Open navigation menu" aria-controls="nav-menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -52,15 +57,6 @@
   <main id="main-content">
     <section class="hero" id="home">
       <div class="hero-copy">
-        <div class="identity-panel">
-          <button class="portrait-button" id="profile-photo-button" type="button" aria-label="Enlarge profile photo" aria-expanded="false">
-            <img src="./assets/IMG_01.jpg" class="profile-pic" alt="Portrait of Makungumixo Ndlovu" width="112" height="112" decoding="async" fetchpriority="high">
-          </button>
-          <div class="identity-copy">
-            <p class="person-name">Makungumixo Ndlovu</p>
-            <p class="credential-pane">MIT Big Data Science <span>|</span> BSc Honours Computer Science <span>|</span> BSc Mathematical Sciences <span>|</span> Software Engineer <span>|</span> Data Analyst</p>
-          </div>
-        </div>
         <p class="eyebrow"><span></span> Data science · Software engineering · Mathematics</p>
         <h1>I turn <em>data, mathematics,</em> and code into practical solutions.</h1>
         <p class="hero-intro">Aspiring Data Scientist and Software Engineer with a background in Mathematical Sciences, Computer Science, machine learning, and low-resource NLP.</p>
