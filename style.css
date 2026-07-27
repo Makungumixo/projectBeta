@@ -93,9 +93,21 @@ h3 { font-size: 1.45rem; }
 .portrait-wrap { position: relative; }
 .portrait-orbit { position: absolute; inset: -8%; border: 1px solid rgba(86,214,194,.28); border-radius: 50%; animation: orbit 18s linear infinite; }
 .portrait-orbit::after { content: ""; position: absolute; top: 13%; right: 3%; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 25px var(--accent); }
-.data-monogram { position: relative; z-index: 2; display: grid; place-content: center; width: min(100%, 390px); aspect-ratio: 1; border: 1px solid var(--line); border-radius: 50%; background: radial-gradient(circle, rgba(86,214,194,.15), rgba(8,24,41,.78) 62%); box-shadow: var(--shadow); text-align: center; font-family: 'Space Grotesk', sans-serif; letter-spacing: .22em; }
-.data-monogram span { font-size: clamp(1rem, 2vw, 1.45rem); font-weight: 700; }
-.data-monogram strong { color: var(--accent); font-size: 1.3rem; }
+.data-sphere { position: relative; z-index: 2; width: min(100%, 390px); aspect-ratio: 1; overflow: hidden; border: 1px solid rgba(86,214,194,.4); border-radius: 50%; background: radial-gradient(circle at 38% 32%, rgba(86,214,194,.2), rgba(8,24,41,.82) 58%, rgba(3,12,22,.96)); box-shadow: inset 0 0 55px rgba(86,214,194,.1), var(--shadow); font-family: 'Space Grotesk', sans-serif; }
+.data-sphere::before { content: ""; position: absolute; inset: 8%; border-radius: 50%; background-image: radial-gradient(circle, rgba(154,232,219,.5) 1px, transparent 1.5px); background-size: 21px 21px; opacity: .3; mask-image: radial-gradient(circle, #000, transparent 76%); }
+.data-sphere::after { content: ""; position: absolute; inset: 0; border-radius: 50%; box-shadow: inset 18px 12px 35px rgba(255,255,255,.05), inset -28px -22px 45px rgba(0,0,0,.42); pointer-events: none; }
+.symbol-orbit { position: absolute; top: 50%; left: 50%; border: 1px solid rgba(154,232,219,.2); border-radius: 50%; }
+.orbit-outer { width: 88%; height: 88%; margin: -44%; animation: symbol-spin 26s linear infinite; }
+.orbit-middle { width: 67%; height: 67%; margin: -33.5%; border-style: dashed; animation: symbol-spin-reverse 19s linear infinite; }
+.orbit-inner { width: 45%; height: 45%; margin: -22.5%; animation: symbol-spin 13s linear infinite; }
+.symbol { position: absolute; display: grid; place-items: center; min-width: 30px; min-height: 30px; padding: .25rem; color: rgba(233,246,247,.86); border: 1px solid rgba(86,214,194,.24); border-radius: 50%; background: rgba(5,20,32,.72); box-shadow: 0 0 18px rgba(86,214,194,.14); font-size: clamp(.62rem, 1.4vw, .9rem); font-weight: 700; letter-spacing: .03em; }
+.symbol-a { top: -15px; left: 50%; transform: translateX(-50%); }
+.symbol-b { top: 50%; right: -18px; transform: translateY(-50%); }
+.symbol-c { bottom: -15px; left: 50%; transform: translateX(-50%); }
+.symbol-d { top: 50%; left: -18px; transform: translateY(-50%); }
+.sphere-core { position: absolute; top: 50%; left: 50%; z-index: 3; display: grid; place-items: center; width: 32%; aspect-ratio: 1; transform: translate(-50%,-50%); border: 1px solid rgba(86,214,194,.42); border-radius: 50%; background: rgba(5,23,36,.88); box-shadow: 0 0 45px rgba(86,214,194,.2); text-align: center; letter-spacing: .15em; }
+.sphere-core span { font-size: clamp(.54rem, 1.25vw, .75rem); font-weight: 700; }
+.sphere-core strong { color: var(--accent); font-size: .75rem; line-height: .7; }
 .availability { position: absolute; z-index: 3; right: -8%; bottom: 8%; display: flex; align-items: center; gap: .55rem; padding: .7rem 1rem; border: 1px solid var(--line); border-radius: 999px; background: var(--surface-strong); box-shadow: var(--shadow); font-size: .75rem; font-weight: 800; white-space: nowrap; }
 .availability span { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px var(--accent); }
 
@@ -140,6 +152,8 @@ h3 { font-size: 1.45rem; }
 footer { display: flex; justify-content: space-between; padding: 2rem 0 3rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .8rem; }
 
 @keyframes orbit { to { transform: rotate(360deg); } }
+@keyframes symbol-spin { to { transform: rotate(360deg); } }
+@keyframes symbol-spin-reverse { to { transform: rotate(-360deg); } }
 @media (max-width: 900px) {
   .site-header { padding-inline: 24px; }
   .hamburger { display: grid; gap: 5px; padding: .6rem; border: 0; background: transparent; cursor: pointer; }
