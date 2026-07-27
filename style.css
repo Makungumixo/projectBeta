@@ -97,15 +97,15 @@ h3 { font-size: 1.45rem; }
 .data-sphere::before { content: ""; position: absolute; inset: 8%; border-radius: 50%; background-image: radial-gradient(circle, rgba(154,232,219,.5) 1px, transparent 1.5px); background-size: 21px 21px; opacity: .3; mask-image: radial-gradient(circle, #000, transparent 76%); }
 .data-sphere::after { content: ""; position: absolute; inset: 0; border-radius: 50%; box-shadow: inset 18px 12px 35px rgba(255,255,255,.05), inset -28px -22px 45px rgba(0,0,0,.42); pointer-events: none; }
 .symbol-orbit { position: absolute; top: 50%; left: 50%; border: 1px solid rgba(154,232,219,.2); border-radius: 50%; }
-.orbit-outer { width: 88%; height: 88%; margin: -44%; animation: symbol-spin 26s linear infinite; }
-.orbit-middle { width: 67%; height: 67%; margin: -33.5%; border-style: dashed; animation: symbol-spin-reverse 19s linear infinite; }
-.orbit-inner { width: 45%; height: 45%; margin: -22.5%; animation: symbol-spin 13s linear infinite; }
+.orbit-outer { width: 90%; height: 54%; margin: -27% 0 0 -45%; animation: symbol-spin 26s linear infinite; }
+.orbit-middle { width: 70%; height: 42%; margin: -21% 0 0 -35%; border-style: dashed; animation: symbol-spin-reverse 19s linear infinite; }
+.orbit-inner { width: 50%; height: 30%; margin: -15% 0 0 -25%; animation: symbol-spin 13s linear infinite; }
 .symbol { position: absolute; display: grid; place-items: center; min-width: 30px; min-height: 30px; padding: .25rem; color: rgba(233,246,247,.86); border: 1px solid rgba(86,214,194,.24); border-radius: 50%; background: rgba(5,20,32,.72); box-shadow: 0 0 18px rgba(86,214,194,.14); font-size: clamp(.62rem, 1.4vw, .9rem); font-weight: 700; letter-spacing: .03em; }
 .symbol-a { top: -15px; left: 50%; transform: translateX(-50%); }
 .symbol-b { top: 50%; right: -18px; transform: translateY(-50%); }
 .symbol-c { bottom: -15px; left: 50%; transform: translateX(-50%); }
 .symbol-d { top: 50%; left: -18px; transform: translateY(-50%); }
-.formula-orbit { position: absolute; top: 50%; left: 50%; width: 78%; height: 78%; margin: -39%; border-radius: 50%; animation: symbol-spin-reverse 34s linear infinite; }
+.formula-orbit { position: absolute; top: 50%; left: 50%; width: 82%; height: 48%; margin: -24% 0 0 -41%; border-radius: 50%; animation: symbol-spin-reverse 34s linear infinite; }
 .formula { position: absolute; padding: .24rem .48rem; color: rgba(240,173,114,.94); border: 1px solid rgba(240,173,114,.22); border-radius: 999px; background: rgba(13,22,34,.78); box-shadow: 0 0 18px rgba(240,173,114,.1); font-family: 'Space Grotesk', sans-serif; font-size: clamp(.48rem, 1vw, .68rem); font-weight: 700; letter-spacing: .01em; white-space: nowrap; }
 .formula-a { top: 8%; left: 8%; }
 .formula-b { top: 12%; right: 2%; }
