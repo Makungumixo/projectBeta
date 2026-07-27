@@ -157,7 +157,10 @@ h3 { font-size: 1.45rem; }
 .certificate-card:hover { transform: translateY(-4px); border-color: rgba(86,214,194,.5); }
 .certificate-card h3 { font-size: 1.2rem; }
 .certificate-icon { display: grid; place-items: center; flex: 0 0 46px; height: 46px; color: var(--accent); border: 1px solid rgba(86,214,194,.35); border-radius: 50%; background: rgba(86,214,194,.08); }
-.document-pending { color: var(--muted); font-size: .76rem; }
+.credential-id { margin: .8rem 0 1.1rem; color: var(--muted); font-size: .76rem; }
+.certificate-link { color: var(--accent); font-size: .8rem; font-weight: 800; text-decoration: none; }
+.certificate-link:hover { color: var(--warm); }
+.certificate-link i { margin-left: .25rem; font-size: .72rem; }
 .certificate-placeholder { border-style: dashed; background: rgba(255,255,255,.025); }
 .contact { text-align: center; }
 .contact h2 { margin-inline: auto; }
