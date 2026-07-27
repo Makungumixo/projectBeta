@@ -5,8 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const themeToggle = document.getElementById('dark-mode-toggle');
   const currentYear = document.getElementById('current-year');
   const profileButton = document.getElementById('profile-photo-button');
-  const photoOverlay = document.getElementById('photo-overlay');
-  const photoClose = document.getElementById('photo-close');
+  const profilePic = document.querySelector('.profile-pic');
+  const identityPanel = document.querySelector('.identity-panel');
   const navLinks = [...document.querySelectorAll('#nav-menu a[href^="#"]')];
   const sections = [...document.querySelectorAll('main section[id]')];
 
@@ -29,27 +29,18 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
   });
 
-  const setPhotoOpen = (open) => {
-    if (!profileButton || !photoOverlay) return;
-    photoOverlay.hidden = !open;
-    profileButton.setAttribute('aria-expanded', String(open));
-    profileButton.setAttribute('aria-label', open ? 'Close enlarged profile photo' : 'Enlarge profile photo');
-    document.body.style.overflow = open ? 'hidden' : '';
-    if (open) photoClose?.focus();
-    else profileButton.focus();
+  const toggleProfilePhoto = () => {
+    if (!profileButton || !profilePic) return;
+    const enlarged = profilePic.classList.toggle('enlarged');
+    profileButton.setAttribute('aria-expanded', String(enlarged));
+    profileButton.setAttribute('aria-label', enlarged ? 'Restore profile photo size' : 'Enlarge profile photo');
   };
 
-  profileButton?.addEventListener('click', () => setPhotoOpen(true));
-  photoClose?.addEventListener('click', () => setPhotoOpen(false));
-  photoOverlay?.addEventListener('click', (event) => {
-    if (event.target === photoOverlay) setPhotoOpen(false);
-  });
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && photoOverlay && !photoOverlay.hidden) setPhotoOpen(false);
-  });
+  profileButton?.addEventListener('click', toggleProfilePhoto);
 
   const updateScrollState = () => {
     header?.classList.toggle('scrolled', window.scrollY > 20);
+    identityPanel?.classList.toggle('hide-on-scroll', window.scrollY > 50);
     let current = 'home';
     sections.forEach((section) => {
       if (window.scrollY >= section.offsetTop - 160) current = section.id;
