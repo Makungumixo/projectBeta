@@ -1,323 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="theme-color" content="#ffffff" />
-    
-      <title>Makungumixo Ndlovu | Portfolio</title>
-    
-      <!-- SEO -->
-      <meta name="description" content="Personal portfolio of Makungu (Mixo) Ndlovu — Software Engineer, Data Analyst, and Mathematics Enthusiast.">
-      <meta name="author" content="Makungumixo Ndlovu">
-      <meta name="robots" content="index, follow">
-    
-      <!-- Favicon -->
-      <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
-    
-      <!-- Google Fonts -->
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
-    
-      <!-- Stylesheet -->
-      <link rel="stylesheet" href="style.css">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-    
-      <!-- Scripts -->
-      <script defer src="script.js"></script>
-      <script defer src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-      <script defer src="./assets/particles-config.js"></script>
-
-      <!-- Preload <img> tag source -->
-      <link rel="preload" as="image" href="./assets/IMG_01.jpg">
-      <!-- Preload CSS background images -->
-      <link rel="preload" as="image" href="./assets/Evolution.jpg">
-      <link rel="preload" as="image" href="./assets/pexels-pixabay-247431.jpg">
-    </head>
-
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#07111f">
+  <title>Makungumixo Ndlovu | Data Science & Software Portfolio</title>
+  <meta name="description" content="Makungumixo Ndlovu is an aspiring data scientist and software engineer building practical solutions with mathematics, machine learning, NLP, and code.">
+  <meta name="author" content="Makungumixo Ndlovu">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Makungumixo Ndlovu | Data Science & Software Portfolio">
+  <meta property="og:description" content="Turning data, mathematics, and code into practical solutions.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://makungumixo.co.za/">
+  <link rel="canonical" href="https://makungumixo.co.za/">
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <script defer src="script.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script defer src="./assets/particles-config.js"></script>
+  <link rel="preload" as="image" href="./assets/IMG_01.jpg">
+  <link rel="preload" as="image" href="./assets/Evolution.jpg">
+  <link rel="preload" as="image" href="./assets/pexels-pixabay-247431.jpg">
+</head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
-  <!-- Particles background -->
-  <div id="particles-js"></div>
+  <div id="particles-js" aria-hidden="true"></div>
 
-  <header>
-    <div class="logo-container">
-      <img
-        src="./assets/IMG_01.jpg"
-        class="profile-pic"
-        alt="Photo of Makungu Ndlovu"
-        tabindex="0"
-        role="button"
-        aria-label="Enlarge profile photo"
-        width="100"
-        height="100"
-        decoding="async"
-        fetchpriority="high"
-     />
-
-     <div class="name-container" id="intro-banner">
-       <h1>Makungumixo Ndlovu</h1>
-       <div class="glass-text">
-         MIT Big Data Science | BSc Honours Computer Science | BSc Mathematical Sciences | Software Engineer | Data Analyst
-       </div>
-     </div>
-    </div>
-    
-   <nav>
-      <button class="hamburger" id="nav-toggle" type="button" aria-label="Open navigation menu" aria-controls="nav-menu" aria-expanded="false">&#9776;</button>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Makungumixo Ndlovu, home">
+      <span class="brand-mark">MN</span>
+      <span>Makungumixo Ndlovu</span>
+    </a>
+    <button class="hamburger" id="nav-toggle" type="button" aria-label="Open navigation menu" aria-controls="nav-menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav aria-label="Primary navigation">
       <ul id="nav-menu">
         <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
-        <li><a href="#academic">Academic</a></li>
+        <li><a href="#research">Research</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li><button id="dark-mode-toggle">Dark Mode</button></li>
+        <li><button class="theme-toggle" id="dark-mode-toggle" type="button" aria-label="Change colour theme"><i class="fa-solid fa-sun" aria-hidden="true"></i><span>Theme</span></button></li>
       </ul>
-   </nav>
+    </nav>
   </header>
 
   <main id="main-content">
-    <!-- About Section -->
-    <section id="about" class="section">
-      <h2>About Me</h2>
-      <p>
-        Hello World 😃! I’m <strong>Makungu{mixo} Ndlovu</strong>—though most people know me as <strong>Mixo</strong>—born and 
-        raised in the vibrant rural village of <em>Gandlanani Khani</em> in Giyani, Limpopo. 
-        Growing up without a computer and limited internet access, I became a naturally resourceful learner,
-        grabbing every opportunity to explore the world of technology and broaden my knowledge. 
-        My childhood fascination with rocket launches—watching humans reach beyond the sky—sparked a belief in me:
-        that creativity, passion, and perseverance can overcome even the toughest of limitations.
-      </p>
-      
-      <p>
-        My love for mathematics was first ignited by my inspiring high school Science teacher,
-        who didn’t just teach math—but made it come alive. That classroom experience sparked 
-        a lifelong curiosity that led me to pursue a <strong>BSc in Mathematical Sciences</strong> 
-        followed by a <strong>BSc Honours in Computer Science</strong>. Along this journey, 
-        I evolved into an <strong>analytical thinker</strong>— who enjoys bridging the gap between theory
-        and real-world challenges. From building scalable solutions in
-        <strong>Python, Java, C++, SQL, HTML, CSS, JavaScript</strong> and many more machine languages, 
-        to solving complex mathematical puzzles, I’ve always approached problems with curiosity and courage. 
-        Just like those rocket launches that once captivated me, I’m constantly reaching for new insights beyond the ordinary.
-      </p>
-      
-      <p>
-        Away from the screen, I’m an avid football fan—always up for a weekend match on TV or 
-        a casual kickabout with friends—and I enjoy sharpening my mind through strategic Chess matches.
-        These passions fuel my <strong>team-spirited mindset</strong>: blending collaboration, adaptability,
-        and critical thinking, whether on the pitch, across the board, or in a development sprint.
-        Whatever the challenge, I meet it with <strong>persistent optimism</strong>, 
-        turning setbacks into opportunities—in code, in life, and everywhere in between.
-      </p>
-    </section>
-    
-    <!-- Projects Section -->
-    <section id="projects" class="section">
-      <h2>My Projects</h2>
-
-      <div class="project">
-        <h3>Geometry Area Calculator</h3>
-        <p>Calculate areas of rectangles, triangles, and circles with an interactive interface.</p>
-        <a href="https://makungumixo.github.io/geometry-area-calculator/" target="_blank" rel="noopener noreferrer">🧪 Run App</a> 
-      </div>
-
-      <div class="project">
-        <h3><a href="https://makungumixo.github.io/sudoku-solver-web/" target="_blank" rel="noopener noreferrer">Sudoku Solver</a></h3>
-        <p>An interactive browser-based Sudoku puzzle solver that uses backtracking to solve any puzzle you load.</p>
-      </div>
-
-      <div class="project">
-        <h3><a href="https://makungumixo.github.io/prime-visualizer-web/" target="_blank" rel="noopener noreferrer">Prime Number Visualizer</a></h3>
-        <p>Explore prime numbers up to any value using the Sieve of Eratosthenes. A clean and colorful way to visualize mathematics in action!</p>
-      </div>
-
-      <div class="project">
-        <h3><a href="https://makungumixo.github.io/math-facts-api-app/" target="_blank" rel="noopener noreferrer">Math Facts Finder</a></h3>
-        <p>Type in any number to discover an interesting trivia or math fact about it — fetched live from the Numbers API!</p>
-      </div>
-
-      <div class="project">
-        <h3>
-          <a href="https://makungumixo.github.io/tintswalo-delivery-tracker/" target="_blank" rel="noopener noreferrer">
-            Tintswalo’s Poultry Delivery Tracker
-          </a>
-        </h3>
-        <p>
-          A real-time delivery route optimizer for my broiler chicken business using Leaflet.js. 
-          It helps minimize fuel cost and delivery time by calculating the most efficient route between 
-          multiple customer addresses. Includes admin mode for route updates, cost estimation, and 
-          live mapping.
-        </p>
-      </div>
-
-      <!-- Research Paper Section -->
-      <div class="project">
-        <h3>
-          <a href="assets/Research_Report%20NDLOVU%20M.pdf" target="_blank" rel="noopener noreferrer">
-            Fine-Tuning Low-Resource Translation Models Using Data Augmentation
-          </a>
-        </h3>
-        <p>
-          This research focuses on improving Xitsonga-English translation by applying advanced data augmentation techniques to enhance low-resource models.
-        </p>
-      </div>
-    </section>
-
-    <!-- Academic Section -->
-    <section id="academic" class="section">
-      <h2>Academic Work</h2>
-
-      <div class="project">
-        <h3>Google Buzz Legacy System (Software Engineering)</h3>
-        <p>
-          This academic project reimagines Google Buzz — a social networking and microblogging 
-          platform — by detailing both <strong>functional</strong> and <strong>non-functional</strong> 
-          requirements alongside an in-depth architectural design. It addresses performance, 
-          security, reliability, and usability concerns, illustrated with specific use cases and 
-          deployment models.
-        </p>
-        <p><strong>Key Highlights Include:</strong></p>
-        <ul style="list-style: none; margin: 0; padding: 0;">
-          <li>Clearly defined <em>functional requirements</em> (user registration, profile management, privacy controls, etc.)</li>
-          <li>Identification and <em>quantification of non-functional requirements</em>, such as latency goals and security measures</li>
-          <li>System <em>architecture</em> combining Microservices, 3-Tier, and MVC patterns for robust scalability and maintainability</li>
-          <li>Detailed <em>use-case diagrams</em> and interaction flows</li>
-          <li><em>Deployment model</em> leveraging Google Cloud Platform services</li>
-        </ul>
-        <p class="document-note">Document not currently published online.</p>
-      </div>
-          
-      <div class="project">
-        <h3>Hybrid Learning in Neural Networks for Almond Classification</h3>
-        <p>
-          This study explores how <em>hybrid learning techniques</em> enhance neural network performance
-          for classifying different almond types (e.g., Mamra, Sanora, Regular). By combining two
-          powerful gradient-based algorithms—<strong>Rprop</strong> and <strong>Adam</strong>—and conducting
-          a <strong>grid search</strong> on key hyperparameters like <em>batch size</em> and <em>epochs</em>, the
-          research demonstrates how smaller batch sizes (e.g., 16) and more epochs (up to 200) yield
-          significantly better classification accuracy. The hybrid approach not only improves classification
-          accuracy but also <strong>reduces overfitting</strong> and enhances generalization.
-        </p>
-        <p><strong>Key Highlights Include:</strong></p>
-        <ul style="list-style: none; margin: 0; padding: 0;">
-          <li>Comparison of <em>Rprop vs. Adam</em> and a combined (hybrid) method</li>
-          <li>Grid search to optimize <em>batch size</em> and <em>number of epochs</em></li>
-          <li>Statistical analysis (t-tests) confirming <em>optimal configurations</em></li>
-          <li>Insights into <em>avoiding overfitting</em> and maximizing accuracy</li>
-        </ul>
-        <p class="document-note">Document not currently published online.</p>
-      </div> 
-
-      <div class="project">
-        <h3>Deriving Backpropagation</h3>
-        <p>
-          This assignment required in-depth derivations of backpropagation update rules for
-          a custom neural network with:
-        </p>
-        <ul style="list-style: none; margin: 0; padding: 0;">
-          <li><em>Unique activation functions</em> in both hidden and output layers</li>
-          <li>A <strong>custom loss function</strong> including a penalty term over non-bias weights</li>
-          <li>Specific <em>bias vs. non-bias weight</em> updates</li>
-        </ul>
-        <p>
-          The key objectives included:
-        </p>
-        <ul style="list-style: none; margin: 0; padding: 0;">
-          <li>Deriving the <strong>update rule</strong> for non-bias weights between hidden → output</li>
-          <li>Deriving the <strong>update rule</strong> for non-bias weights between input → hidden</li>
-          <li>Comparing <em>bias</em> weight updates vs. <em>non-bias</em> to confirm differences</li>
-        </ul>
-        <p class="document-note">Document not currently published online.</p>
-      </div>   
-      
-      <div class="project">
-        <h3>Data Augmentation</h3>
-        <p>
-          This study explores <strong>data augmentation techniques</strong> (e.g., back-translation, random
-          deletion, synonym replacement) to improve machine translation (MT) performance for
-          the <em>low-resource</em> Xitsonga–English language pair. Through <strong>cosine similarity</strong>
-          scoring and threshold-based filtering, the augmented data retained high semantic fidelity,
-          thereby boosting translation accuracy.
-        </p>
-        <p><strong>Key Highlights Include:</strong></p>
-        <ul style="list-style: none; margin: 0; padding: 0;">
-          <li><em>EDA &amp; Clustering:</em> Detailed analysis of sentence lengths, word counts, and 
-            unsupervised cluster separations (K-Means, t-SNE)
-          </li>
-          <li><em>Data Augmentation:</em> Techniques like back-translation, random word insertion,
-            and thresholding based on cosine similarity ≥ 0.83
-          </li>
-          <li><em>Transformer Models:</em> zaBERT, XLM-R, and RoBERTa showed superior performance 
-            over traditional classifiers when trained on augmented data
-          </li>
-          <li><em>Practical Takeaways:</em> Demonstrates the effectiveness of 
-            <strong>hybrid approaches</strong> and <strong>semantic filtering</strong> in low-resource MT tasks
-          </li>
-        </ul>
-        <p class="document-note">Document not currently published online.</p>
-      </div>
-
-      <div class="project">
-        <h3>Implementing Electronic Health Records (EHR) in South African Public Hospitals</h3>
-        <p>
-          This academic work proposes an Electronic Health Records (EHR) system to modernize patient-care processes 
-          in South African public hospitals. By digitizing patient records, enhancing interoperability, and integrating 
-          advanced security measures (e.g., encryption, role-based access control), EHR technology aims to reduce 
-          medical errors, improve operational efficiency, and ensure compliance with regulations like POPIA.
-        </p>
-        <p><strong>Key Highlights Include:</strong></p>
-        <ul style="list-style: none; margin: 0; padding: 0;">
-          <li><em>Automated Patient Registration</em> for real-time data capture and reduced wait times.</li>
-          <li><em>Interoperability &amp; Data Sharing</em> across departments and facilities for integrated care.</li>
-          <li><em>Data Security &amp; Privacy</em> through encryption, audit trails, and multi-factor authentication.</li>
-          <li><em>Clinical Decision Support</em> tools to minimize errors and align treatment with the latest guidelines.</li>
-          <li><em>Action Plan</em> covering phased implementation, staff training, and legal compliance strategies.</li>
-        </ul>
-        <p class="document-note">Document not currently published online.</p>
-      </div>
-    </section>
-<section id="contact" class="section">
-        <h2>Contact Me</h2>
-        <p>Send me a message — I’d love to hear from you!</p>
-        <div class="contact-options">
-          <a class="contact-cta" href="mailto:makungumixo@gmail.com">
-            <i class="fas fa-envelope" aria-hidden="true"></i>
-            Email Makungu
-          </a>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> Data science · Software engineering · Mathematics</p>
+        <h1>I turn <em>data, mathematics,</em> and code into practical solutions.</h1>
+        <p class="hero-intro">Aspiring Data Scientist and Software Engineer with a background in Mathematical Sciences, Computer Science, machine learning, and low-resource NLP.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#projects">Explore my work <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          <a class="button button-secondary" href="mailto:makungumixo@gmail.com">Let's connect</a>
         </div>
-      
-        <h3>Let's Connect</h3>
-      
-        <!-- Contact Icons -->
-        <div class="contact-icons">
-          <a href="mailto:makungumixo@gmail.com" title="Email">
-            <i class="fas fa-envelope"></i>
-          </a>
-          <a href="tel:+27714698301" title="Phone">
-            <i class="fas fa-phone"></i>
-          </a>
-          <a href="https://www.linkedin.com/in/makungumixo" title="LinkedIn" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a href="https://github.com/makungumixo" title="GitHub" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-github"></i>
-          </a>
-          <a href="https://x.com/makungumixo" title="X (Twitter)" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-x-twitter"></i>
-          </a>
-          <a href="https://instagram.com/makungumixo" title="Instagram" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-instagram"></i>
-          </a>
-        </div>
-      </section>
+        <ul class="hero-proof" aria-label="Qualifications">
+          <li><strong>MIT</strong><span>Big Data Science</span></li>
+          <li><strong>BSc Hons</strong><span>Computer Science</span></li>
+          <li><strong>BSc</strong><span>Mathematical Sciences</span></li>
+        </ul>
+      </div>
+      <div class="portrait-wrap">
+        <div class="portrait-orbit" aria-hidden="true"></div>
+        <img src="./assets/IMG_01.jpg" class="profile-pic" alt="Portrait of Makungumixo Ndlovu" width="420" height="420" decoding="async" fetchpriority="high">
+        <div class="availability"><span></span> Open to data opportunities</div>
+      </div>
+    </section>
 
-    <footer>
-        <p>&copy; <span id="current-year">2026</span> Makungu Ndlovu. All Rights Reserved.</p>
-    </footer>
+    <section class="section about-grid" id="about">
+      <div>
+        <p class="section-label">01 · About</p>
+        <h2>Curiosity shaped by mathematics, grounded in purpose.</h2>
+      </div>
+      <div class="about-copy">
+        <p>I grew up in Gandlanani Khani, Giyani, with limited access to computers and the internet. That experience made me a resourceful learner and taught me to see constraints as invitations to think differently.</p>
+        <p>Today, I combine mathematical thinking, computer science, and an emerging data-science toolkit to investigate difficult problems and build useful, understandable solutions. I am especially interested in machine learning, natural language processing, and technology that serves underrepresented communities.</p>
+        <div class="values">
+          <span>Analytical thinking</span><span>Persistent optimism</span><span>Responsible innovation</span><span>Collaborative delivery</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="section-heading">
+        <div><p class="section-label">02 · Selected projects</p><h2>Work that connects ideas to outcomes.</h2></div>
+        <p>A selection of research, data, mapping, and algorithmic projects. Each one starts with a practical question and turns it into something people can use.</p>
+      </div>
+      <div class="project-grid">
+        <article class="project-card featured">
+          <div class="project-number">01</div>
+          <div>
+            <p class="project-type">NLP · Machine learning · Research</p>
+            <h3>Low-resource Xitsonga–English translation</h3>
+            <p>Improving translation models with data augmentation, semantic filtering, and transformer-based approaches for an underrepresented language pair.</p>
+            <ul class="tags"><li>Python</li><li>NLP</li><li>Transformers</li><li>Data augmentation</li></ul>
+            <a class="text-link" href="assets/Research_Report%20NDLOVU%20M.pdf" target="_blank" rel="noopener noreferrer">Read research report <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+          </div>
+        </article>
+        <article class="project-card">
+          <div class="project-number">02</div>
+          <p class="project-type">Geospatial · Optimisation</p>
+          <h3>Tintswalo’s Delivery Tracker</h3>
+          <p>A route-planning tool for a poultry business that helps reduce delivery time and fuel costs across multiple customer addresses.</p>
+          <ul class="tags"><li>JavaScript</li><li>Leaflet.js</li><li>Routing</li></ul>
+          <a class="text-link" href="https://makungumixo.github.io/tintswalo-delivery-tracker/" target="_blank" rel="noopener noreferrer">Launch project <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+        </article>
+        <article class="project-card">
+          <div class="project-number">03</div>
+          <p class="project-type">Algorithms · Visualisation</p>
+          <h3>Prime Number Visualizer</h3>
+          <p>An interactive exploration of prime numbers using the Sieve of Eratosthenes, turning an abstract algorithm into a clear visual experience.</p>
+          <ul class="tags"><li>Algorithms</li><li>JavaScript</li><li>Visualisation</li></ul>
+          <a class="text-link" href="https://makungumixo.github.io/prime-visualizer-web/" target="_blank" rel="noopener noreferrer">Launch project <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+        </article>
+        <article class="project-card">
+          <div class="project-number">04</div>
+          <p class="project-type">Constraint solving · Algorithms</p>
+          <h3>Sudoku Solver</h3>
+          <p>A browser-based solver that applies backtracking to evaluate constraints and complete user-provided Sudoku puzzles.</p>
+          <ul class="tags"><li>Backtracking</li><li>JavaScript</li><li>Problem solving</li></ul>
+          <a class="text-link" href="https://makungumixo.github.io/sudoku-solver-web/" target="_blank" rel="noopener noreferrer">Launch project <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+        </article>
+        <article class="project-card compact">
+          <div><p class="project-type">Interactive mathematics</p><h3>Geometry Area Calculator</h3></div>
+          <a class="icon-link" href="https://makungumixo.github.io/geometry-area-calculator/" target="_blank" rel="noopener noreferrer" aria-label="Open Geometry Area Calculator"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </article>
+        <article class="project-card compact">
+          <div><p class="project-type">API integration</p><h3>Math Facts Finder</h3></div>
+          <a class="icon-link" href="https://makungumixo.github.io/math-facts-api-app/" target="_blank" rel="noopener noreferrer" aria-label="Open Math Facts Finder"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section research" id="research">
+      <div class="section-heading">
+        <div><p class="section-label">03 · Research & academic work</p><h2>Deep work, clearly communicated.</h2></div>
+        <p>My academic work spans neural networks, software architecture, responsible health technology, and low-resource language modelling.</p>
+      </div>
+      <div class="research-list">
+        <article><span>01</span><div><h3>Hybrid Learning for Almond Classification</h3><p>Compared Rprop, Adam, and a hybrid approach; used grid search and statistical testing to improve classification performance and generalisation.</p></div><p>Neural networks</p></article>
+        <article><span>02</span><div><h3>Deriving Backpropagation</h3><p>Derived update rules for a custom neural network with unique activation functions, a penalty-based loss, and distinct bias treatment.</p></div><p>Machine learning theory</p></article>
+        <article><span>03</span><div><h3>Electronic Health Records in South African Hospitals</h3><p>Proposed a secure, interoperable EHR approach focused on patient care, POPIA-aligned privacy, and phased implementation.</p></div><p>Responsible systems</p></article>
+        <article><span>04</span><div><h3>Google Buzz Legacy System</h3><p>Reimagined a legacy social platform through requirements analysis and an architecture combining microservices, three-tier, and MVC patterns.</p></div><p>Software architecture</p></article>
+      </div>
+    </section>
+
+    <section class="section skills-section">
+      <div><p class="section-label">04 · Toolkit</p><h2>Tools I use to move from question to insight.</h2></div>
+      <div class="skill-groups">
+        <div><h3>Data & ML</h3><p>Python · SQL · Statistics · Machine Learning · NLP · Data analysis · Data visualisation</p></div>
+        <div><h3>Engineering</h3><p>Java · C++ · JavaScript · HTML · CSS · APIs · Algorithms · System design</p></div>
+        <div><h3>Ways of working</h3><p>Research · Experiment design · Analytical writing · Problem decomposition · Collaboration</p></div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <p class="section-label">05 · Contact</p>
+      <h2>Have a data problem, project, or opportunity in mind?</h2>
+      <p>I am open to data-science opportunities, research collaborations, and meaningful software projects.</p>
+      <a class="button button-primary" href="mailto:makungumixo@gmail.com">Start a conversation <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/makungumixo" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
+        <a href="https://github.com/makungumixo" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a>
+        <a href="mailto:makungumixo@gmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i> Email</a>
+      </div>
+    </section>
   </main>
+
+  <footer>
+    <p>Designed and built by Makungumixo Ndlovu.</p>
+    <p>&copy; <span id="current-year">2026</span> · Giyani, South Africa</p>
+  </footer>
 </body>
 </html>
-
-
-
-
