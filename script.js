@@ -1,62 +1,53 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const darkModeToggle = document.getElementById('dark-mode-toggle');
-  const profilePic = document.querySelector('.profile-pic');
+  const header = document.querySelector('.site-header');
   const navToggle = document.getElementById('nav-toggle');
   const navMenu = document.getElementById('nav-menu');
-  const banner = document.getElementById('intro-banner');
-  const logoContainer = document.querySelector('.logo-container');
+  const themeToggle = document.getElementById('dark-mode-toggle');
   const currentYear = document.getElementById('current-year');
+  const profileButton = document.getElementById('profile-photo-button');
+  const profilePic = document.querySelector('.profile-pic');
+  const identityPanel = document.querySelector('.identity-panel');
+  const navLinks = [...document.querySelectorAll('#nav-menu a[href^="#"]')];
+  const sections = [...document.querySelectorAll('main section[id]')];
 
   if (currentYear) currentYear.textContent = String(new Date().getFullYear());
 
-  if (darkModeToggle) {
-    const darkModeEnabled = localStorage.getItem('darkMode') === 'enabled';
-    document.body.classList.toggle('dark-mode', darkModeEnabled);
-    darkModeToggle.textContent = darkModeEnabled ? 'Light Mode' : 'Dark Mode';
-
-    darkModeToggle.addEventListener('click', () => {
-      const isDark = document.body.classList.toggle('dark-mode');
-      localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
-      darkModeToggle.textContent = isDark ? 'Light Mode' : 'Dark Mode';
-    });
-  }
-
-  if (profilePic) {
-    const toggleProfilePhoto = () => {
-      const enlarged = profilePic.classList.toggle('enlarged');
-      profilePic.setAttribute('aria-label', enlarged ? 'Restore profile photo size' : 'Enlarge profile photo');
-    };
-    profilePic.addEventListener('click', toggleProfilePhoto);
-    profilePic.addEventListener('keydown', (event) => {
-      if (event.key === 'Enter' || event.key === ' ') {
-        event.preventDefault();
-        toggleProfilePhoto();
-      }
-    });
-  }
-
-  if (navToggle && navMenu) {
-    const setMenuOpen = (open) => {
-      navMenu.classList.toggle('show', open);
-      navToggle.setAttribute('aria-expanded', String(open));
-      navToggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
-    };
-
-    navToggle.addEventListener('click', () => {
-      setMenuOpen(!navMenu.classList.contains('show'));
-    });
-
-    navMenu.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => setMenuOpen(false));
-    });
-  }
-
-  const updateHeaderOnScroll = () => {
-    const scrolled = window.scrollY > 10;
-    if (banner) banner.classList.toggle('hidden', scrolled);
-    if (logoContainer) logoContainer.classList.toggle('hide-on-scroll', window.scrollY > 50);
+  const setMenuOpen = (open) => {
+    if (!navMenu || !navToggle) return;
+    navMenu.classList.toggle('show', open);
+    navToggle.setAttribute('aria-expanded', String(open));
+    navToggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
   };
 
-  updateHeaderOnScroll();
-  window.addEventListener('scroll', updateHeaderOnScroll, { passive: true });
+  navToggle?.addEventListener('click', () => setMenuOpen(!navMenu.classList.contains('show')));
+  navLinks.forEach((link) => link.addEventListener('click', () => setMenuOpen(false)));
+
+  const savedTheme = localStorage.getItem('darkMode');
+  document.body.classList.toggle('dark-mode', savedTheme === 'enabled');
+  themeToggle?.addEventListener('click', () => {
+    const isDark = document.body.classList.toggle('dark-mode');
+    localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
+  });
+
+  const toggleProfilePhoto = () => {
+    if (!profileButton || !profilePic) return;
+    const enlarged = profilePic.classList.toggle('enlarged');
+    profileButton.setAttribute('aria-expanded', String(enlarged));
+    profileButton.setAttribute('aria-label', enlarged ? 'Restore profile photo size' : 'Enlarge profile photo');
+  };
+
+  profileButton?.addEventListener('click', toggleProfilePhoto);
+
+  const updateScrollState = () => {
+    header?.classList.toggle('scrolled', window.scrollY > 20);
+    identityPanel?.classList.toggle('hide-on-scroll', window.scrollY > 50);
+    let current = 'home';
+    sections.forEach((section) => {
+      if (window.scrollY >= section.offsetTop - 160) current = section.id;
+    });
+    navLinks.forEach((link) => link.classList.toggle('active', link.getAttribute('href') === `#${current}`));
+  };
+
+  updateScrollState();
+  window.addEventListener('scroll', updateScrollState, { passive: true });
 });
