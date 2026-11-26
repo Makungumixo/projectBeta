@@ -79,3 +79,21 @@ test('Amazon portfolio imagery loads from local assets',async({page})=>{
  }
  await page.locator('#amazon .case-visual-grid').screenshot({path:'browser-review/amazon-visual-gallery.png'});
 });
+
+
+test('Amazon feature uses two responsive, loaded charts',async({page})=>{
+ for(const width of [390,768,1440]){
+  await page.setViewportSize({width,height:900});
+  await page.goto(base+'index.html',{waitUntil:'domcontentloaded'});
+  const charts=page.locator('#projects .amazon-feature .amazon-chart-pair img');
+  await expect(charts).toHaveCount(2);
+  for(const img of await charts.all()){
+   await img.scrollIntoViewIfNeeded();
+   await expect.poll(async()=>img.evaluate(e=>e.complete&&e.naturalWidth>0)).toBeTruthy();
+  }
+  const columns=await page.locator('.amazon-chart-pair').evaluate(e=>getComputedStyle(e).gridTemplateColumns.split(' ').length);
+  expect(columns).toBe(width<=650?1:2);
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2)).toBeTruthy();
+  await page.locator('.amazon-feature').screenshot({path:'browser-review/amazon-feature-'+width+'.png'});
+ }
+});
