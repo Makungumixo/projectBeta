@@ -58,3 +58,24 @@ test('project imagery and local housing figures',async({page})=>{
  await expect.poll(async()=>page.locator('img[src="assets/project-visuals/housing-shap-summary.png"]').evaluate(img=>img.complete&&img.naturalWidth>0)).toBeTruthy();
  await page.locator('#housing .case-visual-grid').screenshot({path:'browser-review/housing-research-gallery.png'});
 });
+
+
+test('Amazon portfolio imagery loads from local assets',async({page})=>{
+ await page.goto(base+'index.html',{waitUntil:'domcontentloaded'});
+ const featured=page.locator('#projects img[src="assets/project-visuals/amazon-risk-ranking.png"]');
+ await expect(featured).toHaveCount(1);
+ await featured.scrollIntoViewIfNeeded();
+ await expect.poll(async()=>featured.evaluate(img=>img.complete&&img.naturalWidth>0)).toBeTruthy();
+ await page.goto(base+'projects.html',{waitUntil:'domcontentloaded'});
+ const catalogue=page.locator('img[src="assets/project-visuals/amazon-risk-ranking.png"]');
+ await expect(catalogue).toHaveCount(1);
+ await expect.poll(async()=>catalogue.evaluate(img=>img.complete&&img.naturalWidth>0)).toBeTruthy();
+ await page.goto(base+'case-studies.html',{waitUntil:'domcontentloaded'});
+ const gallery=page.locator('#amazon .case-visual-grid img');
+ await expect(gallery).toHaveCount(3);
+ for(const image of await gallery.all()){
+  await image.scrollIntoViewIfNeeded();
+  await expect.poll(async()=>image.evaluate(img=>img.complete&&img.naturalWidth>0)).toBeTruthy();
+ }
+ await page.locator('#amazon .case-visual-grid').screenshot({path:'browser-review/amazon-visual-gallery.png'});
+});
