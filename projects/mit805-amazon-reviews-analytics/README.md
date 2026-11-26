@@ -16,9 +16,9 @@ This project uses PySpark to explore large-scale retail feedback and assess how 
 | Mean rating | 4.253 / 5 |
 | Five-star ratings | 64.27% |
 | Identified duplicates | 23,544 |
-| Review dates | 1999-12-01 to 2023-03-25 |
+| Reported review period | December 1999 to March 2023 |
 
-These values are taken from the project details previously recorded for the course work. **The original final notebook and results artefacts are not yet linked or independently rechecked here.**
+These are reported coursework statistics. **The source notebook and final report are not yet linked, so the figures have not been independently reproduced.** The duplicate count describes identified records, not a verified cleaned sample size.
 
 ## Method
 
@@ -34,7 +34,7 @@ A high proportion of five-star reviews is a descriptive observation, not proof o
 
 ## Source and reproducibility
 
-An independently accessible GitHub repository for the MIT 805 Amazon assignment has **not yet been identified**. The original final notebook, report, code and configuration should be linked here once available. This page is a verified-attribution-conscious portfolio summary, **not** a claim that experiment code has been replicated into this repository.
+The source repository, final notebook and report are **not yet linked**. This page documents the reported project scope and observations. It does not contain the experiment code or establish reproducibility. Verification requires the source files, dataset version, duplicate definition and run configuration.
 
-- [Portfolio case study](../../case-studies.html#amazon)
-- [Portfolio project catalogue](../../projects.html)
+- [Portfolio case study](https://makungumixo.co.za/case-studies.html#amazon)
+- [Portfolio project catalogue](https://makungumixo.co.za/projects.html)
