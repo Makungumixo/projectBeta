@@ -2,7 +2,7 @@
 
 **Project:** Predicting residential housing prices with structured-data machine learning  
 **Course:** COS 802  
-**Provided project repository:** https://github.com/Makungumixo/COS802-Housing-Price-Prediction
+**Evidence status:** Portfolio overview. Source notebook, report and final evaluation metrics pending verification.
 
 ## Overview
 
@@ -19,7 +19,7 @@ This project investigates the relationship between housing characteristics and s
 
 **Final numerical scores are pending verification against the original source repository, notebook and report.** This summary deliberately does not claim an RMSE, MAE, R², model ranking or production deployment.
 
-The original project URL was supplied by the author but is not currently accessible through the connected GitHub integration. Confirm its accessibility, notebook content, split procedure and exact metrics before adding quantitative claims.
+The author-provided source location is `Makungumixo/COS802-Housing-Price-Prediction`. Its contents and public accessibility have not been confirmed. This overview does not establish that the code, split procedure or model results have been independently reproduced.
 
 ## Limitations
 
@@ -27,7 +27,7 @@ The Ames housing dataset describes properties from one location and historical p
 
 ## Related links
 
-- [Technical case study on the portfolio](../../case-studies.html#housing)
-- [Provided original GitHub repository](https://github.com/Makungumixo/COS802-Housing-Price-Prediction)
+- [Technical case study on the portfolio](https://makungumixo.co.za/case-studies.html#housing)
+- [Portfolio project catalogue](https://makungumixo.co.za/projects.html)
 
 This is a portfolio synopsis, not a replacement for the project's notebooks, code or final report.
