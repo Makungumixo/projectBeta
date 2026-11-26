@@ -2,6 +2,10 @@
 
 Personal portfolio website for Makungu Ndlovu.
 
+## Featured research projects
+
+- **[COS 801 — RQ7.1 Plant Disease Model Compression](projects/rq7.1-model-compression/README.md):** Verified three-seed study of INT8 quantisation, structured pruning, and knowledge distillation on PlantVillage. [Original collaborative code](https://github.com/vbhaga89/COS801_Project/tree/main/rq7.1-model-compression).
+
 ## Local preview
 
 Serve the repository root with any static web server. For example:
