@@ -226,12 +226,21 @@ nav ul{gap:clamp(.6rem,1.2vw,1.7rem)}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}#particles-js canvas{visibility:hidden}}
 
 /* Final responsive refinements: retain both original image backgrounds. */
-body{isolation:isolate}
-#particles-js{z-index:-1;pointer-events:none}
-body::before{z-index:-2}
-.person-name{color:var(--warm)}
+/* Original background and particle stacking retained. */
+.person-name{color:#a0522d}
 .hero-copy,.hero-dashboard,.dashboard-pair>div,.project-card{min-width:0;overflow-wrap:anywhere}
 @media(min-width:1101px){.identity-panel{max-width:48vw}.site-header nav{flex-shrink:0}}
-@media(max-width:1100px){.site-header{background:rgba(5,16,28,.88)}.identity-panel.hide-on-scroll{opacity:1;transform:none;pointer-events:auto}.hero{padding-top:155px}nav ul{overscroll-behavior:contain}.nav-dropdown a{min-height:44px}}
+@media(max-width:1100px){.identity-panel.hide-on-scroll{opacity:1;transform:none;pointer-events:auto}.hero{padding-top:155px}nav ul{overscroll-behavior:contain}.nav-dropdown a{min-height:44px}}
 @media(max-width:650px){.hero{padding-top:135px}.hero h1{font-size:clamp(2.2rem,9vw,3.6rem)}.hero-proof{grid-template-columns:1fr 1fr;gap:12px}.dashboard-pair{gap:10px}.dashboard-pair strong{font-size:1.3rem}.credential-pane{font-size:.62rem}.person-name{font-size:1rem}.ml td,.ml th{padding:6px;font-size:.8rem}}
 :where(.lab,.math-lab,.ml,.nlp,.archive,.labs-hub) :where(button,select){max-width:100%;min-height:44px}
+
+/* Restore original visual character; soften new components only. */
+.hero-dashboard{background:rgba(9,24,40,.48);box-shadow:none;backdrop-filter:blur(6px)}
+.dashboard-metric strong,.dashboard-pair strong,.project-metric{color:var(--text)}
+.rating-track span{background:#83b8af}
+.technology-strip{font-weight:600;border-color:rgba(184,217,235,.12)}
+.nav-dropdown{background:rgba(12,31,50,.88);box-shadow:none}
+.project-card.featured{background:var(--surface)}
+.project-card:hover{border-color:var(--line);background:var(--surface)}
+.ml svg,.math-panel svg{background:rgba(9,24,40,.48)}
+.nlp textarea,.archive input,.nlp button,.nlp select{background:rgba(9,24,40,.65);color:var(--text)}
