@@ -47,7 +47,7 @@ test('project imagery and local housing figures',async({page})=>{
  await page.setViewportSize({width:1440,height:900});
  await page.goto(base+'index.html',{waitUntil:'domcontentloaded'});
  const imgs=page.locator('#projects .project-visual img');
- await expect(imgs).toHaveCount(4);
+ await expect(imgs).toHaveCount(5);
  const house=page.locator('img[src="assets/project-visuals/housing-actual-vs-predicted.png"]').first();
  await house.scrollIntoViewIfNeeded();
  await expect.poll(async()=>house.evaluate(img=>img.complete&&img.naturalWidth>0)).toBeTruthy();
@@ -57,4 +57,43 @@ test('project imagery and local housing figures',async({page})=>{
  await page.locator('#housing .case-visual-grid').scrollIntoViewIfNeeded();
  await expect.poll(async()=>page.locator('img[src="assets/project-visuals/housing-shap-summary.png"]').evaluate(img=>img.complete&&img.naturalWidth>0)).toBeTruthy();
  await page.locator('#housing .case-visual-grid').screenshot({path:'browser-review/housing-research-gallery.png'});
+});
+
+
+test('Amazon portfolio imagery loads from local assets',async({page})=>{
+ await page.goto(base+'index.html',{waitUntil:'domcontentloaded'});
+ const featured=page.locator('#projects img[src="assets/project-visuals/amazon-risk-ranking.png"]');
+ await expect(featured).toHaveCount(1);
+ await featured.scrollIntoViewIfNeeded();
+ await expect.poll(async()=>featured.evaluate(img=>img.complete&&img.naturalWidth>0)).toBeTruthy();
+ await page.goto(base+'projects.html',{waitUntil:'domcontentloaded'});
+ const catalogue=page.locator('img[src="assets/project-visuals/amazon-risk-ranking.png"]');
+ await expect(catalogue).toHaveCount(1);
+ await expect.poll(async()=>catalogue.evaluate(img=>img.complete&&img.naturalWidth>0)).toBeTruthy();
+ await page.goto(base+'case-studies.html',{waitUntil:'domcontentloaded'});
+ const gallery=page.locator('#amazon .case-visual-grid img');
+ await expect(gallery).toHaveCount(3);
+ for(const image of await gallery.all()){
+  await image.scrollIntoViewIfNeeded();
+  await expect.poll(async()=>image.evaluate(img=>img.complete&&img.naturalWidth>0)).toBeTruthy();
+ }
+ await page.locator('#amazon .case-visual-grid').screenshot({path:'browser-review/amazon-visual-gallery.png'});
+});
+
+
+test('Amazon feature uses two responsive, loaded charts',async({page})=>{
+ for(const width of [390,768,1440]){
+  await page.setViewportSize({width,height:900});
+  await page.goto(base+'index.html',{waitUntil:'domcontentloaded'});
+  const charts=page.locator('#projects .amazon-feature .amazon-chart-pair img');
+  await expect(charts).toHaveCount(2);
+  for(const img of await charts.all()){
+   await img.scrollIntoViewIfNeeded();
+   await expect.poll(async()=>img.evaluate(e=>e.complete&&e.naturalWidth>0)).toBeTruthy();
+  }
+  const columns=await page.locator('.amazon-chart-pair').evaluate(e=>getComputedStyle(e).gridTemplateColumns.split(' ').length);
+  expect(columns).toBe(width<=650?1:2);
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2)).toBeTruthy();
+  await page.locator('.amazon-feature').screenshot({path:'browser-review/amazon-feature-'+width+'.png'});
+ }
 });
