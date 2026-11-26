@@ -4,6 +4,8 @@ Personal portfolio website for Makungu Ndlovu.
 
 ## Featured research projects
 
+- **[MIT 805 — Amazon Reviews 2023 Analytics](projects/mit805-amazon-reviews-analytics/README.md):** PySpark retail-review profiling of 7,231,543 records, including rating distributions and duplicate checks. Original code/results link pending.
+- **[COS 802 — Ames Housing Price Prediction](projects/cos802-housing-price-prediction/README.md):** Engineered-feature XGBoost achieved held-out test RMSE $25,354.31 and R² 0.8999 on 586 properties. [Source code and saved evaluation](https://github.com/Makungumixo/COS802-Housing-Price-Prediction).
 - **[COS 801 — RQ7.1 Plant Disease Model Compression](projects/rq7.1-model-compression/README.md):** Verified three-seed study of INT8 quantisation, structured pruning, and knowledge distillation on PlantVillage. [Original collaborative code](https://github.com/vbhaga89/COS801_Project/tree/main/rq7.1-model-compression).
 
 ## Local preview
