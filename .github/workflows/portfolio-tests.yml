@@ -18,3 +18,5 @@ jobs:
       - run: |
           for f in script.js math-lab.js math-extras.js ml-lab.js nlp-lab.js; do node --check "$f"; done
           node --input-type=module --check < sql-lab.js
+
+      - run: node --test tests/labs.test.cjs
