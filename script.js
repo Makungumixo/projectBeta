@@ -22,6 +22,23 @@ document.addEventListener('DOMContentLoaded', () => {
   navToggle?.addEventListener('click', () => setMenuOpen(!navMenu.classList.contains('show')));
   navLinks.forEach((link) => link.addEventListener('click', () => setMenuOpen(false)));
 
+  const groups = [...document.querySelectorAll('.nav-group details')];
+  groups.forEach(group => group.addEventListener('toggle', () => {
+    if (group.open) groups.forEach(other => { if (other !== group) other.open = false; });
+  }));
+  document.addEventListener('click', event => {
+    groups.forEach(group => { if (!group.contains(event.target)) group.open = false; });
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') {
+      const open = groups.find(group => group.open);
+      groups.forEach(group => { group.open = false; });
+      if (open) open.querySelector('summary')?.focus();
+      else if (navMenu?.classList.contains('show')) { setMenuOpen(false); navToggle?.focus(); }
+    }
+  });
+  navLinks.forEach(link => link.addEventListener('click', () => groups.forEach(group => { group.open = false; })));
+
   const savedTheme = localStorage.getItem('darkMode');
   document.body.classList.toggle('dark-mode', savedTheme === 'enabled');
   themeToggle?.addEventListener('click', () => {
