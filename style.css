@@ -276,7 +276,7 @@ nav ul{gap:clamp(.6rem,1.2vw,1.7rem)}
 @media(max-width:650px){.amazon-feature .amazon-chart-pair{grid-template-columns:1fr;gap:12px}.amazon-feature .amazon-chart-pair .project-visual>img{aspect-ratio:1.65}}
 
 /* Compact Amazon feature: modestly narrower panel and less chart height. */
-.project-grid .amazon-feature{width:100%;max-width:1040px;justify-self:center;min-height:0;padding:clamp(1.2rem,2.5vw,1.9rem)}
+.project-grid .amazon-feature{width:100%;max-width:1040px;justify-self:start;min-height:0;padding:clamp(1.2rem,2.5vw,1.9rem)}
 .amazon-feature .amazon-chart-pair{max-width:920px;margin:.85rem auto 1rem;gap:12px}
 .amazon-feature .amazon-chart-pair .project-visual>img{aspect-ratio:1.85}
 @media(max-width:650px){.project-grid .amazon-feature{max-width:100%;padding:1.2rem}.amazon-feature .amazon-chart-pair{gap:10px}.amazon-feature .amazon-chart-pair .project-visual>img{aspect-ratio:1.8}}
