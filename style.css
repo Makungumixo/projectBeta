@@ -224,3 +224,14 @@ nav ul{gap:clamp(.6rem,1.2vw,1.7rem)}
 :where(.lab-panel,.math-panel,.ml-panel,.nlp-panel){min-width:0;overflow-wrap:anywhere}
 :where(.lab,.nlp) textarea{box-sizing:border-box;max-width:100%}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}#particles-js canvas{visibility:hidden}}
+
+/* Final responsive refinements: retain both original image backgrounds. */
+body{isolation:isolate}
+#particles-js{z-index:-1;pointer-events:none}
+body::before{z-index:-2}
+.person-name{color:var(--warm)}
+.hero-copy,.hero-dashboard,.dashboard-pair>div,.project-card{min-width:0;overflow-wrap:anywhere}
+@media(min-width:1101px){.identity-panel{max-width:48vw}.site-header nav{flex-shrink:0}}
+@media(max-width:1100px){.site-header{background:rgba(5,16,28,.88)}.identity-panel.hide-on-scroll{opacity:1;transform:none;pointer-events:auto}.hero{padding-top:155px}nav ul{overscroll-behavior:contain}.nav-dropdown a{min-height:44px}}
+@media(max-width:650px){.hero{padding-top:135px}.hero h1{font-size:clamp(2.2rem,9vw,3.6rem)}.hero-proof{grid-template-columns:1fr 1fr;gap:12px}.dashboard-pair{gap:10px}.dashboard-pair strong{font-size:1.3rem}.credential-pane{font-size:.62rem}.person-name{font-size:1rem}.ml td,.ml th{padding:6px;font-size:.8rem}}
+:where(.lab,.math-lab,.ml,.nlp,.archive,.labs-hub) :where(button,select){max-width:100%;min-height:44px}
