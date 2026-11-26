@@ -5,6 +5,10 @@
 **Original group repository:** [COS801_Project — rq7.1-model-compression](https://github.com/vbhaga89/COS801_Project/tree/main/rq7.1-model-compression)  
 **Reproducible three-seed results:** [Results README](https://github.com/vbhaga89/COS801_Project/blob/main/rq7.1-model-compression/results/three_seed_summary/README.md)
 
+## My contribution
+
+My focus within the collaborative COS 801 project was RQ7.1 model compression. I developed and refined the compression experiment pipeline, ran and evaluated the three-seed comparisons, and prepared the RQ7.1 results, reproducibility documentation and report contribution. The broader project and its other research tracks remain collaborative work credited to the original contributors.
+
 ## Objective
 
 Assess the accuracy, model-size and inference-latency trade-offs of **structured pruning**, **INT8 quantisation** and **knowledge distillation** for resource-constrained crop-disease image classification.
@@ -26,10 +30,12 @@ Values are mean ± sample standard deviation across three training seeds.
 | EfficientNet-B0 FP32 | 99.418 ± 0.095 | 0.9919 ± 0.0013 | 15.464 | 14.184 ± 0.715 |
 | EfficientNet-B0 selected INT8 | 98.350 ± 0.505 | 0.9800 ± 0.0054 | 4.707 | 18.103 ± 0.429 |
 | EfficientNet-B0 selected pruning | 97.792 ± 0.066 | 0.9703 ± 0.0011 | 10.034 | 25.642 ± 1.056 |
-| EfficientNet-B0 KD student | 96.123 ± 0.472 | 0.9473 ± 0.0047 | 1.637 | 1.315 ± 0.044 |
+| KD student — EfficientNet-B0 teacher | 96.123 ± 0.472 | 0.9473 ± 0.0047 | 1.637 | 1.315 ± 0.044 |
 | MobileNetV3-Small FP32 | 99.215 ± 0.037 | 0.9896 ± 0.0009 | 5.948 | 2.348 ± 0.140 |
 | MobileNetV3-Small selected pruning | 97.042 ± 1.132 | 0.9605 ± 0.0150 | 4.190 ± 0.563 | 4.511 ± 1.524 |
-| MobileNetV3-Small KD student | 96.132 ± 0.353 | 0.9491 ± 0.0052 | 1.637 | 1.285 ± 0.055 |
+| KD student — MobileNetV3-Small teacher | 96.132 ± 0.353 | 0.9491 ± 0.0052 | 1.637 | 1.285 ± 0.055 |
+
+Both KD tracks use a half-width MobileNetV3-Small student. The teacher name identifies the source of supervision, not the student architecture.
 
 EfficientNet-B0 INT8 reduced stored model size by approximately **69.6%**, with a mean accuracy loss of **1.068 percentage points** relative to FP32. It did **not** improve measured CPU latency. Knowledge-distilled small students provided a different accuracy-versus-size/latency trade-off.
 
@@ -41,7 +47,7 @@ The three seeds quantify training variation on one fixed split, **not** uncertai
 
 ## Code, notebooks, and provenance
 
-The full training code, notebooks, split audits, evaluation scripts, individual seed results, artefacts and provenance remain in the **original collaborative repository**, which is the authoritative source of this work:
+The training code, notebooks, split audits, evaluation scripts and curated JSON result/provenance records remain in the **original collaborative repository**, which is the authoritative source of this work. Full model checkpoints and generated outputs, including figures and CSV tables, remain in the saved Kaggle runs rather than in Git. The repository documents how to regenerate the tables.
 
 - [Source directory](https://github.com/vbhaga89/COS801_Project/tree/main/rq7.1-model-compression)
 - [Original research README](https://github.com/vbhaga89/COS801_Project/blob/main/rq7.1-model-compression/README.md)
