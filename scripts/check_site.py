@@ -44,6 +44,22 @@ for html_file in HTML_FILES:
         if not target.exists():
             errors.append(f"{html_file.name}:{line}: missing local target: {raw_url}")
 
+
+
+# Public project landing pages must be discoverable; the provisional archive remains private to search.
+sitemap = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
+for public_page in ("projects.html", "case-studies.html"):
+    html = (ROOT / public_page).read_text(encoding="utf-8")
+    if '<meta name="robots" content="noindex">' in html:
+        errors.append(f"{public_page}: publicly linked project page is noindex")
+    if f"https://makungumixo.co.za/{public_page}" not in sitemap:
+        errors.append(f"sitemap.xml: missing {public_page}")
+archive = (ROOT / "academic-archive.html").read_text(encoding="utf-8")
+if '<meta name="robots" content="noindex">' not in archive:
+    errors.append("academic-archive.html: provisional archive must stay noindex")
+if "https://makungumixo.co.za/academic-archive.html" in sitemap:
+    errors.append("sitemap.xml: provisional archive should not be listed")
+
 if errors:
     print("\n".join(errors), file=sys.stderr)
     raise SystemExit(1)
