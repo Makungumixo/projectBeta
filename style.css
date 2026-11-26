@@ -280,3 +280,11 @@ nav ul{gap:clamp(.6rem,1.2vw,1.7rem)}
 .amazon-feature .amazon-chart-pair{max-width:920px;margin:.85rem auto 1rem;gap:12px}
 .amazon-feature .amazon-chart-pair .project-visual>img{aspect-ratio:1.85}
 @media(max-width:650px){.project-grid .amazon-feature{max-width:100%;padding:1.2rem}.amazon-feature .amazon-chart-pair{gap:10px}.amazon-feature .amazon-chart-pair .project-visual>img{aspect-ratio:1.8}}
+
+/* Amazon feature: approximately 1.5x smaller than the former 1040px card. */
+.project-grid .amazon-feature{max-width:690px;padding:1.15rem 1.25rem;min-height:0}
+.amazon-feature .amazon-chart-pair{max-width:630px;gap:9px;margin:.7rem auto .8rem}
+.amazon-feature .amazon-chart-pair .project-visual>img{aspect-ratio:2.05}
+.amazon-feature .amazon-chart-pair figcaption{min-height:0;padding:.45rem .6rem;font-size:.66rem}
+.amazon-feature .project-metric{font-size:clamp(2rem,3.3vw,3.25rem)}
+@media(max-width:650px){.project-grid .amazon-feature{max-width:100%;padding:1rem}.amazon-feature .amazon-chart-pair{gap:8px}.amazon-feature .amazon-chart-pair .project-visual>img{aspect-ratio:2}}
