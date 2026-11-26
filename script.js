@@ -7,7 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const profileButton = document.getElementById('profile-photo-button');
   const profilePic = document.querySelector('.profile-pic');
   const identityPanel = document.querySelector('.identity-panel');
-  const navLinks = [...document.querySelectorAll('#nav-menu a[href^="#"]')];
+  const allNavLinks = [...document.querySelectorAll('#nav-menu a')];
+  const navLinks = allNavLinks.filter(link => link.getAttribute('href')?.startsWith('#'));
   const sections = [...document.querySelectorAll('main section[id]')];
 
   if (currentYear) currentYear.textContent = String(new Date().getFullYear());
@@ -20,13 +21,33 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   navToggle?.addEventListener('click', () => setMenuOpen(!navMenu.classList.contains('show')));
-  navLinks.forEach((link) => link.addEventListener('click', () => setMenuOpen(false)));
+  allNavLinks.forEach((link) => link.addEventListener('click', () => setMenuOpen(false)));
 
-  const savedTheme = localStorage.getItem('darkMode');
+  const groups = [...document.querySelectorAll('.nav-group details')];
+  groups.forEach(group => group.addEventListener('toggle', () => {
+    if (group.open) groups.forEach(other => { if (other !== group) other.open = false; });
+  }));
+  document.addEventListener('click', event => {
+    groups.forEach(group => { if (!group.contains(event.target)) group.open = false; });
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') {
+      const open = groups.find(group => group.open);
+      groups.forEach(group => { group.open = false; });
+      if (open) open.querySelector('summary')?.focus();
+      else if (navMenu?.classList.contains('show')) { setMenuOpen(false); navToggle?.focus(); }
+    }
+  });
+  allNavLinks.forEach(link => link.addEventListener('click', () => groups.forEach(group => { group.open = false; })));
+
+  let savedTheme = null;
+  try { savedTheme = localStorage.getItem('darkMode'); } catch {}
   document.body.classList.toggle('dark-mode', savedTheme === 'enabled');
+  themeToggle?.setAttribute('aria-pressed', String(savedTheme === 'enabled'));
   themeToggle?.addEventListener('click', () => {
     const isDark = document.body.classList.toggle('dark-mode');
-    localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
+    try { localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled'); } catch {}
+    themeToggle.setAttribute('aria-pressed', String(isDark));
   });
 
   const toggleProfilePhoto = () => {
