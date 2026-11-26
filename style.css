@@ -265,3 +265,12 @@ nav ul{gap:clamp(.6rem,1.2vw,1.7rem)}
 @media(hover:hover){.project-card .project-visual:hover,.case-visual-grid .project-visual:hover{transform:translateY(-3px);border-color:rgba(86,214,194,.55)}}
 @media(max-width:750px){.case-visual-grid{grid-template-columns:1fr}.case-visual-grid .project-visual>img{height:260px}.project-card .project-visual>img{height:220px}}
 @media(prefers-reduced-motion:reduce){.project-card .project-visual,.case-visual-grid .project-visual{transition:none}}
+
+
+/* Amazon visual refinement: use the full feature card with two real charts. */
+.project-grid .amazon-feature{padding-right:clamp(1.25rem,3vw,2.5rem)}
+.amazon-feature .amazon-chart-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:1.1rem 0 1.3rem;max-width:100%}
+.amazon-feature .amazon-chart-pair .project-visual{min-width:0;width:100%;margin:0}
+.amazon-feature .amazon-chart-pair .project-visual>img{display:block;width:100%;height:auto;aspect-ratio:1.52;object-fit:contain;background:#fff}
+.amazon-feature .amazon-chart-pair figcaption{min-height:2.5em}
+@media(max-width:650px){.amazon-feature .amazon-chart-pair{grid-template-columns:1fr;gap:12px}.amazon-feature .amazon-chart-pair .project-visual>img{aspect-ratio:1.65}}
