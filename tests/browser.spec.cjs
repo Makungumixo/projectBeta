@@ -41,3 +41,20 @@ test('SQL engine and query',async({page})=>{
  await page.goto(base+'sql-lab.html');await expect(page.locator('#run')).toBeEnabled({timeout:30000});
  await page.locator('#query').fill('SELECT COUNT(*) AS n FROM customers');await page.locator('#run').click();await expect(page.locator('#results')).toContainText('1000');
 });
+
+
+test('project imagery and local housing figures',async({page})=>{
+ await page.setViewportSize({width:1440,height:900});
+ await page.goto(base+'index.html',{waitUntil:'domcontentloaded'});
+ const imgs=page.locator('#projects .project-visual img');
+ await expect(imgs).toHaveCount(4);
+ const house=page.locator('img[src="assets/project-visuals/housing-actual-vs-predicted.png"]').first();
+ await house.scrollIntoViewIfNeeded();
+ await expect.poll(async()=>house.evaluate(img=>img.complete&&img.naturalWidth>0)).toBeTruthy();
+ await page.locator('#projects').screenshot({path:'browser-review/featured-project-imagery.png'});
+ await page.goto(base+'case-studies.html',{waitUntil:'domcontentloaded'});
+ await expect(page.locator('#housing .case-visual-grid img')).toHaveCount(3);
+ await page.locator('#housing .case-visual-grid').scrollIntoViewIfNeeded();
+ await expect.poll(async()=>page.locator('img[src="assets/project-visuals/housing-shap-summary.png"]').evaluate(img=>img.complete&&img.naturalWidth>0)).toBeTruthy();
+ await page.locator('#housing .case-visual-grid').screenshot({path:'browser-review/housing-research-gallery.png'});
+});
