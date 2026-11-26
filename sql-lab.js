@@ -1,0 +1,29 @@
+import initSqlJs from 'https://cdn.jsdelivr.net/npm/sql.js@1.13.0/+esm';
+const $=id=>document.getElementById(id);
+const examples=[
+['Revenue by province','SELECT s.province, ROUND(SUM(i.quantity*i.unit_price),2) AS revenue FROM order_items i JOIN orders o ON o.id=i.order_id JOIN stores s ON s.id=o.store_id GROUP BY s.province ORDER BY revenue DESC;'],
+['Top products','SELECT p.name, SUM(i.quantity) AS units FROM products p JOIN order_items i ON p.id=i.product_id GROUP BY p.id ORDER BY units DESC LIMIT 10;'],
+['Monthly revenue','SELECT substr(o.order_date,1,7) AS month, ROUND(SUM(i.quantity*i.unit_price),2) AS revenue FROM orders o JOIN order_items i ON o.id=i.order_id GROUP BY month ORDER BY month;'],
+['Customer ranking (window function)','WITH spend AS (SELECT o.customer_id,SUM(i.quantity*i.unit_price) AS total FROM orders o JOIN order_items i ON o.id=i.order_id GROUP BY o.customer_id) SELECT customer_id,ROUND(total,2) AS spend,DENSE_RANK() OVER (ORDER BY total DESC) AS rank FROM spend LIMIT 20;'],
+['Payment methods','SELECT method,COUNT(*) AS payments,ROUND(SUM(amount),2) AS total FROM payments GROUP BY method;']];
+let SQL,db,last;
+function seed(){if(db)db.close();db=new SQL.Database();db.run(`PRAGMA foreign_keys=ON;
+CREATE TABLE customers(id INTEGER PRIMARY KEY, province TEXT NOT NULL, segment TEXT NOT NULL);
+CREATE TABLE stores(id INTEGER PRIMARY KEY, province TEXT NOT NULL, name TEXT NOT NULL);
+CREATE TABLE products(id INTEGER PRIMARY KEY, name TEXT NOT NULL, category TEXT NOT NULL, price REAL NOT NULL);
+CREATE TABLE orders(id INTEGER PRIMARY KEY, customer_id INTEGER REFERENCES customers(id),store_id INTEGER REFERENCES stores(id),order_date TEXT NOT NULL);
+CREATE TABLE order_items(id INTEGER PRIMARY KEY,order_id INTEGER REFERENCES orders(id),product_id INTEGER REFERENCES products(id),quantity INTEGER NOT NULL,unit_price REAL NOT NULL);
+CREATE TABLE payments(id INTEGER PRIMARY KEY,order_id INTEGER UNIQUE REFERENCES orders(id),method TEXT NOT NULL,amount REAL NOT NULL);
+BEGIN;
+WITH RECURSIVE n(x) AS (SELECT 1 UNION ALL SELECT x+1 FROM n WHERE x<1000) INSERT INTO customers SELECT x,CASE x%5 WHEN 0 THEN 'Gauteng' WHEN 1 THEN 'Limpopo' WHEN 2 THEN 'Western Cape' WHEN 3 THEN 'KwaZulu-Natal' ELSE 'Mpumalanga' END,CASE x%3 WHEN 0 THEN 'Regular' WHEN 1 THEN 'Premium' ELSE 'New' END FROM n;
+WITH RECURSIVE n(x) AS (SELECT 1 UNION ALL SELECT x+1 FROM n WHERE x<10) INSERT INTO stores SELECT x,CASE x%5 WHEN 0 THEN 'Gauteng' WHEN 1 THEN 'Limpopo' WHEN 2 THEN 'Western Cape' WHEN 3 THEN 'KwaZulu-Natal' ELSE 'Mpumalanga' END,'Store '||x FROM n;
+WITH RECURSIVE n(x) AS (SELECT 1 UNION ALL SELECT x+1 FROM n WHERE x<100) INSERT INTO products SELECT x,'Product '||x,CASE x%4 WHEN 0 THEN 'Grocery' WHEN 1 THEN 'Clothing' WHEN 2 THEN 'Home' ELSE 'Electronics' END, 10+(x*37%990) FROM n;
+WITH RECURSIVE n(x) AS (SELECT 1 UNION ALL SELECT x+1 FROM n WHERE x<10000) INSERT INTO orders SELECT x,1+((x*73+x/17)%1000),1+((x*13+x/19)%10),date('2025-01-01','+'||((x*17)%365)||' days') FROM n;
+WITH RECURSIVE n(x) AS (SELECT 1 UNION ALL SELECT x+1 FROM n WHERE x<30000) INSERT INTO order_items SELECT x,1+(x-1)/3,p.id,1+(x*7%5),p.price FROM n JOIN products p ON p.id=1+((x*31+x/11)%100);
+INSERT INTO payments SELECT o.id,o.id,CASE o.id%3 WHEN 0 THEN 'Card' WHEN 1 THEN 'Cash' ELSE 'EFT' END,SUM(i.quantity*i.unit_price) FROM orders o JOIN order_items i ON i.order_id=o.id GROUP BY o.id;
+CREATE INDEX idx_orders_customer ON orders(customer_id);CREATE INDEX idx_items_order ON order_items(order_id);COMMIT;`);
+$('schema').textContent=db.exec("SELECT sql FROM sqlite_master WHERE type='table' ORDER BY name")[0].values.map(r=>r[0]).join('\n\n');$('stats').textContent='51,110 synthetic rows across six tables · currency: ZAR';last=null;$('results').replaceChildren();$('csv').disabled=true;}
+function run(){try{const start=performance.now();const result=db.exec($('query').value);last=result.at(-1);$('results').replaceChildren();if(last){const table=document.createElement('table');const add=(row,tag,parent)=>{const tr=document.createElement('tr');row.forEach(v=>{const c=document.createElement(tag);c.textContent=v===null?'NULL':String(v);tr.append(c)});parent.append(tr)};const head=document.createElement('thead'),body=document.createElement('tbody');add(last.columns,'th',head);last.values.slice(0,500).forEach(r=>add(r,'td',body));table.append(head,body);$('results').append(table);}$('status').textContent=(last?last.values.length+' rows (up to 500 displayed)':'Statement executed')+' · '+Math.round(performance.now()-start)+' ms';$('csv').disabled=!last;}catch(e){last=null;$('results').replaceChildren();$('csv').disabled=true;$('status').textContent=e.message}}
+examples.forEach(([name],i)=>{const o=document.createElement('option');o.value=i;o.textContent=name;$('examples').append(o)});$('examples').onchange=()=>$('query').value=examples[+$('examples').value][1];$('query').value=examples[0][1];
+$('run').onclick=run;$('reset').onclick=()=>{seed();$('status').textContent='Database reset.'};$('csv').onclick=()=>{if(!last)return;const quote=v=>'"'+String(v??'').replaceAll('"','""')+'"';const blob=new Blob([[last.columns,...last.values].map(r=>r.map(quote).join(',')).join('\n')],{type:'text/csv'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='query-results.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)};
+try{SQL=await initSqlJs({locateFile:f=>'https://cdn.jsdelivr.net/npm/sql.js@1.13.0/dist/'+f});seed();$('run').disabled=false;$('reset').disabled=false;$('status').textContent='Ready. Run a query.'}catch(e){$('status').textContent='SQL engine failed to load: '+e.message}
