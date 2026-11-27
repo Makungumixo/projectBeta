@@ -97,3 +97,23 @@ test('Amazon feature uses two responsive, loaded charts',async({page})=>{
   await page.locator('.amazon-feature').screenshot({path:'browser-review/amazon-feature-'+width+'.png'});
  }
 });
+
+
+test('background particles are visible above background with local script',async({page})=>{
+ await page.emulateMedia({reducedMotion:'no-preference'});
+ for(const path of ['index.html','projects.html','case-studies.html']){
+  await page.goto(base+path,{waitUntil:'load'});
+  const canvas=page.locator('#particles-js canvas');
+  await expect(canvas).toHaveCount(1);
+  await expect(canvas).toBeVisible();
+  const layering=await page.locator('#particles-js').evaluate(el=>{
+   const style=getComputedStyle(el);
+   return {zIndex:Number(style.zIndex),pointerEvents:style.pointerEvents,width:el.clientWidth,height:el.clientHeight};
+  });
+  expect(layering.zIndex).toBeGreaterThanOrEqual(0);
+  expect(layering.pointerEvents).toBe('none');
+  expect(layering.width).toBeGreaterThan(0);
+  expect(layering.height).toBeGreaterThan(0);
+ }
+ await page.screenshot({path:'browser-review/particles-restored.png'});
+});
