@@ -34,7 +34,9 @@ body.dark-mode { background: url('./assets/Evolution.jpg') center center / cover
 body.dark-mode::before { background: rgba(0, 0, 0, .6); }
 a { color: inherit; }
 button, a { -webkit-tap-highlight-color: transparent; }
-#particles-js { position: fixed; inset: 0; z-index: -2; background: transparent; }
+#particles-js { position: fixed; inset: 0; z-index: 0; background: transparent; pointer-events: none; }
+#particles-js canvas { display: block; width: 100%; height: 100%; }
+main, footer { position: relative; z-index: 1; }
 .skip-link { position: fixed; left: 1rem; top: -5rem; z-index: 9999; padding: .7rem 1rem; background: var(--accent); color: #04131c; border-radius: .4rem; font-weight: 800; }
 .skip-link:focus { top: 1rem; }
 :focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
