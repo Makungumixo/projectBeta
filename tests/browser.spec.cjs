@@ -175,15 +175,15 @@ test('each case study provides dataset provenance or an explicit benchmark note'
    await expect(source).toContainText('rather than a single external dataset');
   }
  }
- await expect(page.locator('#almond .dataset-source')).toContainText('Original download URL unavailable');
+ await expect(page.locator('#almond .dataset-source')).toContainText('Dataset source (confirmed)');
 });
 
 
 test('dataset provenance distinguishes verified source from missing original file',async({page})=>{
  await page.goto(base+'case-studies.html',{waitUntil:'domcontentloaded'});
  const almond=page.locator('#almond .dataset-source');
- await expect(almond).toContainText('Original download URL unavailable');
- await expect(almond.locator('a[href*="kaggle.com"]')).toHaveCount(0);
+ await expect(almond).toContainText('Dataset source (confirmed)');
+ await expect(almond.locator('a[href="https://www.kaggle.com/datasets/sohaibmoradi/almond-types-classification/data"]')).toHaveCount(1);
  const translation=page.locator('#translation .dataset-source');
  await expect(translation.locator('a[href="https://huggingface.co/datasets/dsfsi/vukuzenzele-sentence-aligned"]')).toHaveCount(1);
  await expect(translation.locator('a[href="https://huggingface.co/datasets/dsfsi/vukuzenzele-monolingual"]')).toHaveCount(1);
