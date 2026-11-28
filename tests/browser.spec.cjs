@@ -175,5 +175,17 @@ test('each case study provides dataset provenance or an explicit benchmark note'
    await expect(source).toContainText('rather than a single external dataset');
   }
  }
- await expect(page.locator('#almond .dataset-source')).toContainText('not been verified');
+ await expect(page.locator('#almond .dataset-source')).toContainText('Original download URL unavailable');
+});
+
+
+test('dataset provenance distinguishes verified source from missing original file',async({page})=>{
+ await page.goto(base+'case-studies.html',{waitUntil:'domcontentloaded'});
+ const almond=page.locator('#almond .dataset-source');
+ await expect(almond).toContainText('Original download URL unavailable');
+ await expect(almond.locator('a[href*="kaggle.com"]')).toHaveCount(0);
+ const translation=page.locator('#translation .dataset-source');
+ await expect(translation.locator('a[href="https://huggingface.co/datasets/dsfsi/vukuzenzele-sentence-aligned"]')).toHaveCount(1);
+ await expect(translation.locator('a[href="https://huggingface.co/datasets/dsfsi/vukuzenzele-monolingual"]')).toHaveCount(1);
+ await expect(translation).toContainText('no completed model experiment is claimed');
 });
