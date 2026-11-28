@@ -767,8 +767,9 @@ nav ul{gap:clamp(.6rem,1.2vw,1.7rem)}
 /* Distinctive research notebook exhibition — ivory paper, ink, binding and editorial study index. */
 #research.research-paper-exhibit{position:relative;isolation:isolate}
 #research .paper-exhibit-intro{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(250px,.75fr);gap:clamp(24px,4vw,70px);align-items:end;margin-bottom:clamp(24px,3vw,42px)}
-#research .paper-exhibit-intro h2{font-size:clamp(1.65rem,2.5vw,2.8rem);line-height:1.12;letter-spacing:-.045em;max-width:none;white-space:nowrap;margin:.2rem 0}
-@media(max-width:650px){#research .paper-exhibit-intro h2{white-space:normal}}
+#research .paper-exhibit-intro h2{font-size:clamp(1.35rem,2.4vw,2.8rem);line-height:1.12;letter-spacing:-.045em;max-width:100%;white-space:nowrap;margin:.2rem 0}
+/* Keep the editorial heading in one line on desktop, but avoid clipping on tablets and phones. */
+@media(max-width:850px){#research .paper-exhibit-intro h2{white-space:normal;overflow-wrap:normal}}
 #research .paper-exhibit-intro h2 em{font-style:italic;font-family:Georgia,serif;font-weight:400;color:#a5eddf;letter-spacing:-.045em}
 #research .paper-exhibit-intro>p{color:var(--muted);line-height:1.7;font-size:.97rem;margin:0 0 .5rem}
 #research .paper-notebook{position:relative;margin-left:22px;border-radius:3px 22px 22px 3px;overflow:visible;background:#f2eee2;color:#223333;border:1px solid #d1c6b4;box-shadow:0 16px 0 -8px #d2c8b7,0 28px 0 -16px #8b9b91,0 40px 75px rgba(0,0,0,.38)}
