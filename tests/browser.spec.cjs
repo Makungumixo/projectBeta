@@ -47,7 +47,7 @@ test('project imagery and local housing figures',async({page})=>{
  await page.setViewportSize({width:1440,height:900});
  await page.goto(base+'index.html',{waitUntil:'domcontentloaded'});
  const imgs=page.locator('#projects .project-visual img');
- await expect(imgs).toHaveCount(5);
+ await expect(imgs).toHaveCount(6);
  const house=page.locator('img[src="assets/project-visuals/housing-actual-vs-predicted.png"]').first();
  await house.scrollIntoViewIfNeeded();
  await expect.poll(async()=>house.evaluate(img=>img.complete&&img.naturalWidth>0)).toBeTruthy();
@@ -129,4 +129,29 @@ test('Almond case study is linked from both project listings',async({page})=>{
  await page.goto(base+'case-studies.html#almond',{waitUntil:'domcontentloaded'});
  await expect(page.locator('#almond h2')).toContainText('Almond Variety Classification');
  await expect(page.locator('#almond')).toContainText('80.29%');
+});
+
+
+test('COS711 Almond charts load, source links stay in case study',async({page})=>{
+ await page.goto(base+'index.html',{waitUntil:'domcontentloaded'});
+ const card=page.locator('#projects .project-card').filter({hasText:'Almond Classification Neural Network'});
+ await expect(card).toHaveCount(1);
+ await expect(card.locator('a')).toHaveCount(1);
+ await expect(card.locator('a')).toHaveAttribute('href','case-studies.html#almond');
+ const thumbnail=card.locator('img[src="assets/project-visuals/almond-optimizer-accuracy.png"]');
+ await thumbnail.scrollIntoViewIfNeeded();
+ await expect.poll(async()=>thumbnail.evaluate(e=>e.complete&&e.naturalWidth>0)).toBeTruthy();
+ await page.goto(base+'projects.html',{waitUntil:'domcontentloaded'});
+ const catalogue=page.locator('article[data-category="AI"]').filter({hasText:'Almond Variety Classification'});
+ await expect(catalogue.locator('img')).toHaveCount(1);
+ await page.goto(base+'case-studies.html#almond',{waitUntil:'domcontentloaded'});
+ const figures=page.locator('#almond .case-visual-grid img');
+ await expect(figures).toHaveCount(6);
+ for(const img of await figures.all()){
+  await img.scrollIntoViewIfNeeded();
+  await expect.poll(async()=>img.evaluate(e=>e.complete&&e.naturalWidth>0)).toBeTruthy();
+ }
+ await expect(page.locator('#almond')).toContainText('Artificial Intelligence II');
+ await expect(page.locator('#almond a[href^="https://github.com/"]')).toHaveCount(3);
+ await page.locator('#almond .case-visual-grid').screenshot({path:'browser-review/almond-actual-notebook-figures.png'});
 });
