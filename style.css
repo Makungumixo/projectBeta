@@ -632,3 +632,57 @@ nav ul{gap:clamp(.6rem,1.2vw,1.7rem)}
 .catalogue .catalogue-tools input:focus{outline:2px solid #85dfd0;outline-offset:2px;border-color:#85dfd0;box-shadow:0 0 0 5px rgba(95,217,195,.11)}
 .catalogue .filters{margin:.9rem 0 1rem}
 .catalogue #count{color:var(--muted);font-size:.85rem;font-weight:700}
+
+/* Evidence-backed research showcase */
+#research.research-showcase .research-showcase-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(16px,1.8vw,24px)}
+#research .research-feature{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.55fr) minmax(180px,.65fr);gap:1rem;position:relative;isolation:isolate;overflow:hidden;border-radius:24px;padding:clamp(22px,3vw,38px);border:1px solid rgba(105,224,208,.42);background:linear-gradient(120deg,rgba(18,56,69,.97),rgba(10,27,48,.96) 68%,rgba(24,33,66,.94));box-shadow:0 25px 55px rgba(0,0,0,.23),inset 0 1px rgba(255,255,255,.07)}
+#research .research-feature::before{content:"";pointer-events:none;position:absolute;inset:-35% -15% auto auto;width:60%;height:150%;background:radial-gradient(circle,rgba(75,203,199,.14),transparent 62%);z-index:-1}
+#research .research-feature-copy{display:flex;flex-direction:column;align-items:flex-start;min-width:0}
+#research .research-kicker{font-size:.7rem;font-weight:800;letter-spacing:.075em;text-transform:uppercase;color:#86e5d6;margin:0 0 .75rem}
+#research .research-kicker i{margin-right:.35rem}
+#research .research-feature h3{font-size:clamp(1.6rem,2.9vw,2.6rem);line-height:1.17;letter-spacing:-.035em;margin:0 0 .9rem}
+#research .research-feature-copy>p:not(.research-kicker){color:#bfd8de;line-height:1.63;max-width:670px;margin:0 0 1.35rem}
+#research .research-facts{display:flex;flex-wrap:wrap;gap:clamp(1.1rem,3vw,3rem);margin:0 0 1.3rem}
+#research .research-facts>div{display:grid;gap:.18rem}
+#research .research-facts strong{font-family:'Space Grotesk',sans-serif;color:#f0fffb;font-size:clamp(1.7rem,3.2vw,2.4rem);line-height:1.2}
+#research .research-facts span{color:#aacbd0;font-size:.77rem}
+#research .research-feature-art{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;position:relative;border-radius:20px;min-height:225px;background:radial-gradient(circle at center,rgba(94,221,202,.16),rgba(50,98,127,.08) 50%,transparent 73%)}
+#research .research-feature-art>i{font-size:clamp(4.5rem,8vw,7.5rem);color:rgba(132,242,222,.86);filter:drop-shadow(0 18px 30px rgba(61,214,196,.2))}
+#research .research-feature-art span{color:#a9e9de;letter-spacing:.09em;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.9rem}
+#research .research-feature-art span i{font-size:.8rem;margin:0 .4rem}
+#research .research-secondary{--r-accent:#a9b6ff;display:flex;flex-direction:column;align-items:flex-start;min-width:0;min-height:320px;gap:.5rem;padding:clamp(21px,2.4vw,30px);border-radius:21px;border:1px solid rgba(153,190,226,.24);background:linear-gradient(145deg,rgba(15,40,61,.95),rgba(9,24,42,.94));box-shadow:0 18px 44px rgba(0,0,0,.23);transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease}
+#research .research-secondary-proposal{--r-accent:#e9bb92}
+#research .research-secondary:hover{transform:translateY(-5px);border-color:var(--r-accent);box-shadow:0 26px 52px rgba(0,0,0,.3)}
+#research .research-small-icon{display:grid;place-items:center;width:45px;height:45px;border-radius:13px;background:color-mix(in srgb,var(--r-accent) 15%,transparent);color:var(--r-accent);border:1px solid color-mix(in srgb,var(--r-accent) 33%,transparent);font-size:1.2rem;margin-bottom:.7rem}
+#research .research-secondary .research-kicker{color:var(--r-accent);margin:0 0 .2rem}
+#research .research-secondary h3{font-size:clamp(1.25rem,2vw,1.65rem);line-height:1.26;margin:0 0 .35rem}
+#research .research-secondary>p:not(.research-kicker){font-size:.9rem;color:var(--muted);line-height:1.62;margin:0 0 .6rem}
+#research .research-mini-tags{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:1.2rem}
+#research .research-mini-tags span{font-size:.69rem;padding:.25rem .55rem;border-radius:99px;color:#ddebf2;background:rgba(170,203,221,.09);border:1px solid rgba(173,212,231,.17)}
+#research .research-action{display:inline-flex;align-items:center;gap:.75rem;margin-top:auto;padding:.65rem 0;color:#9df4e3;font-size:.84rem;font-weight:800;text-decoration:none;transition:color .2s ease}
+#research .research-action:hover{color:#fff;text-decoration:underline;text-underline-offset:4px}
+#research .research-archive-note{margin:1.25rem 0 0;font-size:.86rem;color:var(--muted)}
+#research .research-archive-note a{color:#a0eadb;font-weight:700;text-decoration:none}
+#research .research-archive-note a:hover{text-decoration:underline}
+/* Technical competencies — compact evidence-linked dashboard */
+.skills-section.skills-dashboard{display:block}
+.skills-dashboard>.section-heading{display:flex;justify-content:space-between;align-items:end;gap:2rem}
+.skills-dashboard>.section-heading>p{max-width:500px}
+.skills-dashboard .skills-dashboard-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(15px,1.9vw,24px)}
+.skills-dashboard .skill-panel{--skill-accent:#7ce6d6;display:flex;flex-direction:column;align-items:flex-start;position:relative;min-width:0;min-height:320px;overflow:hidden;isolation:isolate;padding:clamp(20px,2.5vw,31px);border-radius:21px;border:1px solid rgba(156,206,230,.23);background:linear-gradient(145deg,rgba(17,42,61,.95),rgba(9,23,41,.93));box-shadow:0 16px 38px rgba(0,0,0,.23),inset 0 1px rgba(255,255,255,.06);transition:transform .32s ease,border-color .32s ease}
+.skills-dashboard .skill-panel::after{content:"";position:absolute;z-index:-1;top:-115px;right:-120px;width:260px;height:260px;background:radial-gradient(circle,color-mix(in srgb,var(--skill-accent) 22%,transparent),transparent 67%);pointer-events:none}
+.skills-dashboard .skill-panel:hover,.skills-dashboard .skill-panel:focus-within{transform:translateY(-5px);border-color:color-mix(in srgb,var(--skill-accent) 62%,transparent)}
+.skills-dashboard .skill-engineering{--skill-accent:#afbdff}
+.skills-dashboard .skill-analytics{--skill-accent:#f0be93}
+.skills-dashboard .skill-business{--skill-accent:#d2b4f3}
+.skills-dashboard .skill-panel-icon{display:grid;place-items:center;width:47px;height:47px;border-radius:14px;font-size:1.2rem;color:var(--skill-accent);background:color-mix(in srgb,var(--skill-accent) 14%,transparent);border:1px solid color-mix(in srgb,var(--skill-accent) 32%,transparent);margin-bottom:1rem}
+.skills-dashboard .skill-panel h3{font-size:clamp(1.16rem,1.8vw,1.5rem);line-height:1.3;margin:0 0 .5rem}
+.skills-dashboard .skill-panel>p{color:var(--muted);font-size:.89rem;line-height:1.62;margin:0 0 1rem}
+.skills-dashboard .skill-chips{display:flex;flex-wrap:wrap;gap:.45rem;list-style:none;padding:0;margin:0 0 1.2rem}
+.skills-dashboard .skill-chips li{font-size:.72rem;line-height:1.35;color:#d9e8f2;border-radius:999px;padding:.3rem .65rem;border:1px solid rgba(174,213,231,.2);background:rgba(146,197,220,.08)}
+.skills-dashboard .skill-evidence{display:flex;align-items:center;gap:.65rem;margin-top:auto;padding-top:.85rem;border-top:1px solid rgba(168,207,225,.18);width:100%;font-weight:800;font-size:.8rem;color:var(--skill-accent);text-decoration:none}
+.skills-dashboard .skill-evidence:hover{color:#fff;text-decoration:underline;text-underline-offset:3px}
+.skills-dashboard .skills-footnote{margin:1.35rem 0 0;color:var(--muted);font-size:.83rem}
+@media(max-width:800px){#research .research-feature{grid-template-columns:1fr}#research .research-feature-art{display:none}.skills-dashboard>.section-heading{display:block}.skills-dashboard>.section-heading>p{max-width:none}}
+@media(max-width:650px){#research.research-showcase .research-showcase-grid,.skills-dashboard .skills-dashboard-grid{grid-template-columns:1fr}#research .research-secondary,.skills-dashboard .skill-panel{min-height:0}}
+@media(prefers-reduced-motion:reduce){#research .research-secondary,.skills-dashboard .skill-panel{transition:none}#research .research-secondary:hover,.skills-dashboard .skill-panel:hover,.skills-dashboard .skill-panel:focus-within{transform:none}}
