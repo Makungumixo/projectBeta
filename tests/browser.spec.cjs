@@ -175,7 +175,7 @@ test('each case study provides dataset provenance or an explicit benchmark note'
    await expect(source).toContainText('rather than a single external dataset');
   }
  }
- await expect(page.locator('#almond .dataset-source')).toContainText('not been verified');
+ await expect(page.locator('#almond .dataset-source')).toContainText('Original download URL unavailable');
 });
 
 
