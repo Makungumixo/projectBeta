@@ -623,3 +623,12 @@ nav ul{gap:clamp(.6rem,1.2vw,1.7rem)}
 @media(max-width:1100px){#career .education-timeline{grid-template-columns:repeat(2,minmax(0,1fr))}#certificates .certificate-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:700px){#career .education-timeline,#certificates .certificate-grid{grid-template-columns:1fr}#career .education-card,#certificates .certificate-card{min-height:0}#certificates .certificate-card{padding:20px}}
 @media(prefers-reduced-motion:reduce){#career .education-card,#certificates .certificate-card,#certificates .certificate-link i{transition:none}#career .education-card:hover,#certificates .certificate-card:hover,#certificates .certificate-card:focus-within{transform:none}}
+
+/* Project catalogue: clear search affordance and readable empty results. */
+.catalogue .catalogue-tools{display:grid;gap:.45rem;max-width:620px;margin:1.65rem 0 .8rem}
+.catalogue .catalogue-tools label{font-weight:800;letter-spacing:.035em;color:var(--accent-2);font-size:.8rem}
+.catalogue .catalogue-tools input{width:100%;min-width:0;background:rgba(8,26,43,.86);border:1px solid rgba(147,219,222,.36);border-radius:13px;padding:.95rem 1.1rem;font:inherit;font-size:.95rem;color:var(--text);box-shadow:inset 0 1px rgba(255,255,255,.06);transition:border-color .22s ease,box-shadow .22s ease}
+.catalogue .catalogue-tools input::placeholder{color:#a9bdc9}
+.catalogue .catalogue-tools input:focus{outline:2px solid #85dfd0;outline-offset:2px;border-color:#85dfd0;box-shadow:0 0 0 5px rgba(95,217,195,.11)}
+.catalogue .filters{margin:.9rem 0 1rem}
+.catalogue #count{color:var(--muted);font-size:.85rem;font-weight:700}
