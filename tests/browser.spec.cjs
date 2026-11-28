@@ -47,7 +47,7 @@ test('project imagery and local housing figures',async({page})=>{
  await page.setViewportSize({width:1440,height:900});
  await page.goto(base+'index.html',{waitUntil:'domcontentloaded'});
  const imgs=page.locator('#projects .project-visual img');
- await expect(imgs).toHaveCount(7);
+ await expect(imgs).toHaveCount(9);
  const house=page.locator('img[src="assets/project-visuals/housing-actual-vs-predicted.png"]').first();
  await house.scrollIntoViewIfNeeded();
  await expect.poll(async()=>house.evaluate(img=>img.complete&&img.naturalWidth>0)).toBeTruthy();
@@ -188,4 +188,33 @@ test('dataset provenance distinguishes verified source from missing original fil
  await expect(translation.locator('a[href="https://huggingface.co/datasets/dsfsi/vukuzenzele-sentence-aligned"]')).toHaveCount(1);
  await expect(translation.locator('a[href="https://huggingface.co/datasets/dsfsi/vukuzenzele-monolingual"]')).toHaveCount(1);
  await expect(translation).toContainText('no completed model experiment is claimed');
+});
+
+
+test('COS781 homepage card and source-backed NLP case study',async({page})=>{
+ await page.goto(base+'index.html',{waitUntil:'domcontentloaded'});
+ const card=page.locator('#projects .cos781-card');
+ await expect(card).toHaveCount(1);
+ await expect(card.locator('a')).toHaveCount(1);
+ await expect(card.locator('a')).toHaveAttribute('href','case-studies.html#cos781');
+ await expect(card.locator('.cos781-chart-pair img')).toHaveCount(2);
+ for(const img of await card.locator('.cos781-chart-pair img').all()){
+   await img.scrollIntoViewIfNeeded();
+   await expect.poll(async()=>img.evaluate(e=>e.complete&&e.naturalWidth>0)).toBeTruthy();
+ }
+ await page.goto(base+'projects.html',{waitUntil:'domcontentloaded'});
+ const listing=page.locator('article[data-category="NLP"]').filter({hasText:'English–itsonga Data Augmentation'});
+ await expect(listing).toHaveCount(1);
+ await expect(listing.locator('a')).toHaveAttribute('href','case-studies.html#cos781');
+ await expect(page.locator('#count')).toContainText('15 entries');
+ await page.goto(base+'case-studies.html#cos781',{waitUntil:'domcontentloaded'});
+ await expect(page.locator('#cos781 h2')).toContainText('English–itsonga');
+ await expect(page.locator('#cos781 .case-visual-grid img')).toHaveCount(4);
+ for(const img of await page.locator('#cos781 .case-visual-grid img').all()){
+   await img.scrollIntoViewIfNeeded();
+   await expect.poll(async()=>img.evaluate(e=>e.complete&&e.naturalWidth>0)).toBeTruthy();
+ }
+ await expect(page.locator('#cos781')).toContainText('26 evaluation');
+ await expect(page.locator('#cos781')).toContainText('not English–itsonga translation quality scores');
+ await expect(page.locator('#cos781 a[href*="colab.research.google.com"]')).toHaveCount(1);
 });
