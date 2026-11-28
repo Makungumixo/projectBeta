@@ -297,3 +297,8 @@ nav ul{gap:clamp(.6rem,1.2vw,1.7rem)}
 #projects .almond-chart-pair .project-visual img{display:block;width:100%;height:auto;aspect-ratio:1.25;object-fit:contain;background:#fff}
 #projects .almond-chart-pair .project-visual figcaption{padding:.45rem .6rem;font-size:.68rem;line-height:1.4;min-height:2.4em}
 @media(max-width:480px){#projects .almond-chart-pair{grid-template-columns:1fr;gap:10px}#projects .almond-chart-pair .project-visual img{aspect-ratio:1.5}}
+
+/* Dataset provenance links for individual technical case studies. */
+.case-study .dataset-source{margin:1rem 0 1.4rem;padding:.8rem 1rem;border-left:3px solid var(--accent);border-radius:.4rem;background:rgba(86,214,194,.06);color:var(--muted);font-size:.88rem;line-height:1.75}
+.case-study .dataset-source strong{color:var(--text)}
+.case-study .dataset-source a{color:var(--accent-2);text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}
