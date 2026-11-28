@@ -686,3 +686,13 @@ nav ul{gap:clamp(.6rem,1.2vw,1.7rem)}
 @media(max-width:800px){#research .research-feature{grid-template-columns:1fr}#research .research-feature-art{display:none}.skills-dashboard>.section-heading{display:block}.skills-dashboard>.section-heading>p{max-width:none}}
 @media(max-width:650px){#research.research-showcase .research-showcase-grid,.skills-dashboard .skills-dashboard-grid{grid-template-columns:1fr}#research .research-secondary,.skills-dashboard .skill-panel{min-height:0}}
 @media(prefers-reduced-motion:reduce){#research .research-secondary,.skills-dashboard .skill-panel{transition:none}#research .research-secondary:hover,.skills-dashboard .skill-panel:hover,.skills-dashboard .skill-panel:focus-within{transform:none}}
+
+/* Additional academic work preserved in the archive. */
+.archive .archive-more{margin-top:clamp(2.5rem,5vw,4rem)}
+.archive .archive-more-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.archive .archive-topic{min-height:0;display:flex;flex-direction:column;gap:.65rem;padding:clamp(20px,2.3vw,28px);border:1px solid rgba(165,215,231,.22);border-radius:18px;background:linear-gradient(145deg,rgba(17,42,60,.94),rgba(9,24,40,.92))}
+.archive .archive-topic .project-type{color:var(--accent);font-size:.72rem;text-transform:uppercase;letter-spacing:.07em;font-weight:800;margin:0}
+.archive .archive-topic h3{font-size:1.2rem;line-height:1.3;margin:0}
+.archive .archive-topic>p:last-child{color:var(--muted);font-size:.88rem;line-height:1.6;margin:0}
+@media(max-width:1000px){.archive .archive-more-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){.archive .archive-more-grid{grid-template-columns:1fr}}
