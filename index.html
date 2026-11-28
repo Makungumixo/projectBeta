@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap">
-  <link rel="stylesheet" href="style.css?v=20261128-education-certificates">
+  <link rel="stylesheet" href="style.css?v=20261128-research-skills">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
   <script defer src="script.js"></script>
   <script defer src="assets/vendor/particles.min.js"></script>
@@ -168,39 +168,81 @@
       </div>
     </section>
 
-    <section class="section research" id="research">
+    <section class="section research research-showcase" id="research">
       <div class="section-heading">
-        <div><p class="section-label">Research & academic work</p><h2>Deep work, clearly communicated.</h2></div>
-        <p>My academic work spans neural networks, software architecture, responsible health technology, and low-resource language modelling.</p>
+        <div><p class="section-label">Research & academic work</p><h2>Research grounded in evidence.</h2></div>
+        <p>Low-resource language research, applied data mining, and a clearly identified research proposal. Explore the methodology, findings and original sources for each study.</p>
       </div>
-      <div class="research-list">
-        <article><div><h3>Hybrid Learning for Almond Classification</h3><p>Compared Rprop, Adam, and a hybrid approach; used grid search and statistical testing to improve classification performance and generalisation.</p></div><p>Neural networks</p></article>
-        <article><div><h3>Deriving Backpropagation</h3><p>Derived update rules for a custom neural network with unique activation functions, a penalty-based loss, and distinct bias treatment.</p></div><p>Machine learning theory</p></article>
-        <article><div><h3>Electronic Health Records in South African Hospitals</h3><p>Proposed a secure, interoperable EHR approach focused on patient care, POPIA-aligned privacy, and phased implementation.</p></div><p>Responsible systems</p></article>
-        <article><div><h3>Google Buzz Legacy System</h3><p>Reimagined a legacy social platform through requirements analysis and an architecture combining microservices, three-tier, and MVC patterns.</p></div><p>Software architecture</p></article>
+      <div class="research-showcase-grid">
+        <article class="research-feature">
+          <div class="research-feature-copy">
+            <p class="research-kicker"><i class="fa-solid fa-book-open" aria-hidden="true"></i> Research report · English-Xitsonga</p>
+            <h3>Low-Resource Machine Translation Research</h3>
+            <p>Investigated five augmentation techniques using the Vuk’uzenzele English-Xitsonga corpus, with BLEU, METEOR, similarity-based filtering and translation-consistency classification.</p>
+            <div class="research-facts" aria-label="Research scope">
+              <div><strong>3,748</strong><span>Aligned sentence pairs</span></div>
+              <div><strong>5</strong><span>Augmentation techniques</span></div>
+            </div>
+            <a class="research-action" href="case-studies.html#cos700">Explore research case study <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
+          <div class="research-feature-art" aria-hidden="true"><i class="fa-solid fa-language"></i><span>EN <i class="fa-solid fa-arrow-right-arrow-left"></i> Xitsonga</span></div>
+        </article>
+        <article class="research-secondary research-secondary-mining">
+          <div class="research-small-icon" aria-hidden="true"><i class="fa-solid fa-diagram-project"></i></div>
+          <p class="research-kicker">Data mining · English-Xitsonga</p>
+          <h3>Text Mining & Augmentation</h3>
+          <p>Analysed aligned sentence pairs with TF-IDF, K-means clustering, PCA and t-SNE; explored augmentation quality using cosine similarity and pseudo-label classifiers.</p>
+          <div class="research-mini-tags"><span>TF-IDF</span><span>K-means</span><span>PCA / t-SNE</span></div>
+          <a class="research-action" href="case-studies.html#cos781">Explore data mining case study <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+        </article>
+        <article class="research-secondary research-secondary-proposal">
+          <div class="research-small-icon" aria-hidden="true"><i class="fa-solid fa-flask"></i></div>
+          <p class="research-kicker">Research proposal · Not yet evaluated</p>
+          <h3>Quality-Aware Back-Translation</h3>
+          <p>Proposes comparing random synthetic-data selection with quality-aware approaches for English-Xitsonga back-translation under equal data budgets.</p>
+          <div class="research-mini-tags"><span>Research design</span><span>chrF / BLEU</span><span>Selection methods</span></div>
+          <a class="research-action" href="case-studies.html#translation">Explore research proposal <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+        </article>
       </div>
+      <p class="research-archive-note">Additional academic work in neural-network theory, software architecture and responsible information systems is documented in the <a href="academic-archive.html">Academic Archive <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>.</p>
     </section>
 
-    <section class="section skills-section">
-      <div><p class="section-label">Technical competencies</p><h2>A multidisciplinary toolkit for data, research, and software.</h2></div>
-      <div class="skill-groups">
-        <div>
-          <h3>Data science & artificial intelligence</h3>
-          <p>Big Data Science · Data mining and analysis · Artificial intelligence technologies · Natural language processing (NLP) · Machine learning models and evaluation · Mathematics fundamentals · Data structures and algorithms</p>
-        </div>
-        <div>
-          <h3>Programming & software engineering</h3>
-          <p>C++ · Java · Python · R · SQL · Visual Basic · Assembly · PHP · HTML · CSS · JavaScript · Software development · Software architecture and design patterns · Agile and Scrum methodologies</p>
-        </div>
-        <div>
-          <h3>Analytics & communication</h3>
-          <p>Advanced Excel and data models · Power BI · Tableau · Presentation design and delivery · Research methodologies and academic writing · Analytical and critical thinking</p>
-        </div>
-        <div>
-          <h3>Compliance & client strategy</h3>
-          <p>Debt collection strategies · Compliance adherence · Negotiation tactics · Client engagement · Debt portfolio analysis</p>
-        </div>
+    <section class="section skills-section skills-dashboard" aria-label="Technical competencies">
+      <div class="section-heading">
+        <div><p class="section-label">Technical competencies</p><h2>Tools and techniques behind my work.</h2></div>
+        <p>A practical toolkit spanning machine learning, data engineering, analytics and business-facing problem-solving. Selected links show these skills in real projects.</p>
       </div>
+      <div class="skills-dashboard-grid">
+        <article class="skill-panel skill-ai">
+          <div class="skill-panel-icon" aria-hidden="true"><i class="fa-solid fa-brain"></i></div>
+          <h3>Data Science & Artificial Intelligence</h3>
+          <p>Predictive modelling, model evaluation, natural language processing and statistical analysis.</p>
+          <ul class="skill-chips"><li>Scikit-learn</li><li>PyTorch</li><li>Natural Language Processing</li><li>Model Evaluation</li></ul>
+          <a class="skill-evidence" href="case-studies.html#housing">Project evidence: Housing prediction <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+        </article>
+        <article class="skill-panel skill-engineering">
+          <div class="skill-panel-icon" aria-hidden="true"><i class="fa-solid fa-code"></i></div>
+          <h3>Programming & Data Engineering</h3>
+          <p>Python-based analytics, relational queries, distributed processing and software development.</p>
+          <ul class="skill-chips"><li>Python</li><li>SQL</li><li>R</li><li>PySpark</li><li>JavaScript</li></ul>
+          <a class="skill-evidence" href="case-studies.html#amazon">Project evidence: Amazon analytics <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+        </article>
+        <article class="skill-panel skill-analytics">
+          <div class="skill-panel-icon" aria-hidden="true"><i class="fa-solid fa-chart-column"></i></div>
+          <h3>Analytics & Visualisation</h3>
+          <p>Data exploration, feature analysis, analytical reporting and communication of results.</p>
+          <ul class="skill-chips"><li>Pandas</li><li>Excel</li><li>Data Visualisation</li><li>Research Reporting</li></ul>
+          <a class="skill-evidence" href="case-studies.html#cos781">Project evidence: Text data mining <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+        </article>
+        <article class="skill-panel skill-business">
+          <div class="skill-panel-icon" aria-hidden="true"><i class="fa-solid fa-shield-halved"></i></div>
+          <h3>Business & Compliance</h3>
+          <p>Compliance assessment, stakeholder engagement, negotiation and risk-focused analysis.</p>
+          <ul class="skill-chips"><li>Compliance</li><li>Risk Analysis</li><li>Client Engagement</li><li>Communication</li></ul>
+          <a class="skill-evidence" href="#contact">Discuss a project or opportunity <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+        </article>
+      </div>
+      <p class="skills-footnote">Additional academic exposure includes Java, C++, software architecture, data structures and algorithm design.</p>
     </section>
 
     <section class="section career-section" id="career">
