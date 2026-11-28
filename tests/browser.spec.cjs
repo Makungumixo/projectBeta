@@ -203,7 +203,7 @@ test('COS781 homepage card and source-backed NLP case study',async({page})=>{
    await expect.poll(async()=>img.evaluate(e=>e.complete&&e.naturalWidth>0)).toBeTruthy();
  }
  await page.goto(base+'projects.html',{waitUntil:'domcontentloaded'});
- const listing=page.locator('article[data-category="NLP"]').filter({hasText:'English–itsonga Data Augmentation'});
+ const listing=page.locator('article[data-category="NLP"]').filter({hasText:'English–itsonga augmentation'});
  await expect(listing).toHaveCount(1);
  await expect(listing.locator('a')).toHaveAttribute('href','case-studies.html#cos781');
  await expect(page.locator('#count')).toContainText('15 entries');
@@ -217,4 +217,21 @@ test('COS781 homepage card and source-backed NLP case study',async({page})=>{
  await expect(page.locator('#cos781')).toContainText('26 evaluation');
  await expect(page.locator('#cos781')).toContainText('not English–itsonga translation quality scores');
  await expect(page.locator('#cos781 a[href*="colab.research.google.com"]')).toHaveCount(1);
+});
+
+
+test('one consolidated Xitsonga homepage project links to supporting case study',async({page})=>{
+ await page.goto(base+'index.html',{waitUntil:'domcontentloaded'});
+ const cards=page.locator('#projects .project-card').filter({hasText:'itsonga'});
+ await expect(cards).toHaveCount(1);
+ const card=page.locator('#projects .cos781-card');
+ await expect(card).toHaveCount(1);
+ await expect(card).toContainText('English–itsonga augmentation');
+ await expect(card.locator('.cos781-chart-pair img')).toHaveCount(2);
+ await expect(card.locator('a')).toHaveCount(1);
+ await expect(card.locator('a')).toHaveAttribute('href','case-studies.html#cos781');
+ await page.goto(base+'case-studies.html#cos781',{waitUntil:'domcontentloaded'});
+ await expect(page.locator('#cos781 a[href="document-viewer.html?document=research-report"]')).toHaveCount(1);
+ await expect(page.locator('#cos781 a[href*="colab.research.google.com"]')).toHaveCount(1);
+ await expect(page.locator('#translation')).toHaveCount(1);
 });
