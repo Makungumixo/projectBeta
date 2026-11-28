@@ -160,3 +160,20 @@ test('COS711 Almond charts load, source links stay in case study',async({page})=
  await expect(page.locator('#almond a[href^="https://github.com/"]')).toHaveCount(3);
  await page.locator('#almond .case-visual-grid').screenshot({path:'browser-review/almond-actual-notebook-figures.png'});
 });
+
+
+test('each case study provides dataset provenance or an explicit benchmark note',async({page})=>{
+ await page.goto(base+'case-studies.html',{waitUntil:'domcontentloaded'});
+ const ids=['amazon','housing','news','translation','plants','almond','optimisation'];
+ for(const id of ids){
+  const source=page.locator('#'+id+' .dataset-source');
+  await expect(source).toHaveCount(1);
+  await expect(source).toBeVisible();
+  if(id!=='optimisation'){
+   await expect(source.locator('a[href^="https://"]')).not.toHaveCount(0);
+  } else {
+   await expect(source).toContainText('rather than a single external dataset');
+  }
+ }
+ await expect(page.locator('#almond .dataset-source')).toContainText('not been verified');
+});
