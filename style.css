@@ -315,3 +315,159 @@ nav ul{gap:clamp(.6rem,1.2vw,1.7rem)}
 #projects .cos781-card .cos781-chart-pair .project-visual img{height:110px;aspect-ratio:auto;object-fit:contain}
 #projects .cos781-card .cos781-chart-pair .project-visual figcaption{font-size:.62rem;padding:.25rem .4rem;min-height:0}
 @media(max-width:480px){#projects .cos781-card .cos781-chart-pair{grid-template-columns:repeat(2,minmax(0,1fr))}#projects .cos781-card .cos781-chart-pair .project-visual img{height:85px;aspect-ratio:auto}}
+
+/* Homepage project system — equal-footprint 3D glass cards. */
+#projects .project-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  grid-auto-rows:1fr;
+  align-items:stretch;
+  gap:clamp(16px,2vw,26px);
+  perspective:1400px;
+}
+#projects .project-grid>.project-card,
+#projects .project-grid>.project-card.featured,
+#projects .project-grid>.project-card.compact,
+#projects .project-grid>.project-card.amazon-feature{
+  grid-column:auto;
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  justify-content:flex-start;
+  width:100%;
+  max-width:none;
+  height:100%;
+  min-height:470px;
+  padding:clamp(20px,2vw,28px);
+  border:1px solid rgba(126,216,226,.24);
+  border-radius:22px;
+  isolation:isolate;
+  overflow:hidden;
+  background:
+    radial-gradient(ellipse at 100% 0%,rgba(76,204,224,.13),transparent 46%),
+    linear-gradient(145deg,rgba(17,42,62,.95),rgba(7,20,37,.91) 65%,rgba(22,31,57,.94));
+  box-shadow:0 3px 0 rgba(146,233,239,.08) inset,0 14px 28px rgba(0,0,0,.21),0 36px 65px -45px rgba(65,199,225,.38);
+  transform:translate3d(0,0,0) rotateX(0deg);
+  transition:transform .38s cubic-bezier(.2,.8,.2,1), box-shadow .38s ease,border-color .3s ease, background .3s ease;
+}
+#projects .project-grid>.project-card::before{
+  content:"";
+  position:absolute;
+  pointer-events:none;
+  inset:0;
+  border-radius:inherit;
+  z-index:-1;
+  background:linear-gradient(115deg,rgba(255,255,255,.09),transparent 37%,rgba(94,134,252,.06));
+  opacity:.8;
+}
+#projects .project-grid>.project-card::after{
+  content:"";
+  position:absolute;
+  pointer-events:none;
+  z-index:-1;
+  width:270px;
+  height:270px;
+  top:-155px;
+  right:-140px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(88,220,214,.34),rgba(66,117,245,.12) 49%,transparent 74%);
+  transition:transform .4s ease,opacity .4s ease;
+  opacity:.65;
+}
+#projects .project-grid>.project-card:nth-child(3n+2)::after{background:radial-gradient(circle,rgba(107,147,255,.33),rgba(102,62,194,.11) 49%,transparent 74%)}
+#projects .project-grid>.project-card:nth-child(3n)::after{background:radial-gradient(circle,rgba(246,172,112,.26),rgba(184,103,116,.09) 49%,transparent 74%)}
+#projects .project-grid>.project-card:hover,
+#projects .project-grid>.project-card:focus-within{
+  transform:translate3d(0,-8px,20px) rotateX(1.2deg);
+  border-color:rgba(124,244,228,.68);
+  box-shadow:0 2px 0 rgba(255,255,255,.13) inset,0 26px 48px rgba(0,0,0,.3),0 36px 80px -35px rgba(85,221,226,.35);
+}
+#projects .project-grid>.project-card:hover::after,
+#projects .project-grid>.project-card:focus-within::after{opacity:1;transform:translate(-30px,28px) scale(1.16)}
+#projects .project-grid>.project-card>.project-type{margin:0 0 .65rem;color:#8de8de;letter-spacing:.045em}
+#projects .project-grid>.project-card>h3{margin:.1rem 0 .65rem;line-height:1.24;letter-spacing:-.02em}
+#projects .project-grid>.project-card>p:not(.project-type){margin:.8rem 0 1rem;line-height:1.63}
+#projects .project-grid>.project-card .tags{margin:.65rem 0 1.2rem;gap:.4rem}
+#projects .project-grid>.project-card>.text-link,
+#projects .project-grid>.project-card>.icon-link{
+  align-self:flex-start;
+  margin-top:auto;
+  padding-top:.65rem;
+  font-weight:800;
+  color:#8ef2dc;
+  text-underline-offset:4px;
+}
+#projects .project-grid>.project-card>.text-link:hover{color:#fff;text-decoration:underline}
+#projects .project-grid>.project-card .project-visual{
+  width:100%;
+  max-width:100%;
+  min-width:0;
+  margin:.55rem 0 .6rem;
+  border-radius:12px;
+}
+#projects .project-grid>.project-card .project-visual>img{
+  display:block;
+  width:100%;
+  height:145px;
+  aspect-ratio:auto;
+  object-fit:contain;
+}
+#projects .project-grid>.project-card .project-visual figcaption{
+  font-size:.68rem;
+  min-height:0;
+  line-height:1.35;
+  padding:.35rem .5rem;
+}
+#projects .project-grid>.project-card .amazon-chart-pair,
+#projects .project-grid>.project-card .almond-chart-pair,
+#projects .project-grid>.project-card .cos781-chart-pair{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:8px;
+  width:100%;
+  max-width:100%;
+  margin:.55rem 0 .7rem;
+}
+#projects .project-grid>.project-card .amazon-chart-pair .project-visual,
+#projects .project-grid>.project-card .almond-chart-pair .project-visual,
+#projects .project-grid>.project-card .cos781-chart-pair .project-visual{margin:0;min-width:0}
+#projects .project-grid>.project-card .amazon-chart-pair img,
+#projects .project-grid>.project-card .almond-chart-pair img,
+#projects .project-grid>.project-card .cos781-chart-pair img{
+  width:100%;
+  height:115px;
+  aspect-ratio:auto;
+  object-fit:contain;
+  background:#f5f8fb;
+}
+#projects .project-grid>.project-card .leaf-pair{height:145px;overflow:hidden}
+#projects .project-grid>.project-card .leaf-pair img{width:50%;height:145px;object-fit:cover}
+#projects .project-grid>.project-card .project-metric{font-size:clamp(1.5rem,2.5vw,2.15rem);line-height:1.15;margin:.3rem 0}
+#projects .project-grid>.project-card.compact{justify-content:flex-start}
+#projects .project-grid>.project-card.compact h3{margin:.1rem 0 .7rem}
+#projects .project-grid>.project-card.compact .icon-link{margin-top:auto}
+@media(max-width:790px){
+  #projects .project-grid{grid-template-columns:1fr;grid-auto-rows:auto}
+  #projects .project-grid>.project-card,
+  #projects .project-grid>.project-card.featured,
+  #projects .project-grid>.project-card.compact,
+  #projects .project-grid>.project-card.amazon-feature{min-height:380px;padding:22px}
+  #projects .project-grid>.project-card .project-visual>img{height:135px}
+}
+@media(max-width:480px){
+  #projects .project-grid>.project-card,
+  #projects .project-grid>.project-card.featured,
+  #projects .project-grid>.project-card.compact,
+  #projects .project-grid>.project-card.amazon-feature{min-height:0;padding:20px}
+  #projects .project-grid>.project-card .cos781-chart-pair,
+  #projects .project-grid>.project-card .almond-chart-pair{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #projects .project-grid>.project-card .cos781-chart-pair img,
+  #projects .project-grid>.project-card .almond-chart-pair img,
+  #projects .project-grid>.project-card .amazon-chart-pair img{height:100px}
+}
+@media(prefers-reduced-motion:reduce){
+  #projects .project-grid>.project-card,
+  #projects .project-grid>.project-card::after{transition:none}
+  #projects .project-grid>.project-card:hover,
+  #projects .project-grid>.project-card:focus-within{transform:none}
+}
