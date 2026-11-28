@@ -47,7 +47,7 @@ test('project imagery and local housing figures',async({page})=>{
  await page.setViewportSize({width:1440,height:900});
  await page.goto(base+'index.html',{waitUntil:'domcontentloaded'});
  const imgs=page.locator('#projects .project-visual img');
- await expect(imgs).toHaveCount(5);
+ await expect(imgs).toHaveCount(6);
  const house=page.locator('img[src="assets/project-visuals/housing-actual-vs-predicted.png"]').first();
  await house.scrollIntoViewIfNeeded();
  await expect.poll(async()=>house.evaluate(img=>img.complete&&img.naturalWidth>0)).toBeTruthy();
