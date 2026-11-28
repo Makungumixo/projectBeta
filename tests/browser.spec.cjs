@@ -125,7 +125,7 @@ test('Almond case study is linked from both project listings',async({page})=>{
  await expect(home).toHaveCount(1);
  await page.goto(base+'projects.html',{waitUntil:'domcontentloaded'});
  await expect(page.locator('[data-category="AI"] a[href="case-studies.html#almond"]')).toHaveCount(1);
- await expect(page.locator('#count')).toContainText('14 entries');
+ await expect(page.locator('#count')).toContainText('15 entries');
  await page.goto(base+'case-studies.html#almond',{waitUntil:'domcontentloaded'});
  await expect(page.locator('#almond h2')).toContainText('Almond Variety Classification');
  await expect(page.locator('#almond')).toContainText('80.29%');
