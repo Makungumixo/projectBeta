@@ -117,3 +117,16 @@ test('background particles are visible above background with local script',async
  }
  await page.screenshot({path:'browser-review/particles-restored.png'});
 });
+
+
+test('Almond case study is linked from both project listings',async({page})=>{
+ await page.goto(base+'index.html',{waitUntil:'domcontentloaded'});
+ const home=page.locator('#projects a[href="case-studies.html#almond"]');
+ await expect(home).toHaveCount(1);
+ await page.goto(base+'projects.html',{waitUntil:'domcontentloaded'});
+ await expect(page.locator('[data-category="AI"] a[href="case-studies.html#almond"]')).toHaveCount(1);
+ await expect(page.locator('#count')).toContainText('14 entries');
+ await page.goto(base+'case-studies.html#almond',{waitUntil:'domcontentloaded'});
+ await expect(page.locator('#almond h2')).toContainText('Almond Variety Classification');
+ await expect(page.locator('#almond')).toContainText('80.29%');
+});
