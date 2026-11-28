@@ -47,7 +47,7 @@ test('project imagery and local housing figures',async({page})=>{
  await page.setViewportSize({width:1440,height:900});
  await page.goto(base+'index.html',{waitUntil:'domcontentloaded'});
  const imgs=page.locator('#projects .project-visual img');
- await expect(imgs).toHaveCount(6);
+ await expect(imgs).toHaveCount(7);
  const house=page.locator('img[src="assets/project-visuals/housing-actual-vs-predicted.png"]').first();
  await house.scrollIntoViewIfNeeded();
  await expect.poll(async()=>house.evaluate(img=>img.complete&&img.naturalWidth>0)).toBeTruthy();
@@ -138,7 +138,12 @@ test('COS711 Almond charts load, source links stay in case study',async({page})=
  await expect(card).toHaveCount(1);
  await expect(card.locator('a')).toHaveCount(1);
  await expect(card.locator('a')).toHaveAttribute('href','case-studies.html#almond');
+ const paired=card.locator('.almond-chart-pair img');
+ await expect(paired).toHaveCount(2);
  const thumbnail=card.locator('img[src="assets/project-visuals/almond-optimizer-accuracy.png"]');
+ const loss=card.locator('img[src="assets/project-visuals/almond-optimizer-loss.png"]');
+ await loss.scrollIntoViewIfNeeded();
+ await expect.poll(async()=>loss.evaluate(e=>e.complete&&e.naturalWidth>0)).toBeTruthy();
  await thumbnail.scrollIntoViewIfNeeded();
  await expect.poll(async()=>thumbnail.evaluate(e=>e.complete&&e.naturalWidth>0)).toBeTruthy();
  await page.goto(base+'projects.html',{waitUntil:'domcontentloaded'});
