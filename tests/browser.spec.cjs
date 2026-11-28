@@ -203,7 +203,7 @@ test('COS781 homepage card and source-backed NLP case study',async({page})=>{
    await expect.poll(async()=>img.evaluate(e=>e.complete&&e.naturalWidth>0)).toBeTruthy();
  }
  await page.goto(base+'projects.html',{waitUntil:'domcontentloaded'});
- const listing=page.locator('article[data-category="NLP"]').filter({hasText:'English–itsonga Data Augmentation'});
+ const listing=page.locator('article[data-category="NLP"]').filter({hasText:'English–itsonga augmentation'});
  await expect(listing).toHaveCount(1);
  await expect(listing.locator('a')).toHaveAttribute('href','case-studies.html#cos781');
  await expect(page.locator('#count')).toContainText('15 entries');
@@ -226,7 +226,7 @@ test('one consolidated Xitsonga homepage project links to supporting case study'
  await expect(cards).toHaveCount(1);
  const card=page.locator('#projects .cos781-card');
  await expect(card).toHaveCount(1);
- await expect(card).toContainText('Low-resource Xitsonga–English');
+ await expect(card).toContainText('English–itsonga augmentation');
  await expect(card.locator('.cos781-chart-pair img')).toHaveCount(2);
  await expect(card.locator('a')).toHaveCount(1);
  await expect(card.locator('a')).toHaveAttribute('href','case-studies.html#cos781');
