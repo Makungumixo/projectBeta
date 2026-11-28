@@ -22,6 +22,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   navToggle?.addEventListener('click', () => setMenuOpen(!navMenu.classList.contains('show')));
   allNavLinks.forEach((link) => link.addEventListener('click', () => setMenuOpen(false)));
+  // Dismiss the mobile menu on outside clicks and when switching to desktop layout.
+  document.addEventListener('click', (event) => {
+    if (navMenu?.classList.contains('show') && !navMenu.contains(event.target) && !navToggle?.contains(event.target)) {
+      setMenuOpen(false);
+    }
+  });
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 1100 && navMenu?.classList.contains('show')) setMenuOpen(false);
+  });
 
   const groups = [...document.querySelectorAll('.nav-group details')];
   groups.forEach(group => group.addEventListener('toggle', () => {
