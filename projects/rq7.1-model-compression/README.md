@@ -53,4 +53,4 @@ The training code, notebooks, split audits, evaluation scripts and curated JSON 
 - [Original research README](https://github.com/vbhaga89/COS801_Project/blob/main/rq7.1-model-compression/README.md)
 - [Three-seed result report](https://github.com/vbhaga89/COS801_Project/blob/main/rq7.1-model-compression/results/three_seed_summary/README.md)
 
-This folder is a **personal project showcase and results summary**, not an independent copy of the group's complete source code. Credit for the broader COS 801 project remains with its original contributors.
+
