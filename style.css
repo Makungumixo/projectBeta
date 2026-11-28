@@ -850,3 +850,11 @@ nav ul{gap:clamp(.6rem,1.2vw,1.7rem)}
 #research .paper-exhibit-columns .paper-index-graphic{display:none}
 @media(max-width:1000px){#research .paper-exhibit-columns{grid-template-columns:1fr}#research .paper-exhibit-columns>.paper-notebook{max-width:760px}#research .paper-exhibit-columns>.paper-study-index{max-width:100%}}
 @media(max-width:480px){#research .paper-exhibit-columns>.paper-notebook{margin-left:12px}#research .paper-exhibit-columns .paper-notebook-body{padding:22px 18px}#research .paper-exhibit-columns .paper-notebook-header{padding:20px 18px 12px}#research .paper-exhibit-columns .paper-cover-contents h3{font-size:2.2rem}}
+
+
+/* Two verified research plots within the compact featured notebook. */
+#research .paper-exhibit-columns .paper-research-figures{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;align-items:stretch;min-width:0}
+#research .paper-exhibit-columns .paper-research-figures .paper-research-figure{display:flex;flex-direction:column;min-width:0;padding:7px}
+#research .paper-exhibit-columns .paper-research-figures img{display:block;width:100%;height:145px;max-height:none;object-fit:contain}
+#research .paper-exhibit-columns .paper-research-figures figcaption{font-size:.65rem;line-height:1.4;margin-top:7px}
+@media(max-width:540px){#research .paper-exhibit-columns .paper-research-figures{grid-template-columns:1fr}#research .paper-exhibit-columns .paper-research-figures img{height:auto;max-height:205px}}
